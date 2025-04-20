@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>CAR-T-Zelltherapie</title>
+  <style>
+
+/*
+    smooth scrol
+    */
+
+    {
+  scroll-behavior: smooth;
+}
+
+.step.active {
+  background-color: #3d5a80 !important; /* helleres Blau */
+}
+
+.zurueck-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #1a2c4c;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease-in-out;
+  z-index: 1000;
+}
+
+.zurueck-btn:hover {
+  background-color: #0056b3;
+}
+
+.menu-btn {
+  padding: 0.6rem 1rem;
+  background-color: #1a2c4c;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.menu-btn:hover {
+  background-color: #0056b3;
+}
+
+    /*
+      Ein minimalistisches, „Apple-inspiriertes“ Layout mit hellem Hintergrund,
+      dunkler Schrift, großzügigem Weißraum und dunkelblauen Stufen.
+    */
+    body {
+      scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;  /* Heller Hintergrund */
+      color: #333;                /* Dunkle Schrift */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    }
+
+    /* Kopfbereich mit viel Abstand und großer Überschrift */
+    header {
+      text-align: center;
+      padding: 60px 20px 10px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin: 0 0 10px;
+    }
+    header p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #555; /* Leicht hellere Schrift */
+    }
+
+    .stufen-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #1a2c4c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.stufen-button:hover {
+  background-color: #0056b3;
+}
+
+ /* 
+      Sektion für die oberen 3 Felder selbst:
+      - Einheitliche Breite: 800px
+      - Leichtes Grau-Weiß mit dezentem Verlauf
+    */
+
+    .felder {
+      width: 750px;
+      margin: 40px auto 0 auto; 
+      position: relative;
+      min-height: 250px;  /* geringere höhe als bei treppe */
+      background: linear-gradient(to bottom right, #fafafa, #ededed);
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+ 
+
+    .feld {
+      all: unset; /* entfernt Browser-Standard-Stile */
+  display: block;
+  position: relative;
+  background-color: #f0f0f0;
+  border-radius: 0rem;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  height: 100%;
+  padding-bottom: 3rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.felder-icans {
+      width: 750px;
+      margin: 40px auto 0 auto; 
+      position: relative;
+      min-height: 250px;  /* geringere höhe als bei treppe */
+      background: linear-gradient(to bottom right, #fafafa, #ededed);
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+.feld-icans {
+      all: unset; /* entfernt Browser-Standard-Stile */
+  display: block;
+  position: relative;
+  background-color: #f0f0f0;
+  border-radius: 0rem;
+  padding: 2rem;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  height: 100%;
+  padding-bottom: 3rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.feld:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.feld-icans:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(26, 44, 76, 0.9);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.overlay-icans {
+  position: absolute;
+  bottom: 1rem;
+  left: 80%;
+  transform: translateX(-50%);
+  background-color:  rgba(26, 44, 76, 0.9);
+  color: rgb(0, 0, 0);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  text-align: center;
+}
+
+.feld:hover .overlay {
+  opacity: 1;
+}
+
+.feld-icans:hover .overlay-icans {
+  opacity: 1;
+}
+
+ /* 
+      Stil der Sektionen definieren 
+    */
+
+    .sektion {
+      width: 850px;
+      margin: 40px auto 0 auto; 
+      position: relative;
+      min-height: 100%;  /* Platz für alle 5 Stufen */
+      overflow: hidden;
+      scroll-margin-top: 0.5rem;
+      
+}
+
+
+
+    /* 
+      Sektion für die Treppe selbst:
+      - Einheitliche Breite: 800px
+      - Leichtes Grau-Weiß mit dezentem Verlauf
+    */
+    .stairs-section {
+      width: 750px;
+      margin: 40px auto 0 auto; 
+      position: relative;
+      background: linear-gradient(to bottom right, #fafafa, #ededed);
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+      height:450px
+
+    }
+
+
+   
+    /*
+      Die Stufen (step) bekommen:
+      - Dunkelblauen Hintergrund als Akzent
+      - Abgerundete Ecken
+      - Leichten Schatten
+      - Position: relative => wir platzieren die Nummer mit position: absolute IN der Stufe
+    */
+    .step {
+      position: absolute;
+      background: #1a2c4c;       /* Dunkelblauer Akzent */
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-sizing: border-box;
+      padding: 14px;
+      color: #fff;
+    }
+    .step:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    /* 
+      Die Nummer erscheint "oben" in der Stufe,
+      damit sie nicht mit dem Text kollidiert:
+      position: absolute innerhalb der .step.
+    */
+    .number {
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(255,255,255,0.2);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    /*
+      Text in der Stufe (immer sichtbar).
+      Wir geben ihm ausreichend oberen Abstand,
+      damit die Nummer nicht überlagert wird.
+    */
+    .step-text {
+      margin-top: 18px;  /* Platz für die Nummer */
+      font-size: 0.95rem;
+      line-height: 1.4;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    /*
+      Anordnung: 
+      jede Stufe wird "höher" (bottom +80px) und 
+      "weiter rechts" (left +150px).
+      Dieselbe Breite und Höhe.
+    */
+    .step1 {
+      bottom: 0;
+      left: 0;
+      width: 150px;
+      height: 80px;
+      z-index: 1;
+    }
+    .step2 {
+      bottom: 0px;
+      left: 150px;
+      width: 150px;
+      height: 160px;
+      z-index: 2;
+    }
+    .step3 {
+      bottom: 0px;
+      left: 300px;
+      width: 150px;
+      height: 240px;
+      z-index: 3;
+    }
+    .step4 {
+      bottom: 0px;
+      left: 450px;
+      width: 150px;
+      height: 320px;
+      z-index: 4;
+    }
+    .step5 {
+      bottom: 0px;
+      left: 600px;
+      width: 150px;
+      height: 400px;
+      z-index: 5;
+    }
+
+    /* 
+      Container für die Beschreibungen:
+      selbe Breite (800px) wie .stairs-section 
+      + zentriert + "Apple-typisch" viel Whitespace
+    */
+    .description-container {
+      width: 750px;
+      margin: 10px auto 5px auto;
+      text-align: center;
+    }
+
+    /*
+      Beschreibungen, per Klick ein- und ausblendbar 
+      => anfangs hidden (display: none)
+    */
+    .description {
+      display: none; 
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.07);
+      text-align: left; /* Fließtext tendenziell linksbündig */
+      scroll-margin-top: 5rem
+    }
+    .description h2 {
+      margin-top: 0;
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: #333;
+    }
+    .description p {
+      line-height: 1.6;
+      color: #555;
+    }
+    .description.visible {
+      display: block;
+    }
+    .desc-scroll-anchor {
+  height: 1px;
+  scroll-margin-top: 4rem; /* oder z. B. 4rem – je nach Geschmack */
+}
+
+.pic-scroll-anchor {
+  height: 1px;
+  scroll-margin-top: 4rem; /* oder z. B. 4rem – je nach Geschmack */
+}
+
+.content {
+      width: 750px;
+      margin: 40px auto 0 auto; 
+      position: relative;
+      padding: 20px;
+      min-height: 100px;  /* geringere höhe als bei treppe */
+      background: linear-gradient(to bottom right, #fafafa, #ededed);
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Kopfbereich -->
+  <header>
+    <h1> Komplikationen nach CAR-T-Zell-Therapie</h1>
+    <p>
+      Ein Hilfe- und Lerntool für ärztliche Mitarbeiter <br>zur Therapie von Hyperinflammations-Syndromen nach CAR-T-Zelltherapie
+    </p>
+  </header>
+
+<!-- Sektion für die oberen 3 Felder -->
+
+  <div class="felder">
+      <a href="#sektion1" class="feld">Aplasie<br>+/- Fieber
+             <div class="overlay">Leukozyten <1000µl</div>
+      </a>
+      <a href="#sektion2a" class="feld">Zytokin-Freisetzungs-Syndrom<br><b>CRS</b>
+        <div class="overlay">Temperatur >38,0°</div></a>
+
+       <a href="#sektion3" class="feld">Immuneffektorzell-assoziiertes Neurotoxizitätssyndrom<br><b>ICANS</b>
+         <div class="overlay">Auffälliges Neuro-Screening (ICE<10)</div></a>
+
+       <a href="#sektion4" class="feld">Immuneffektorzell-assoziiertes Haemophagozytoseartiges Syndrom<br><b>IEC-HS / HLH</b>
+            <div class="overlay">Schweres CRS + sprunghafter Ferritin-Anstieg</div></a>
+
+</div> 
+
+
+<section id="sektion1" class="sektion">
+  <header>
+  <h1>Aplasie</h1>
+  <p>
+    Bei Fieber in der Aplasie ist eine Unterscheidung <br>zwischen CRS und Neutropenem Fieber <b>nicht</b> möglich.
+  </p>
+
+</header>
+
+<div class="content"> 
+  <p>
+    <b>Prophlaxen in der Aplasie</b><br>
+    <ul>
+      <li>Aciclovir</li>
+      <li>Co-Trimoxazol (Alternativ: Atorvaquone (Wellvone) oder Pentadmidin)</li>
+    </ul>
+  </p>
+
+  <br>
+
+  <p>
+    <b>Therapie bei erstmaligem Fieber in der Aplasie:</b><br>
+    <ul>
+    <li>Piperacillin/Tazobactam (Alternativ: Ceftazidim)</li><br>
+
+  
+  </ul>
+  <b>Therapie bei weiterem Fieber in der Aplasie:<br></b>Eskalation nach Std.<br>
+ 
+</div>
+
+<div class="content">
+      <b>Gabe von Wachstumsfaktor G-CSF:</b><br>
+    <ul>
+      <li><b>G-CSF soll sparsam eingesetzt werden, <br>da es Hyperinflammations-Syndrome verstärken kann</b></li><br>
+      <li>Einmalige Gabe von G-CSF bei Neutropenie <500/µl kann erwogen werden</li>
+      <li>Kontinuierliche/tägliche Gabe von G-CSF bis zur Erholung der Neutrophilen <br>nur bei prolongierter Neutropenie (>d10)</li>
+          </ul></div>
+
+          <div class="content">
+
+
+
+<div class="feld" onclick="toggleDesc2(6)" style="border-radius: 0.5rem;"> Verlauf der Neutrophilen, Adaptiert nach Jain et al.; Blood 2023; 
+</div>
+
+<!--- Einbledung von Grafik-->
+
+<div id="desc6" class="description" style="background-color: white; padding:0px">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>ANC-Verlauf (stilisiert)</title>
+    <script src="plotly-latest.min.js"></script>
+  </head>
+  <body style="font-family:sans-serif; margin:40px;">
+    <div style="display:flex; flex-direction:row; justify-content:center; align-items:center;" font-color="#000000">
+      <!-- Hauptplot -->
+      <div id="mainPlot" style="width:100%; height:600px;"></div>
+  
+      
+    <script>
+      // Zeitpunkte (Tage)
+      const time = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 10, 14,
+                    21, 28, 35, 42, 49, 56, 63, 70, 84, 112, 140];
+  
+      // Synthetische geglättete Verläufe (stilisiert, mit "second dip")
+      const quick =    [2800, 2750, 2600, 2500, 2400, 2000, 1200, 600, 300, 200, 250, 400, 600,
+                        1000, 1800, 2500, 3000, 2900, 2200, 2500, 2800, 2900, 3000, 3100, 3100, 3100];
+  
+      const intermittent = [2700, 2650, 2500, 2400, 2300, 1800, 1000, 400, 200, 100, 150, 300, 500,
+                            900, 1600, 2200, 2500, 2400, 1500, 1200, 1800, 2200, 2500, 2600, 2700, 2700];
+  
+      const aplastic = [1800, 1700, 1600, 1500, 1400, 1000, 400, 100, 50, 20, 20, 30, 40,
+                        60, 100, 200, 300, 350, 400, 500, 800, 1000, 1300, 1500, 1700, 1800];
+  
+      // Linienfarben
+      const colors = {
+        quick: 'lightgreen',
+        intermittent: 'lightblue',
+        aplastic: 'lightcoral'
+      };
+  
+      // Traces
+      const traces = [
+        {
+          x: time,
+          y: quick,
+          name: 'Quick Recovery',
+          mode: 'lines',
+          line: { color: colors.quick, width: 5, shape: 'spline' }
+        },
+        {
+          x: time,
+          y: intermittent,
+          name: 'Intermittent Recovery',
+          mode: 'lines',
+          line: { color: colors.intermittent, width: 5, shape: 'spline' }
+        },
+        {
+          x: time,
+          y: aplastic,
+          name: 'Aplastic',
+          mode: 'lines',
+          line: { color: colors.aplastic, width: 5, shape: 'spline' }
+        }
+      ];
+  
+      const layout = {
+        title: 'Absolute neutrophil count (ANC) over time',
+        xaxis: {
+          title: 'Time (days)',
+          tickvals: [-5, 0, 7, 14, 28, 42, 56, 84, 112, 140],
+          ticktext: ['-5', '0', 'W1', 'W2', 'W4', 'W6', 'W8', 'M3', 'M4', 'M5'],
+          showgrid: false
+        },
+        yaxis: {
+          title: 'ANC (cells/µL)',
+          range: [0, 3500],
+          tick0: 0,
+          dtick: 500,
+          showgrid: true,
+          gridcolor: '#eee'
+        },
+        shapes: [
+          {
+            type: 'line',
+            x0: Math.min(...time),
+            x1: Math.max(...time),
+            y0: 500,
+            y1: 500,
+            line: { color: 'gray', width: 1.5, dash: 'dash' }
+          },
+          {
+            type: 'line',
+            x0: Math.min(...time),
+            x1: Math.max(...time),
+            y0: 1500,
+            y1: 1500,
+            line: { color: 'gray', width: 1.5, dash: 'dash' }
+          }
+        ],
+        showlegend: false,
+        margin: { l: 60, r: 10, t: 50, b: 50 }
+      };
+  
+      Plotly.newPlot('mainPlot', traces, layout, {displayModeBar: false});
+  
+      // Rechte Balkenlegende
+      const barData = [{
+        x: [25, 52, 23],
+        y: ['Quick Recovery', 'Intermittent Recovery', 'Aplastic'],
+        type: 'bar',
+        orientation: 'h',
+        text: ['25%', '52%', '23%'],
+        textposition: 'auto',
+        marker: {
+          color: [colors.quick, colors.intermittent, colors.aplastic]
+        },
+        hoverinfo: 'none'
+      }];
+  
+      const barLayout = {
+        xaxis: { showticklabels: false },
+        yaxis: { showticklabels: false },
+        margin: { l: 0, r: 0, t: 0, b: 0 },
+        height: 300,
+        width: 200,
+        showlegend: false
+      };
+  
+      Plotly.newPlot('barLegend', barData, barLayout, {displayModeBar: false});
+    </script>
+
+    </div>
+
+    <div style="text-align: left; margin-top: 20px; padding-left: 10px;  font-color="#000000">
+      <p>Adaptiert von Jain et al. Blood 2023</p> <a href="https://doi.org/10.1182/blood.2022017415" target="_blank">https://doi.org/10.1182/blood.2022017415</a><br>
+      <p>Die Grafik zeigt den typischen Verlauf der Neutrophilen in der Aplasie <br> 
+        mit unterschiedlichem Verlauf (Quick Recovery, Intermittent Recovery, Aplastic) <br>
+        in einer großen Kohorte von Patient:innen mit CAR-T-Zelltherapie.</p> 
+     
+        <p>Nach der anfänglichen Regeneration des Blutbildes erfahren <br>viele Patient:innen einen second dip der neutrophilen<br>
+    Der Zeitpunkt des second dips variiert, in jedem kann diese Phase nach Entlassung eintreten</p>
+  </div>
+ 
+  <div id="pic-scroll-anchor" class="pic-scroll-anchor"></div>
+
+  </section>
+
+  <section id="sektion2a" class="sektion">
+
+    <header>
+      <h1> Zytokin-Freisetzungs-Syndrom - CRS</h1>
+      <p><b>Leitsymptom: Fieber</b><br>
+        Die Eskalation der Maßnahmen orientiert sich <b>nicht</b> nur an der CRS-Klassifikation Grad I°-IV° <br> sondern insbesondere am Ansprechen des CRS auf die aktuelle Therapiestufe!
+      </p><br>
+    </header>
+  
+    <h2><b><center>CRS - Grading:</center></h2>
+
+    <div class="content"> 
+      <p>
+        xyz
+      </ul>
+          </p>
+    </div>
+
+  </section>
+
+
+  <section id="sektion2b" class="sektion">
+
+   
+    <h2><b><center>CRS - Behandlungsstufen auf Normalstation:</center></b></h2>
+
+
+  <!-- Treppensektion (Breite: 800px) -->
+  <div class="stairs-section">
+
+    <!-- Stufe 1 -->
+    <div class="step step1" onclick="toggleDesc(1)">
+      <div class="number">1</div>
+      <div class="step-text">
+        Paracetamol 1000mg i.v. <br> 
+      </div>
+    </div>
+
+    <!-- Stufe 2 -->
+    <div class="step step2" onclick="toggleDesc(2)">
+      <div class="number">2</div>
+      <div class="step-text">
+        Tocilizumab <br> 8mg/kg i.v. <br> 
+      </div>
+    </div>
+
+    <!-- Stufe 3 -->
+    <div class="step step3" onclick="toggleDesc(3)">
+      <div class="number">3</div>
+      <div class="step-text">
+        Dexamethason 10mg i.v. Einzelgabe <br>+<br> Anakinra 100mg s.c. q12h fest für 7 Tage
+      </div>
+    </div>
+
+    <!-- Stufe 4 -->
+    <div class="step step4" onclick="toggleDesc(4)">
+      <div class="number">4</div>
+      <div class="step-text">
+        Dexamethason 10mg i.v. q6h
+        <br>+<br> Anakinra 100mg s.c. q12h fest für 7 Tage
+      </div>
+    </div>
+
+    <!-- Stufe 5 -->
+    <div class="step step5" onclick="toggleDesc(5)">
+      <div class="number">5</div>
+      <div class="step-text">
+        Dexamethason 20mg i.v. q6h <br>+<br> Anakinra 100mg s.c. q12h fest für 7 Tage
+      </div>
+    </div>
+
+  </div> <!-- /.stairs-section -->
+
+
+
+  <!-- Beschreibungstexte (ebenfalls 800px breit) -->
+  <div class="description-container">
+
+    <div id="desc-scroll-anchor" class="desc-scroll-anchor"></div>
+
+    <div id="desc1" class="description">
+      <h2>Stufe 1 - Antiphlogistische Therapie</h2>
+      <b>Kurz-Beschreibung:</b> </b><i> Es besteht ein CRS I°, welches aber durch antiphlogistische 
+        Therapie mit Paracetamol ausreichend kontrolliert bleibt.</i><br><br
+      <p>
+   
+        
+        <h2>Stufe 1 - Medikamentöse Maßnahmen</h2>
+        <b></h2>Paracetamol 1000mg i.v., wdh. ggf. q8h</b><br><br>
+       <br>
+        <h2>Stufe 1 - Muss ich die Stufe verlassen?</h2>
+        Stufe 1 muss verlassen werden, wenn Paracetamol q8h i.v. oder p.o. zur Fieberkontrolle nicht ausreichen. 
+        Das heißt wenn die Abstände zwischen dem Auftreten von Fieber kürzer werden, muss auf <b>Stufe 2</b> eskaliert werden<br>
+     
+        <button class="stufen-button" onclick="toggleDesc(2)">
+          → zur nächsten Stufe (2)
+        </button>
+
+      </p>
+    </div>
+
+
+
+    <div id="desc2" class="description">
+      <h2>Stufe 2 - IL6 Blockade</h2>
+  
+      <b>Kurz-Beschreibung:</b> </b><i> Es besteht ein =<u>anhaltendes</u> CRS I° oder ein CRS II°, welches neben der antiphlogistischen 
+        Therapie eine IL6-Blockade (Tocilizumab) erforerdlich machte. Hierunter ist das CRS jedoch ausreichend kontrolliert.</i>
+      
+<br>
+
+      <h2>Stufe 2 - Medikamentöse Maßnahmen</h2>
+      <br>
+      Tocilizumab 8mg/kg (Max. 800mg absolut); ggf. Wiederholung q8h bis zu 3x in Folge <br>
+      ggf. auch Fortführung Paracetamol 1000mg i.v., wdh. ggf. q8h <br>
+      
+<br><br>
+      <h2>Stufe 2 - Wann muss ich weiter eskalieren?</h2>
+      Stufe 2 muss verlassen werden, wenn:<br><br>
+      - Tocilizumab q8h zur Fieberkontrolle nicht ausreicht (=anhaltendes CRS I-II°), <br>
+      - ODER: wenn innerhalb 24h bereits 3 Gaben Tocilizumab q8h erfolgten (=anhaltendes CRS I-II°)</b><br>
+      - ODER: wenn eine Arterielle Hypotonie auf Flüssigkeitssubstitution nicht anspricht (= CRS III°)<br>
+      - ODER: eine anhaltende Hypoxie besteht und ein respiratorisches Versagen droht (=CRS III°)<br>
+<br><br>
+      <b>ACHTUNG:</b>
+      bei anhaltendem CRS I-II° eskalieren wir auf Stufe 3
+      bei Eintreten eines CRS III° eskalieren wir direkt auf Stufe 4 oder 5 (Einzelfallentscheidung)
+      und veranlassen die Verlegung auf die Intensivstation<br>
+      <button class="stufen-button" onclick="toggleDesc(3)">
+        → zur nächsten Stufe (3)
+      </button>
+    </div>
+
+    <div id="desc3" class="description">
+      <h2>Stufe 3 - Corticosteroid + IL1 Blockade</h2>
+      <b>Kurz-Beschreibung:</b> <i> Es besteht ein =<u>anhaltendes</u> CRS I-II°, welches durch IL-6 Blockade (Tocilizumab)
+        nicht hinreichend kontrolliert werden konnte. Die Hinzunahme der IL-1 Blockade (Anakinra) und eine einmalige Gabe von Dexamethason
+       führen jedoch zu einem promptes Ansprechen des CRS.</i><br><br>
+      <p>
+        
+        
+        <h2>Stufe 3 - Medikamentöse Maßnahmen</h2>
+        
+        <b>Dexamethason 10mg i.v. Einmalgabe<br>
+        Anakinra 100mg s.c. q12h fest für 7 Tage </b><br>
+        
+        <br> Fortsetzung Tocilizumab und Paracetamol je nach Ansprechen
+        <u>Hinweis:</u>Anakinra = schmerzhafte injektion; <i>Linderung durch Erwärmen auf Raumtemperatur vor Injektion möglich</i>)
+        
+    
+  <br><br>
+        <h2>Stufe 3 - Wann muss ich weiter eskalieren?</h2>
+        Stufe 2 muss verlassen werden, wenn<br>
+        - Die Hinzunahme von Anakinra und die einmalige Dexamethason-Gabe waren nicht hinreichend um das CRS zu kontrollieren<br>
+        - ODER: Es tritt eine Verschlechterung von Arterieller Hypotonie bzw. Hypoxie ein, die die Kriterien des CRS III° erfüllen.<br>
+        <button class="stufen-button" onclick="toggleDesc(4)">
+          → zur nächsten Stufe (4)
+        </button>
+        <br>
+      </p>
+    </div>
+
+    <div id="desc4" class="description">
+      <h2> Stufe 4 - Intensivierung Corticosteroid</h2>
+      <p>
+        Interessante Inhalte über Stufe 4, sichtbar nach Klick auf die vierte Stufe.
+      </p>
+
+      <button class="stufen-button" onclick="toggleDesc(5)">
+        → zur nächsten Stufe (5)
+      </button>
+      </button>
+
+    </div>
+
+    <div id="desc5" class="description">
+      <h2> Stufe 5 - Weitere Intensivierung Corticosteroid</h2>
+      <p>
+        Abschließende Ausführungen zu Stufe 5. 
+      </p>
+    </div>
+
+  </div> <!-- /.description-container -->
+
+
+</section>
+
+
+<section id="sektion3" class="sektion">
+
+  <header>
+    <h1> Immuneffektorzell-assoziiertes Neurotoxizitätssyndrom - ICANS</h1>
+    <p>
+      <b>Leitsymptom: Auffälliges Neuro-Screening</b><br>
+      Frühzeitige Erkennung und Behandlung von ICANS ist entscheidend für den Therapieerfolg. <br>
+    </p>
+  </header>
+
+  <div class="content"> 
+    <p>
+      <b>Allgemeinmaßnahmen</b><br>
+      <ul><li>Neurologisches Konsil</li>
+      <li>cCT (nativ)</li>
+    <li>Lumbalpunktion</li>
+  
+  </ul>
+        </p>
+  </div>
+
+  <div class="felder-icans">
+    <div class="feld-icans"><b>ICANS I°</b><br>
+      Dexamethason i.v. 10mg q6h <br>+ Anakinra 100mg s.c. q12h fest für 7 Tage
+      <div class="overlay-icans" style="color:white">i.d.R. Normalstationsfähig</div>
+
+       
+    </div>
+    <div class="feld-icans"><b>ICANS II°</b><br>
+      Dexamethason i.v. 10-20mg q6h <br>+ Anakinra 100mg s.c. q12h fest für 7 Tage<br>
+      Die Dosierung von Dexamethason ist eine Einzelfallentscheidung
+      <div class="overlay-icans" style="background-color: rgba(244, 155, 1, 0.9);color:white">Intensiv<br>Vorstellung</div></div>
+
+     <div class="feld-icans"><b>ICANS >III°</b><br>
+      Dexamethason i.v. 20mg q6h <br>+ Anakinra 100mg s.c. q12h fest für mind. 7 Tage<br>
+       <div class="overlay-icans" style="background-color: rgba(255, 0, 25, 0.9);color:white">Intensivstation</div></div>
+
+       <div class="feld-icans"><b>ICANS IV°</b><br>
+        Eskalation der Steroidtherapie auf 1.000mg i.v. Methylprednisolon q24h<br>
+        Fortüfhrung Anakinra 100mg s.c. q12h fest für mind. 7 Tage<br>
+        <div class="overlay-icans" style="background-color: rgba(255, 0, 25, 0.9);color:white">Intensivstation</div></div>
+ 
+   
+</div>
+    
+
+</div> 
+
+</section>
+
+<section id="sektion4" class="sektion">
+
+
+
+ <header>
+    <h1> Immuneffektorzell-assoziiertes Haemophagozytoseartiges Syndrom <br> IEC-HS / HLH</h1>
+    <p>
+      <b>Leitkriterium: Ferritin-Anstieg</b><br>
+      Das IEC-HS ist die bedrohlichste Form des Hyperinflammations-Syndroms <br>nach CAR-T-Zell-Therapie und ist mit einer hohen Mortalität assoziiert.<br>
+      
+    </p>
+   
+  </header>
+
+  <div class="content"> 
+    <p>
+      <b>Hinweise für IEC-HS /HLH</b><br>
+        </p>
+
+	1.	CRS ≥ Grad 3 (häufig vorhergehend oder gleichzeitig)<br>
+	2.	Anhaltendes Fieber<br>
+	3.	Zytopenien (≥2 Zelllinien betroffen)<br>
+	4.	Hyperferritinämie (typisch: Ferritin > 10.000 ng/mL, oft >100.000)<br>
+	5.	Hepatobiliäre Dysfunktion (↑ Bilirubin, ↑ Transaminasen, ↑ INR)<br>
+	6.	Hypofibrinogenämie (<150 mg/dL)<br>
+	7.	Hämophagozytose (im Knochenmark oder anderen Geweben – fakultativ)<br>
+	8.	Anstieg von IL-6, <br>
+  9.  Anstieg von Triglyzeride<br> 
+</div>
+  <header> <p>
+    Die medikamentösen Maßnahmen sind zunächst ident zu schwerem CRS / ICANS<br>Eine Eskalation über die Maßnahmen bei CRS / ICANS hinaus <br>bleibt eine <b>Einzelfallentscheidung</b><br>
+  </p></header>
+
+  <div class="content"> 
+    <h2>Therapie bei IEC-HS / HLHa</h2>
+    <ul> 
+  <li><b>Corticosteroid (Dexamethason 10mg i.v.)</li><li>Anakinra 100mg s.c.</b></li></ul>
+    <i>Fortführung bis zur Normalisierung der Entzündungsparameter bzw. in Abhängigkeit der Schwere</i><br>
+    <h2>Weitere Optionen <b>(Einzelfallentscheidung)</b>:</h2>
+    <ul>
+      <li>Ruxolitinib 5-10mg p.o. q12h (Nachteil: Zytopenie-Verschlechterung)</li></ul>
+      <b>in lebensbedrohlichen Fällen von IEC-HS:</b><ul>
+      <li>low-dose Etoposide (Einzelfallentscheidung) - Auslöschung CAR-T-Zellen</li>
+      <li>kill-switch Therapien, zB. Cetuximab (für aktuelle kommerzielle CAR-T-Konstrukte nicht verfügbar)</li></ul>
+      <b>nicht effektiv:</b><ul>
+      <li>Toclizumab (wenn nicht für CRS-Kontrolle notwendig)</li></ul>
+      </div>
+
+</section>
+
+<br>
+<section id="sektion5" class="sektion">
+
+
+
+  <header>
+     <h1> Quellen / Literatur</h1>
+     <p>
+       <b></b><br>
+       <br>
+     </p><br>
+
+ </section>
+
+<button id="zurueckBtn" class="zurueck-btn">↑</button>
+
+<div id="menuOverlay" style="position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 1000; display: flex; flex-direction: column; gap: 0.5rem;">
+  <a href="#sektion1" class="menu-btn">Aplasie</a>
+  <a href="#sektion2a" class="menu-btn">CRS Grading</a>
+  <a href="#sektion2b" class="menu-btn">CRS Treatment</a>
+  <a href="#sektion3" class="menu-btn">ICANS</a>
+  <a href="#sektion4" class="menu-btn">IEC-HS / HLH</a>
+  <a href="#sektion5" class="menu-btn">Literatur</a>
+</div>
+
+<script>
+function toggleDesc(num) {
+  const alle = document.querySelectorAll('.description');
+  alle.forEach(el => el.classList.remove('visible'));
+
+  // NEU: vorherige Stufen deselektieren
+  const alleStufen = document.querySelectorAll('.step');
+  alleStufen.forEach(stufe => stufe.classList.remove('active'));
+
+  // NEU: aktive Stufe visuell markieren
+  const aktiveStufe = document.querySelector('.step' + num);
+  if (aktiveStufe) aktiveStufe.classList.add('active');
+
+  const ziel = document.getElementById('desc' + num);
+  if (ziel) {
+    ziel.classList.add('visible');
+    setTimeout(() => {
+      const y = ziel.getBoundingClientRect().top + window.pageYOffset - 480;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }, 100);
+  }
+}
+
+function toggleDesc2(num) {
+  const alle = document.querySelectorAll('.description');
+  alle.forEach(el => el.classList.remove('visible'));
+ 
+  const ziel = document.getElementById('desc' + num);
+ 
+  if (ziel) {
+    ziel.classList.add('visible');
+    setTimeout(() => {
+      const y = ziel.getBoundingClientRect().top + window.pageYOffset - 180;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }, 100);
+  }
+}
+  
+  document.addEventListener('click', function (e) {
+    const feld = e.target.closest('.feld');
+    const zurueck = e.target.closest('#zurueckBtn');
+
+    if ((feld && feld.getAttribute('href')) || e.target.closest('.menu-btn')) {
+      e.preventDefault();
+      const targetId = (feld || e.target.closest('.menu-btn')).getAttribute('href');
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('zurueckBtn').style.display = 'block';
+      }
+    }
+
+    if (zurueck) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+</script>
+
+</body>
+</html>
