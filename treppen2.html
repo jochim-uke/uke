@@ -418,14 +418,37 @@
       overflow: hidden;
     }
 
+    .skewed-text {
+  display: inline-block;
+  transform: rotate(-15deg);
+  font-size: 1.5rem;
+  color: #1a2c4c;
+}
+
+    
   </style>
 </head>
 <body>
 
   <!-- Kopfbereich -->
   <header>
+   
+    <table style="margin: 0 auto; border-collapse: separate; border-spacing: 20px 0; margin-bottom: 60px;">
+      <tr>
+        <td><p class="skewed-text">UKE</p></td>
+        <td><p class="skewed-text">UKE</p></td>
+        <td><p class="skewed-text">UKE</p></td>
+      </tr>
+      <tr>
+        <td colspan="3" style="text-align: center;"><br>Klinik für Stammzelltransplantation</td>
+      </tr>
+      <tr>
+        <td colspan="3" style="text-align: center;"><strong style="color: red;"><br><br>TESTVERSION</strong></td>
+      </tr>
+    </table>
+
     <h1> Komplikationen nach CAR-T-Zell-Therapie</h1>
-    <p>
+        <p>
       Ein Hilfe- und Lerntool für ärztliche Mitarbeiter <br>zur Therapie von Hyperinflammations-Syndromen nach CAR-T-Zelltherapie
     </p>
   </header>
@@ -921,7 +944,7 @@
       <li>low-dose Etoposide (Einzelfallentscheidung) - Auslöschung CAR-T-Zellen</li>
       <li>kill-switch Therapien, zB. Cetuximab (für aktuelle kommerzielle CAR-T-Konstrukte nicht verfügbar)</li></ul>
       <b>nicht effektiv:</b><ul>
-      <li>Toclizumab (wenn nicht für CRS-Kontrolle notwendig)</li></ul>
+      <li>Toclizumab (kein Einsatz, wenn nicht für CRS-Kontrolle notwendig)</li></ul>
       </div>
 
 </section>
