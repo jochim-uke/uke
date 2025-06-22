@@ -4,6 +4,67 @@
   <meta charset="UTF-8">
   <title>CAR-T-Zelltherapie</title>
   <style>
+  /* CRS-Calculator Styles */
+  #crs-section .container {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    margin-top: 20px;
+  }
+  #crs-section .form-row {
+    margin-bottom: 1.5em;
+  }
+  #crs-section .options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+  #crs-section .option-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35em;
+    background: #f0f3f7;
+    padding: 0.6em 0.8em;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+  }
+  #crs-section .option-item:hover {
+    background: #e3e7ec;
+  }
+  #crs-section .option-item input[type="radio"] {
+    margin: 0;
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  #crs-section .option-item label {
+    margin: 0;
+    font-weight: normal;
+    cursor: pointer;
+  }
+  #crs-section .crs-btn {
+    background: #2c7dfa;
+    color: #fff;
+    border: none;
+    padding: 0.8em 1.6em;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.2s ease, transform 0.1s ease;
+  }
+  #crs-section .crs-btn:hover {
+    background: #1b64c7;
+  }
+  #crs-section .crs-btn:active {
+    transform: scale(0.98);
+  }
+  #crs-section #result {
+    margin-top: 2em;
+    background: #e8f4fa;
+    padding: 1em 1.2em;
+    border-radius: 4px;
+    border: 1px solid #cce3eb;
+  }
 
 /*
     smooth scrol
@@ -404,7 +465,7 @@
   scroll-margin-top: 4rem; /* oder z. B. 4rem – je nach Geschmack */
 }
 
-.content {
+    .content {
       width: 750px;
       margin: 40px auto 0 auto; 
       position: relative;
@@ -418,6 +479,44 @@
       overflow: hidden;
     }
 
+    /* CAR-Produkte Tabelle */
+    .product-table {
+      width: 100%;
+      max-width: 100%;
+      border-collapse: collapse;
+      margin: 0 auto;
+      font-size: 0.9rem;
+      table-layout: fixed;
+    }
+    .product-table th,
+    .product-table td {
+      border: 1px solid #ddd;
+      padding: 12px 8px;
+      text-align: left;
+      overflow-wrap: break-word;
+    }
+    .product-table tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+    .product-table th {
+      background-color: #1a2c4c;
+      color: white;
+    }
+
+    .product-table .product-row {
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.15s ease;
+    }
+    .product-table .product-row:hover {
+      background-color: #e0e0e0;
+      transform: scale(1.01);
+    }
+    .detail-row .detail-content {
+      padding: 12px 8px;
+      background-color: #f9f9f9;
+      font-size: 0.9rem;
+    }
+
     .skewed-text {
   display: inline-block;
   transform: rotate(-15deg);
@@ -426,11 +525,122 @@
 }
 
     
+/* Accordion styles for Risk-Scores */
+.accordion-btn {
+  width: 100%;
+  background-color: #1a2c4c;
+  color: white;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+.accordion-btn:hover,
+.accordion-btn.active {
+  background-color: #0056b3;
+}
+#sektion5 .panel {
+  display: none;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+#sektion5 .panel form label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+#sektion5 .panel form input {
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+}
+#sektion5 .panel form button {
+  padding: 0.5rem 1rem;
+  background-color: #1a2c4c;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+#sektion5 .panel form button:hover {
+  background-color: #0056b3;
+}
+
+/* Slider styles for Risk-Scores */
+.panel form input[type="range"] {
+  width: 100%;
+}
+/* Select field styles for Risk-Scores */
+.panel form select {
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+}
+.select-group {
+  margin-bottom: 1.5rem;
+}
+#carHemaResult {
+  margin-top: 1rem;
+  font-weight: bold;
+}
+/* Utility class for smaller text */
+.small-text {
+  font-size: 0.8rem;
+}
+
+  /* Literatur-Referenzen */
+  .reference-list {
+    list-style-type: disc;
+    margin: 0;
+    padding: 0;
+  }
+  .reference-list li {
+    margin-bottom: 1.5em;
+    padding-left: 1.2em;
+    text-indent: -1.2em;
+  }
+  .reference-list li a {
+    color: #2a3f6d;
+    text-decoration: underline;
+  }
+  .reference-list li a:hover {
+    text-decoration: underline;
+  }
+
+  /* Inline-Link Styling */
+  .inline-link {
+    color: #2c7dfa;
+    text-decoration: none;
+    border-bottom: 1px solid #2c7dfa;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .inline-link:hover {
+    color: #1b64c7;
+    border-color: #1b64c7;
+  }
   </style>
 </head>
 <body>
+<script>
+// Remove any existing hash on page load to prevent automatic jumping
+window.addEventListener('DOMContentLoaded', () => {
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+    window.scrollTo(0, 0);
+  }
+});
+</script>
 
-  <!-- Kopfbereich -->
+<!-- Kopfbereich -->
   <header>
    
     <table style="margin: 0 auto; border-collapse: separate; border-spacing: 20px 0; margin-bottom: 60px;">
@@ -449,11 +659,11 @@
 
     <h1> Komplikationen nach CAR-T-Zell-Therapie</h1>
         <p>
-      Ein Hilfe- und Lerntool für ärztliche Mitarbeiter <br>zur Therapie von Hyperinflammations-Syndromen nach CAR-T-Zelltherapie
+      Ein Hilfe- und Lerntool für ärztliche Mitarbeiter:innen zur Therapie von <br>Hyperinflammations-Syndromen und anderen Komplikationen nach CAR-T-Zell-Therapie
     </p>
   </header>
 
-<!-- Sektion für die oberen 3 Felder -->
+<!-- Sektion für die oberen 4 Felder -->
 
   <div class="felder">
       <a href="#sektion1" class="feld">Aplasie<br>+/- Fieber
@@ -470,7 +680,7 @@
 
 </div> 
 
-
+<!-- Sektion 1: Aplasie -->
 <section id="sektion1" class="sektion">
   <header>
   <h1>Aplasie</h1>
@@ -481,185 +691,50 @@
 </header>
 
 <div class="content"> 
+
+
+  <center><p style="color: red;"><b>Infektkomplikationen</b> sind die wichtigste NRM-Ursache unter CAR-T-Zell-Therapie <br>(<u>nicht</u> CRS oder ICANS)</p></center>
+
+
   <p>
     <b>Prophlaxen in der Aplasie</b><br>
     <ul>
       <li>Aciclovir</li>
-      <li>Co-Trimoxazol (Alternativ: Atorvaquone (Wellvone) oder Pentadmidin)</li>
+      <li>Co-Trimoxazol (Alternativ: Atorvaquone <span class="small-text">(Wellvone)</span> oder Pentamidin)</li>
     </ul>
   </p>
-
-  <br>
 
   <p>
     <b>Therapie bei erstmaligem Fieber in der Aplasie:</b><br>
     <ul>
-    <li>Piperacillin/Tazobactam (Alternativ: Ceftazidim)</li><br>
-
+    <li>Piperacillin/Tazobactam (Bei Allergie: Ceftazidim +/- Vanco/Line)</li>
+    <li><i><span class="small-text">Cave: Bei Ceftazidim besteht kaum Wirkung gegen Gram-positive Bakterien;
+      <br>ggf. zusätzlich Vancomycin oder Linezolid <b>bei Fieber >24h</b> <br>
+       ggf. primär zusätzlich Vancomycin oder Linezolid bei bestehendem V.a. Katheter- oder Weichteilinfekt</i></span></li>
   
   </ul>
-  <b>Therapie bei weiterem Fieber in der Aplasie:<br></b>Eskalation nach Std.<br>
- 
+  <b>Therapie bei weiterem Fieber (>48h) in der Aplasie:<br></b><ul><li>Meropenem + Vancomycin (bzw. Linezolid bei Kontraindikation gegenüber Vancomycin)</li></ul>
+
+  
+
 </div>
 
 <div class="content">
       <b>Gabe von Wachstumsfaktor G-CSF:</b><br>
     <ul>
-      <li><b>G-CSF soll sparsam eingesetzt werden, <br>da es Hyperinflammations-Syndrome verstärken kann</b></li><br>
-      <li>Einmalige Gabe von G-CSF bei Neutropenie <500/µl kann erwogen werden</li>
-      <li>Kontinuierliche/tägliche Gabe von G-CSF bis zur Erholung der Neutrophilen <br>nur bei prolongierter Neutropenie (>d10)</li>
+      <li><b>G-CSF soll sparsam eingesetzt werden, <br>da es Hyperinflammations-Syndrome verstärken kann</b></li>
+      <li>Ggf. Zurückhaltung Gabe von G-CSF bei frisch neu-aufgetretenem CRS / ICANS</li>
+      <li>Einmalige Gabe von G-CSF bei Erreichen Neutropenie <500/µl</li>
+      <li>Weitere Gaben richten sich nach dem Ansprechen und sind oft <b>nicht</b> nötig</li>
+      <li>Kontinuierliche bzw. tägliche Gabe von G-CSF <u>nur</u> bei prolongierter, tiefer Neutropenie (>d10) und fehlendem Ansprechen auf Erstgaben G-CSF</li>
           </ul></div>
 
-          <div class="content">
 
 
-
-<div class="feld" onclick="toggleDesc2(6)" style="border-radius: 0.5rem;"> Verlauf der Neutrophilen, Adaptiert nach Jain et al.; Blood 2023; 
-</div>
-
-<!--- Einbledung von Grafik-->
-
-<div id="desc6" class="description" style="background-color: white; padding:0px">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>ANC-Verlauf (stilisiert)</title>
-    <script src="plotly-latest.min.js"></script>
-  </head>
-  <body style="font-family:sans-serif; margin:40px;">
-    <div style="display:flex; flex-direction:row; justify-content:center; align-items:center;" font-color="#000000">
-      <!-- Hauptplot -->
-      <div id="mainPlot" style="width:100%; height:600px;"></div>
-  
-      
-    <script>
-      // Zeitpunkte (Tage)
-      const time = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 10, 14,
-                    21, 28, 35, 42, 49, 56, 63, 70, 84, 112, 140];
-  
-      // Synthetische geglättete Verläufe (stilisiert, mit "second dip")
-      const quick =    [2800, 2750, 2600, 2500, 2400, 2000, 1200, 600, 300, 200, 250, 400, 600,
-                        1000, 1800, 2500, 3000, 2900, 2200, 2500, 2800, 2900, 3000, 3100, 3100, 3100];
-  
-      const intermittent = [2700, 2650, 2500, 2400, 2300, 1800, 1000, 400, 200, 100, 150, 300, 500,
-                            900, 1600, 2200, 2500, 2400, 1500, 1200, 1800, 2200, 2500, 2600, 2700, 2700];
-  
-      const aplastic = [1800, 1700, 1600, 1500, 1400, 1000, 400, 100, 50, 20, 20, 30, 40,
-                        60, 100, 200, 300, 350, 400, 500, 800, 1000, 1300, 1500, 1700, 1800];
-  
-      // Linienfarben
-      const colors = {
-        quick: 'lightgreen',
-        intermittent: 'lightblue',
-        aplastic: 'lightcoral'
-      };
-  
-      // Traces
-      const traces = [
-        {
-          x: time,
-          y: quick,
-          name: 'Quick Recovery',
-          mode: 'lines',
-          line: { color: colors.quick, width: 5, shape: 'spline' }
-        },
-        {
-          x: time,
-          y: intermittent,
-          name: 'Intermittent Recovery',
-          mode: 'lines',
-          line: { color: colors.intermittent, width: 5, shape: 'spline' }
-        },
-        {
-          x: time,
-          y: aplastic,
-          name: 'Aplastic',
-          mode: 'lines',
-          line: { color: colors.aplastic, width: 5, shape: 'spline' }
-        }
-      ];
-  
-      const layout = {
-        title: 'Absolute neutrophil count (ANC) over time',
-        xaxis: {
-          title: 'Time (days)',
-          tickvals: [-5, 0, 7, 14, 28, 42, 56, 84, 112, 140],
-          ticktext: ['-5', '0', 'W1', 'W2', 'W4', 'W6', 'W8', 'M3', 'M4', 'M5'],
-          showgrid: false
-        },
-        yaxis: {
-          title: 'ANC (cells/µL)',
-          range: [0, 3500],
-          tick0: 0,
-          dtick: 500,
-          showgrid: true,
-          gridcolor: '#eee'
-        },
-        shapes: [
-          {
-            type: 'line',
-            x0: Math.min(...time),
-            x1: Math.max(...time),
-            y0: 500,
-            y1: 500,
-            line: { color: 'gray', width: 1.5, dash: 'dash' }
-          },
-          {
-            type: 'line',
-            x0: Math.min(...time),
-            x1: Math.max(...time),
-            y0: 1500,
-            y1: 1500,
-            line: { color: 'gray', width: 1.5, dash: 'dash' }
-          }
-        ],
-        showlegend: false,
-        margin: { l: 60, r: 10, t: 50, b: 50 }
-      };
-  
-      Plotly.newPlot('mainPlot', traces, layout, {displayModeBar: false});
-  
-      // Rechte Balkenlegende
-      const barData = [{
-        x: [25, 52, 23],
-        y: ['Quick Recovery', 'Intermittent Recovery', 'Aplastic'],
-        type: 'bar',
-        orientation: 'h',
-        text: ['25%', '52%', '23%'],
-        textposition: 'auto',
-        marker: {
-          color: [colors.quick, colors.intermittent, colors.aplastic]
-        },
-        hoverinfo: 'none'
-      }];
-  
-      const barLayout = {
-        xaxis: { showticklabels: false },
-        yaxis: { showticklabels: false },
-        margin: { l: 0, r: 0, t: 0, b: 0 },
-        height: 300,
-        width: 200,
-        showlegend: false
-      };
-  
-      Plotly.newPlot('barLegend', barData, barLayout, {displayModeBar: false});
-    </script>
-
-    </div>
-
-    <div style="text-align: left; margin-top: 20px; padding-left: 10px;  font-color="#000000">
-      <p>Adaptiert von Jain et al. Blood 2023</p> <a href="https://doi.org/10.1182/blood.2022017415" target="_blank">https://doi.org/10.1182/blood.2022017415</a><br>
-      <p>Die Grafik zeigt den typischen Verlauf der Neutrophilen in der Aplasie <br> 
-        mit unterschiedlichem Verlauf (Quick Recovery, Intermittent Recovery, Aplastic) <br>
-        in einer großen Kohorte von Patient:innen mit CAR-T-Zelltherapie.</p> 
-     
-        <p>Nach der anfänglichen Regeneration des Blutbildes erfahren <br>viele Patient:innen einen second dip der neutrophilen<br>
-    Der Zeitpunkt des second dips variiert, in jedem kann diese Phase nach Entlassung eintreten</p>
-  </div>
- 
-  <div id="pic-scroll-anchor" class="pic-scroll-anchor"></div>
 
   </section>
+
+ <!-- Sektion 2: CRS -->
 
   <section id="sektion2a" class="sektion">
 
@@ -669,28 +744,336 @@
         Die Eskalation der Maßnahmen orientiert sich <b>nicht</b> nur an der CRS-Klassifikation Grad I°-IV° <br> sondern insbesondere am Ansprechen des CRS auf die aktuelle Therapiestufe!
       </p><br>
     </header>
-  
-    <h2><b><center>CRS - Grading:</center></h2>
 
-    <div class="content"> 
+    <h2><b><center>CRS - Grading:</center></b></h2>
+
+    <div id="crs-section" class="content">
       <p>
-        xyz
-      </ul>
-          </p>
+        <b>Definition</b><br>
+        CRS (Zytokin-Freisetzungs-Syndrom) ist ein systemisches Hyperinflammationssyndrom, das durch hohe Konzentrationen proinflammatorischer Zytokine nach CAR-T-Zell-Therapie ausgelöst wird. 
+        Es reicht von milden Beschwerden bis zu lebensbedrohlichen Organfunktionsstörungen. <br><br>Schwere Verläufe treten bei CD19-CAR-T-Zellen häufiger und früher nach CAR-T-Reinfusion auf als bei 
+        bei BCMA-CAR-T-Zellen. Unter den CD19-CAR-T-Zellen sind die Produkte mit CD28 Co-Stimulation mit einem höheren Risiko für schwere CRS-Verläufe assoziiert, als die CD19-CAR-T-Zellen mit 4‑1BB Co-stimulation.
+      </p>
+      <p>
+        <b>Leitsymptom</b><br>
+        Fieber ≥ 38 °C ist das charakteristische Leitsymptom, ggf. begleitet von Hypotonie und/oder Hypoxie in höheren Graden.
+      </p>
+      <p>
+        <b>Diagnose</b><br>
+        Die Diagnose basiert auf dem klinischen Bild (Temperaturmessung, Blutdruck, O₂-Sättigung) und dem Ausschluss anderer Ursachen wie Infektionen. <br><br>Der CRS-Grad kann mit unten stehendem Kalkulator berechnet werden:
+      </p>
+   
+  
+
+
+
+    <div class="accordion">
+      <button class="accordion-btn">CRS-Grade - Kalkulator</button>
+      <div class="panel" style="display: none;">
+
+
+    <div class="container">
+      <p>
+              </p>
+
+      <form id="crsForm">
+        <!-- TEMPERATUR -->
+        <div class="form-row">
+          <label>Körpertemperatur</label>
+          <div class="options">
+            <div class="option-item">
+              <input type="radio" name="temp" value="below38" id="temp-below">
+              <label for="temp-below">&lt; 38 °C</label>
+            </div>
+            <div class="option-item">
+              <input type="radio" name="temp" value="above38" id="temp-above">
+              <label for="temp-above">&gt;= 38 °C</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- HYPOTONIE -->
+        <div class="form-row">
+          <label>Hypotonie (Blutdruckabfall) / Vasopressoren-Bedarf</label>
+          <div class="options">
+            <div class="option-item">
+              <input type="radio" name="hypotension" value="none" id="hypo-none">
+              <label for="hypo-none">Normotensiv, kein gesteigerter Volumenbedarf</label>
+            </div>
+            <div class="option-item">
+              <input type="radio" name="hypotension" value="noVaso" id="hypo-noVaso">
+              <label for="hypo-noVaso">Hypotonie, Volumenrespondiv</label>
+            </div>
+            <div class="option-item">
+              <input type="radio" name="hypotension" value="oneVaso" id="hypo-oneVaso">
+              <label for="hypo-oneVaso">Hypotonie, Vasopressorbedarf</label>
+            </div>
+            <div class="option-item">
+              <input type="radio" name="hypotension" value="multiVaso" id="hypo-multiVaso">
+              <label for="hypo-multiVaso">Schock, mehrere Vasopressoren</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- HYPOXIE / O2-BEDARF -->
+        <div class="form-row">
+          <label>Hypoxie / O₂-Bedarf</label>
+          <div class="options">
+            <div class="option-item">
+              <input type="radio" name="hypoxia" value="none" id="hypo-noneO2">
+              <label for="hypo-noneO2">kein gesteigerter O₂-Bedarf (i.d.R. Raumluft)</label>
+            </div>
+            <div class="option-item">
+              <input type="radio" name="hypoxia" value="moderate" id="hypo-moderate">
+              <label for="hypo-moderate">O₂-Insufflation ≤6 L/min (moderater Bedarf)</label>
+            </div>
+            <div class="option-item">
+              <input type="radio" name="hypoxia" value="high" id="hypo-high">
+              <label for="hypo-high">O₂-Insufflation &gt;6 L/min (hoher Bedarf)</label>
+            </div>
+            <div class="option-item">
+              <input type="radio" name="hypoxia" value="pap" id="hypo-pap">
+              <label for="hypo-pap">NIV oder Intubation</label>
+            </div>
+          </div>
+        </div>
+
+        <p class="note2">
+          <i>OptiFlow (HFNC) zählt als Grad 3; Vasopressoren ≈ Katecholamine</i>
+        </p>
+
+        <button type="button" class="crs-btn" onclick="calculateCRS()">Ergebnis anzeigen</button>
+      </form>
+
+      <div id="result"></div>
     </div>
 
-  </section>
+  
+   
 
+    <script>
+      function calculateCRS() {
+        const resultEl = document.getElementById('result');
+        const temp = getRadioValue('temp');
+        const hypo = getRadioValue('hypotension');
+        const hypoxia = getRadioValue('hypoxia');
+        if (!temp || !hypo || !hypoxia) {
+          resultEl.innerHTML = '<strong>Bitte alle Felder auswählen!</strong>';
+          resultEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+        if (temp === 'below38') {
+          resultEl.innerHTML = `
+            <h3>Kein CRS (Temperatur &lt;38°C)</h3>
+            <p>
+              
+   
+            </p>`;
+          resultEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+        let grade = 1;
+        if (hypo === 'noVaso' || hypoxia === 'moderate') grade = 2;
+        if (hypo === 'oneVaso' || hypoxia === 'high') grade = 3;
+        if (hypo === 'multiVaso' || hypoxia === 'pap') grade = 4;
+        resultEl.innerHTML = getRecommendation(grade);
+        resultEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      function getRecommendation(grade) {
+        const standard = `
+          <p><strong>Temperatur ≥38 °C</strong>: Antibiotikatherapie & Infektionssuche</p>`;
+        switch (grade) {
+          case 1:
+            return `<h3>CRS Grad 1</h3>${standard}
+              <p>&bull; Monitoring 4h<br>&bull; Antipyrese<br>&bull; Tocilizumab 8 mg/kg bei Persistenz</p>`;
+          case 2:
+            return `<h3>CRS Grad 2</h3>${standard}
+              <p>&bull; Monitoring<br>&bull; Tocilizumab<br>&bull; Volumenmanagement</p>`;
+          case 3:
+            return `<h3>CRS Grad 3</h3>${standard}
+              <p>&bull; Intensivstation<br>&bull; Tocilizumab<br>&bull; Dexamethason 10 mg</p>`;
+          case 4:
+            return `<h3>CRS Grad 4</h3>${standard}
+              <p>&bull; Intensivmedizin<br>&bull; Tocilizumab<br>&bull; Methylprednisolon 1 g</p>`;
+          default:
+            return '<p>Keine eindeutige Einstufung möglich.</p>';
+        }
+      }
+
+      function getRadioValue(name) {
+        const r = document.querySelector(`input[name="${name}"]:checked`);
+        return r ? r.value : null;
+      }
+    </script>
+      </div>
+    </div>
+  </div>
+
+  </section>
+ <!-- Sektion 2b: CRS -->
 
   <section id="sektion2b" class="sektion">
 
    
-    <h2><b><center>CRS - Behandlungsstufen auf Normalstation:</center></b></h2>
+    <header>
+      <h1><b><center>CRS - Behandlung</center></b></h1>
+      <p>
+             Bei CRS I-II° kann die Behandlung auf KMT-Station erfolgen<br>
+             Bei anhaltendem CRS I-II° wird die Therapie Stufen-weise eskaliert<br>
+             Bei CRS III°-IV° erfolgt die Behandlung in der Regel auf der Intensivstation<br>
+      </p><br>
+    </header>
+    
+   
+  <div class="content">
+    <p>
+        </p>
+    <table class="product-table">
+      <colgroup>
+        <col style="width: 20%;">
+        <col style="width: 80%;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>CRS-Grad</th>
+          <th>Therapie</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="product-row">
+          <td>Grad I°</td>
+          <td>Antipyrese</td>
+        </tr>
+        <tr class="detail-row" style="display:none;">
+          <td colspan="2"><div class="detail-content">
+            
+            <p style="color: forestgreen; font-weight: bold; margin-top: 0.5em;">
+              <b>Behandlung auf KMT-Station - Monitorüberwachung</b>
+            </p>
+                       
+            <p><ul>
 
 
+
+              <li>Paracetamol 1000mg i.v. nach Bedarf, ggf. wdh q6h (Alternativ Novalgin)</li><br>
+              <li>bei persistierendem Fieber (>6h) trotz Antipyrese → Vorgehen nach Stufenschema</li>
+              <li> bei kürzer werdenden Fieberintervallen → Vorgehen nach Stufenschema</li><br>
+              <br>
+              <a href="#sektion2d" class="inline-link">→ Stufenschema bei anhaltendem CRS</a>              
+            </ul></p>
+          </div></td>
+        </tr>
+        <tr class="product-row">
+          <td>Grad II°</td>
+          <td>Antipyrese + IL6-Blockade</td>
+        </tr>
+        <tr class="detail-row" style="display:none;">
+          <td colspan="2"><div class="detail-content">
+            
+            <p style="color: forestgreen; font-weight: bold; margin-top: 0.5em;">
+              <b>Behandlung auf KMT-Station - Monitorüberwachung</b>
+            </p>
+
+            <ul>
+            <li>Paracetamol 1000mg i.v. nach Bedarf, ggf. wdh q6h (Alternativ Novalgin)</li>
+            <li>Tocilizumab 8mg/kg i.v. (max. 800mg), ggf. wdh q8h (bis zu 3x innerhalb 24h!)</li><br>
+            <li>bei persistierendem Fieber (>6h) trotz Antipyrese / IL6-Blockade → Vorgehen nach Stufenschema</li> 
+            <li>bei kürzer werdenden Fieberintervallen → Vorgehen nach Stufenschema</li><br>
+         <br>
+          <a href="#sektion2d" class="inline-link">→ Stufenschema bei anhaltendem CRS</a>
+            
+          </ul></p>
+          </div></td>
+
+          <tr class="product-row">
+            <td>Anhaltendes CRS Grad I-II°</td>
+            <td>Antipyrese + IL6-Blockade, <br>weitere Eskalation nach Stufenschema</td>
+          </tr>
+          <tr class="detail-row" style="display:none;">
+            <td colspan="2"><div class="detail-content">
+
+              <p style="color: forestgreen; font-weight: bold; margin-top: 0.5em;">
+                <b>Behandlung auf KMT-Station - Monitorüberwachung</b>
+              </p>
+
+              <p style="color: orange; font-weight: bold; margin-top: 0.5em;">
+                <b>Vorstellung Intensivstation bei drohendem CRS III° (zB. 6l O2/min oder hoher Volumenbedarf)</b>
+              </p>
+
+              Das 'anhaltende' CRS Grad I-II° wird nach Stufenschema behandelt, <br>
+              wenn die Symptome trotz ergriffener Maßnahmen nicht abklingen.<br>
+              <br>
+              <b>Definition 'anhaltendes CRS Grad I-II°:</b>
+              <br>
+              - Persistierendes Fieber >6h trotz ergriffener Maßnahmen<br>
+              - Kürzer werdende Fieberintervalle trotz ergriffener Maßnahmen<br> <br>
+              <u>Beispiel:</u><br><i>- Nach 1. Gabe Tocilizumab Fieber zunächst 10h kontrolliert (Pat war. ca. 10h Fieberfrei),<br>
+                 - Nach 2. Gabe Tocilizumab nur noch 6h Fieber-Kontrolle (Pat. war nur ca. 6h Fieberfrei)<br>→ <u>Deshalb:</u>Weitere Eskalation nach Stufenschema statt 'nur' 3. Gabe Tocilizumab)
+              </i><br><br>
+              <a href="#sektion2d" class="inline-link">→ Stufenschema bei anhaltendem CRS</a>
+            </div></td>
+
+        </tr>
+        <tr class="product-row">
+          <td>Grad III°</td>
+          <td>Antipyrese + IL-6-Blockade + Steroid + IL1-Blockade</td>
+        </tr>
+        <tr class="detail-row" style="display:none;">
+          <td colspan="2"><div class="detail-content">
+
+            <p style="color: red; font-weight: bold; margin-top: 0.5em;">
+              <b>Intensivmedizinische Behandlung erforderlich!</b>
+            </p>
+
+            <ul>
+              <li>Paracetamol 1000mg i.v. nach Bedarf, ggf. wdh q6h (Alternativ Novalgin)</li>
+              <li>Tocilizumab 8mg/kg i.v. (max. 800mg), ggf. wdh q8h (bis zu 3x innerhalb 24h!)</li>
+              <li>Dexamethason 10mg i.v. q6h, ggf. Steigerung auf 20mg i.v. q6h</li>
+              <li>Anakinra 100mg s.c. q12h fest für 7 Tage</li>
+              
+          </div></td>
+        </tr>
+        <tr class="product-row">
+          <td>Grad IV°</td>
+          <td>Antipyrese + IL-6-Blockade + Steroid + IL1-Blockade</td>
+        </tr>
+        <tr class="detail-row" style="display:none;">
+          <td colspan="2"><div class="detail-content">
+
+            <p style="color: red; font-weight: bold; margin-top: 0.5em;">
+              <b>Intensivmedizinische Behandlung erforderlich!</b>
+            </p>
+
+            <ul>
+              <li>Methylprednisolon 1g i.v. als Bolus, wedh q24h bis zu 3 Tage</li>
+              <li>Anakinra 100mg s.c. q12h fest</li><br>
+              
+              <li>Paracetamol 1000mg i.v. nach Bedarf, ggf. wdh q6h (Alternativ Novalgin)</li>
+              <li>Tocilizumab 8mg/kg i.v. (max. 800mg), falls noch nicht ausgereizt (max 3x/24h, max 4x gesamt)</li>
+              
+            <br>      <b>Evaluation experimenteller Therapien bei Persistenz</b><br>
+          </ul>
+          </div></td>
+        </tr>
+      </tbody>
+    </table><br>
+    Maßnahmen bei 'de-novo' Auftreten von CRS nach CAR-T-Zell-Therapie.<br>
+    <b>Bei <b><u>anhaltendem</u></b> niedrig-gradigem CRS (I-II°) eskalieren wir nach <b><u>Stufenschema</u></b> (s.u.)
+    
+   
+    </p>
+
+  </div>
+</section>
+
+  <!-- Sektion 2d: Stufenschema bei anhaltendem CRS -->
+
+<section id="sektion2d" class="sektion">
   <!-- Treppensektion (Breite: 800px) -->
   <div class="stairs-section">
 
+    <p><center><h3>CRS - Stufenschema bei 'anhaltendem' CRS</h3></center></p><br>
     <!-- Stufe 1 -->
     <div class="step step1" onclick="toggleDesc(1)">
       <div class="number">1</div>
@@ -720,15 +1103,14 @@
       <div class="number">4</div>
       <div class="step-text">
         Dexamethason 10mg i.v. q6h
-        <br>+<br> Anakinra 100mg s.c. q12h fest für 7 Tage
-      </div>
+        <br>+<br> Anakinra 100mg s.c. q12h fest für 7 Tage      </div>
     </div>
 
     <!-- Stufe 5 -->
     <div class="step step5" onclick="toggleDesc(5)">
       <div class="number">5</div>
       <div class="step-text">
-        Dexamethason 20mg i.v. q6h <br>+<br> Anakinra 100mg s.c. q12h fest für 7 Tage
+        Dexamethason 20mg i.v. q6h <br>+<br> Anakinra 100mg s.c. q12h fest 
       </div>
     </div>
 
@@ -749,11 +1131,11 @@
    
         
         <h2>Stufe 1 - Medikamentöse Maßnahmen</h2>
-        <b></h2>Paracetamol 1000mg i.v., wdh. ggf. q8h</b><br><br>
+        <b></h2>Paracetamol 1000mg i.v., wdh. ggf. q6h</b><br><br>
        <br>
         <h2>Stufe 1 - Muss ich die Stufe verlassen?</h2>
-        Stufe 1 muss verlassen werden, wenn Paracetamol q8h i.v. oder p.o. zur Fieberkontrolle nicht ausreichen. 
-        Das heißt wenn die Abstände zwischen dem Auftreten von Fieber kürzer werden, muss auf <b>Stufe 2</b> eskaliert werden<br>
+        Stufe 1 muss verlassen werden, wenn Paracetamol q6h i.v. oder p.o. zur Fieberkontrolle nicht ausreichen. 
+        Das heißt wenn die Abstände zwischen dem Auftreten von Fieber kürzer werden, oder das Fieber >6h <u>durchgehend</u> anhält muss bereits früh auf <b>Stufe 2</b> eskaliert werden<br>
      
         <button class="stufen-button" onclick="toggleDesc(2)">
           → zur nächsten Stufe (2)
@@ -767,28 +1149,26 @@
     <div id="desc2" class="description">
       <h2>Stufe 2 - IL6 Blockade</h2>
   
-      <b>Kurz-Beschreibung:</b> </b><i> Es besteht ein =<u>anhaltendes</u> CRS I° oder ein CRS II°, welches neben der antiphlogistischen 
-        Therapie eine IL6-Blockade (Tocilizumab) erforerdlich machte. Hierunter ist das CRS jedoch ausreichend kontrolliert.</i>
+      <b>Kurz-Beschreibung:</b> </b><i> Es besteht ein anhaltendesCRS I° oder ein neu-aufgetretenes CRS II° (Fieber + Art.Hypotonie/Hypoxie), welches neben der antiphlogistischen 
+        Therapie eine IL6-Blockade (Tocilizumab) erforderlich macht. Hierunter ist das CRS jedoch ausreichend kontrolliert.</i><br>
       
 <br>
 
       <h2>Stufe 2 - Medikamentöse Maßnahmen</h2>
-      <br>
-      Tocilizumab 8mg/kg (Max. 800mg absolut); ggf. Wiederholung q8h bis zu 3x in Folge <br>
-      ggf. auch Fortführung Paracetamol 1000mg i.v., wdh. ggf. q8h <br>
+      
+      <b>Tocilizumab</b> 8mg/kg (Max. 800mg absolut); ggf. Wiederholung q8h bis zu 3x/24h <span class="small-text">+bis zu 4x gesamt</span> <br>
+      ggf. auch Fortführung Paracetamol 1000mg i.v., wdh. ggf. q6h <br>
       
 <br><br>
       <h2>Stufe 2 - Wann muss ich weiter eskalieren?</h2>
       Stufe 2 muss verlassen werden, wenn:<br><br>
       - Tocilizumab q8h zur Fieberkontrolle nicht ausreicht (=anhaltendes CRS I-II°), <br>
-      - ODER: wenn innerhalb 24h bereits 3 Gaben Tocilizumab q8h erfolgten (=anhaltendes CRS I-II°)</b><br>
       - ODER: wenn eine Arterielle Hypotonie auf Flüssigkeitssubstitution nicht anspricht (= CRS III°)<br>
-      - ODER: eine anhaltende Hypoxie besteht und ein respiratorisches Versagen droht (=CRS III°)<br>
+      - ODER: eine zunehmende Hypoxie (6l/min) besteht und ein respiratorisches Versagen droht (=CRS III°)<br>
 <br><br>
       <b>ACHTUNG:</b>
-      bei anhaltendem CRS I-II° eskalieren wir auf Stufe 3
-      bei Eintreten eines CRS III° eskalieren wir direkt auf Stufe 4 oder 5 (Einzelfallentscheidung)
-      und veranlassen die Verlegung auf die Intensivstation<br>
+       bei Eintreten eines CRS III° eskalieren wir direkt auf Stufe 4 oder 5
+      und veranlassen in der Regel die Verlegung auf die Intensivstation (Einzelfallentscheidung)<br>
       <button class="stufen-button" onclick="toggleDesc(3)">
         → zur nächsten Stufe (3)
       </button>
@@ -798,24 +1178,32 @@
       <h2>Stufe 3 - Corticosteroid + IL1 Blockade</h2>
       <b>Kurz-Beschreibung:</b> <i> Es besteht ein =<u>anhaltendes</u> CRS I-II°, welches durch IL-6 Blockade (Tocilizumab)
         nicht hinreichend kontrolliert werden konnte. Die Hinzunahme der IL-1 Blockade (Anakinra) und eine einmalige Gabe von Dexamethason
-       führen jedoch zu einem promptes Ansprechen des CRS.</i><br><br>
+       führen jedoch zu einem prompten Ansprechen des CRS, sodass die Dexamethason-Therapie nicht fest angesetzt werden muss</i><br><br>
       <p>
         
         
         <h2>Stufe 3 - Medikamentöse Maßnahmen</h2>
         
-        <b>Dexamethason 10mg i.v. Einmalgabe<br>
+        <b>Dexamethason 10mg i.v. Einmalgabe (!)<br>
         Anakinra 100mg s.c. q12h fest für 7 Tage </b><br>
         
-        <br> Fortsetzung Tocilizumab und Paracetamol je nach Ansprechen
-        <u>Hinweis:</u>Anakinra = schmerzhafte injektion; <i>Linderung durch Erwärmen auf Raumtemperatur vor Injektion möglich</i>)
+        <br>ggf. Fortsetzung Paracetamol 1000mg i.v., wdh. ggf. q6h <br>
+        ggf. Fortsetzung Tocilizumab 8mg/kg (Max. 800mg absolut) sofern noch nicht ausgereizt.<br>
+        <u>Hinweis:</u>Anakinra = schmerzhafte injektion; <i>Linderung durch Erwärmen auf Raumtemperatur vor Injektion und Emla-Pflaster möglich</i>)
         
     
   <br><br>
         <h2>Stufe 3 - Wann muss ich weiter eskalieren?</h2>
         Stufe 2 muss verlassen werden, wenn<br>
-        - Die Hinzunahme von Anakinra und die einmalige Dexamethason-Gabe waren nicht hinreichend um das CRS zu kontrollieren<br>
+        - Die <b>einmalige</b> Dexamethason-Gabe in Kombination mit Anakinra nicht ausreichend war, um das CRS zu kontrollieren (Anhaltendes oder rasch wiederauftretendes Fieber)<br>
         - ODER: Es tritt eine Verschlechterung von Arterieller Hypotonie bzw. Hypoxie ein, die die Kriterien des CRS III° erfüllen.<br>
+
+        <b>ACHTUNG:</b>
+        bei Eintreten eines CRS III° eskalieren wir auf Stufe 4 oder 5
+        und veranlassen in der Regel die Verlegung auf die Intensivstation (Einzelfallentscheidung)<br>
+        </p>
+
+
         <button class="stufen-button" onclick="toggleDesc(4)">
           → zur nächsten Stufe (4)
         </button>
@@ -826,7 +1214,24 @@
     <div id="desc4" class="description">
       <h2> Stufe 4 - Intensivierung Corticosteroid</h2>
       <p>
-        Interessante Inhalte über Stufe 4, sichtbar nach Klick auf die vierte Stufe.
+  
+      <b>Kurz-Beschreibung:</b> </b><i> Es besteht ein =<u>anhaltendes</u> CRS I-II° welches refraktär auf IL-6 Blockade war und neben der IL-1 Blockade mit Anakinra eine feste Dexamethason-Therapie erforderlich macht. ODER: Es besteht ein CRS III°</i>
+      
+<br>
+
+      <h2>Stufe 4 - Medikamentöse Maßnahmen</h2>
+      Dexamethason 10mg i.v. <b>q6h</b><br>
+      Anakinra 100mg s.c. <b>q12h fest für 7 Tage</b><br>
+      gf. auch Fortführung Paracetamol 1000mg i.v., wdh. ggf. q6h <br>
+      
+<br><br>
+      <h2>Stufe 4 - Wann muss ich weiter eskalieren?</h2>
+      Stufe 4 muss verlassen werden, wenn:<br>
+      - Das Fieber trotz Dexamethason q6h und Anakinra q12h nicht kontrolliert werden kann<br>
+<br><br>
+      <b>ACHTUNG:</b>
+      bei Eintreten eines CRS III° eskalieren wir auf Stufe 4 oder 5
+      und veranlassen in der Regel die Verlegung auf die Intensivstation (Einzelfallentscheidung)<br>
       </p>
 
       <button class="stufen-button" onclick="toggleDesc(5)">
@@ -839,69 +1244,350 @@
     <div id="desc5" class="description">
       <h2> Stufe 5 - Weitere Intensivierung Corticosteroid</h2>
       <p>
-        Abschließende Ausführungen zu Stufe 5. 
+        Im Rahmen eines CRS III° oder IV° ist eine weitere Intensivierung der Corticosteroid-Therapie erforderlich, 
+        die in der Regel auf der Intensivstation erfolgt. Weitere Entscheidungen werden im Einzelfall getroffen.
+
+      <h2>Stufe 5 - Medikamentöse Maßnahmen</h2>
+      Dexamethason 20mg i.v. <b>q6h</b><br>
+      Anakinra 100mg s.c. <b>q12h fest für unbestimmte Dauer</b><br>
+      ggf. auch Fortführung Paracetamol 1000mg i.v., wdh. ggf. q6h <br>
+
+      <br> <b>   Weitere Alternativen: </b><br><li>Methylprednisolon 1.000mg i.v. <b>q24h</b> (statt Dexamethason)<br></li><br>
+      <li><i>Siltuximab (direkte IL-6 Blockade, statt IL-6R wie bei Tocilizumab) - wird nicht mehr verwendet</i></li>
+      <li><i>Ruxolitinib (JAK-Inhibitor) - 5-10mg q12h, wenig Evidenz</i></li>
+      <li><i>CAR-T-Zell Ablation zB. durch Etoposid-Chemotherapie - Ultima Ratio</i></li>
+
       </p>
     </div>
 
   </div> <!-- /.description-container -->
+</section>
 
+
+
+ <!-- Sektion 2c: CRS -->
+
+<section id="sektion2c" class="sektion">
+
+  <header>
+    <h1>CRS - Deeskalation der Therapie </h1>
+    <p><b>>48h ohne Fieber</b><br>
+      Bei kontrolliertem CRS soll die Steroidtherapie schnell ausgeschlichen werden.<br>
+      Diese Empfehlungen gelten für CRS I-III°
+    </p><br>
+  </header>
+
+<div class="content">
+  <table class="product-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Beschreibung</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="product-row">
+        <td colspan="2"><b>Voraussetzungen für Steroid-Deeskalation</b></td>
+        
+      </tr>
+      <tr class="detail-row">
+        <td colspan="2"><div class="detail-content">
+          Die Deeskalation der Steroidtherapie sollte erfolgen, wenn:<br>
+          <ul>
+            <li>Fieber seit >48h sistiert</li>
+            <li>Kein ICANS vorliegt bzw. ICANS ebenfalls >48h sistiert</li>
+            <li>Die Vitalparameter stabil sind</li>
+        </div></td>
+      </tr>
+      <tr class="product-row">
+        <td>Bei kurzer Steroid-Therapiedauer</td>
+        <td>Abruptes Absetzen erwägen</td>
+      </tr>
+      <tr class="detail-row" style="display:none;">
+        <td colspan="2"><div class="detail-content">
+          <ul>
+            <li><b>Bei kurzer Therapiedauer (≤4 Tage):</b><br>Abruptes Beenden der Dexamethasontherapie unter Elektrolyt- und Vitalparameter-Kontrollen</li>
+            ABER: Absetzen <u>direkt vor Entlassung</u> ohne entsprechende Kontrollen sollte vermieden werden
+            
+             <br><br>
+             <li><b>in jedem Fall: Fortsetzung der IL-1 Blockade mit Anakinra für gesamt 7d sofern initiiert</b></li>
+             <li>und bei Rebound-Fieber: ggf. Erneut Eskalation 10mg Dexamethason i.v. q6h</li>
+          </ul>
+        </div></td>
+      </tr>
+      <tr class="product-row">
+        <td>Bei längerer Steroid-therapiedauer</td>
+        <td>Ausschleichen über ca. 7 Tage</td>
+      </tr>
+      <tr class="detail-row" style="display:none;">
+        <td colspan="2"><div class="detail-content">
+          <!-- Hier detaillierte Hinweise zum Ausschleichen ergänzen -->
+          <ul>
+            <li><b>Bei längerer Therapiedauer (>4 Tage):</b><br>Reduktion der Tagesdosis um 50% alle 2-3 Tage</li>
+            hierfür werden Dosisintervall bzw. Dosis angepasst
+             <br><br>
+            <li><b>in jedem Fall: Fortsetzung der IL-1 Blockade mit Anakinra für gesamt 7d</b></li>
+            <li>und bei Rebound-Fieber: ggf. Erneut Eskalation 10mg Dexamethason i.v. q6h</li>
+          </ul>
+        </div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 </section>
 
 
-<section id="sektion3" class="sektion">
+ <!-- Sektion 3a: ICANS Grading -->
+
+<section id="sektion3a" class="sektion">
 
   <header>
     <h1> Immuneffektorzell-assoziiertes Neurotoxizitätssyndrom - ICANS</h1>
     <p>
       <b>Leitsymptom: Auffälliges Neuro-Screening</b><br>
       Frühzeitige Erkennung und Behandlung von ICANS ist entscheidend für den Therapieerfolg. <br>
+  <br>
     </p>
   </header>
 
   <div class="content"> 
     <p>
-      <b>Allgemeinmaßnahmen</b><br>
-      <ul><li>Neurologisches Konsil</li>
-      <li>cCT (nativ)</li>
-    <li>Lumbalpunktion</li>
-  
-  </ul>
-        </p>
+    <b>Definition</b><br>
+    ICANS ist ein zerebrales Hyperinflammations-Syndrom, das nach CAR-T-Zell-Therapie auftreten kann. Es ist gekennzeichnet durch neurologische Symptome, die von leichten kognitiven Beeinträchtigungen bis zu schweren Bewusstseinsstörungen reichen können. Es tritt vor allem nach Behandlung mit CD19-CAR-T-Zellen auf.<br>
+    <br><b>Leitsymptom</b><br>
+    Auffälliges Neuro-Screening, das sich in Verwirrtheit, Desorientiertheit, Sprachstörungen oder motorischen Beeinträchtigungen äußern kann.<br>
+    <br><b>Diagnose</b><br>
+    Die Diagnose erfolgt durch klinische Beobachtung und neurologische Tests. <br>
+    <br><b>ICANS-Klassifikation:</b><br>     
+<table class="product-table">
+  <thead>
+    <tr>
+      <th>Scoring</th>
+      <th>Grad 1</th>
+      <th>Grad 2</th>
+      <th>Grad 3</th>
+      <th>Grad 4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ICE Score</td>
+      <td>Mild (9–7 Punkte)</td>
+      <td>Moderat (6–3 Punkte)</td>
+      <td>Schwer (2–0 Punkte)</td>
+      <td>Neuro-Scan nicht ausführbar</td>
+    </tr>
+    <tr>
+      <td>Vigilanz</td>
+      <td>Spontan wach</td>
+      <td>Wach auf Ansprache</td>
+      <td>Wach auf Berührung</td>
+      <td>Nicht erweckbar oder nur nach stärkerer Berührung</td>
+    </tr>
+    <tr>
+      <td>Krampfanfälle</td>
+      <td>Nein</td>
+      <td>Nein</td>
+      <td>fokal oder generalisiert, Dauer &lt; 5 min, nicht‑konvulsiv (im EEG), benzodiazepin‑responsibel</td>
+      <td>Generalisiert, lebensbedrohlich, Dauer &gt; 5 min, oder (nicht‑)konvulsiver Status</td>
+    </tr>
+    <tr>
+      <td>Motorische Auffälligkeiten</td>
+      <td>nein</td>
+      <td>nein</td>
+      <td>nein</td>
+      <td>Paraparese oder Hemiparese</td>
+    </tr>
+    <tr>
+      <td>Erhöhter Hirn‑druck / Hirnödem</td>
+      <td>Nein</td>
+      <td>Nein</td>
+      <td>Fokale Ödeme in cMRT / cCT</td>
+      <td>Diffuse cerebrale Ödeme, Dekortikations‑/Dezerbrationshaltung, Abduzensparese, Papillenödem oder Cushing‑Triade</td>
+    </tr>
+  </tbody>
+</table>
+
   </div>
 
-  <div class="felder-icans">
-    <div class="feld-icans"><b>ICANS I°</b><br>
-      Dexamethason i.v. 10mg q6h <br>+ Anakinra 100mg s.c. q12h fest für 7 Tage
-      <div class="overlay-icans" style="color:white">i.d.R. Normalstationsfähig</div>
-
-       
-    </div>
-    <div class="feld-icans"><b>ICANS II°</b><br>
-      Dexamethason i.v. 10-20mg q6h <br>+ Anakinra 100mg s.c. q12h fest für 7 Tage<br>
-      Die Dosierung von Dexamethason ist eine Einzelfallentscheidung
-      <div class="overlay-icans" style="background-color: rgba(244, 155, 1, 0.9);color:white">Intensiv<br>Vorstellung</div></div>
-
-     <div class="feld-icans"><b>ICANS >III°</b><br>
-      Dexamethason i.v. 20mg q6h <br>+ Anakinra 100mg s.c. q12h fest für mind. 7 Tage<br>
-       <div class="overlay-icans" style="background-color: rgba(255, 0, 25, 0.9);color:white">Intensivstation</div></div>
-
-       <div class="feld-icans"><b>ICANS IV°</b><br>
-        Eskalation der Steroidtherapie auf 1.000mg i.v. Methylprednisolon q24h<br>
-        Fortüfhrung Anakinra 100mg s.c. q12h fest für mind. 7 Tage<br>
-        <div class="overlay-icans" style="background-color: rgba(255, 0, 25, 0.9);color:white">Intensivstation</div></div>
- 
-   
-</div>
-    
-
-</div> 
 
 </section>
 
+<!-- Sektion 3b: ICANS Management -->
+
+<section id="sektion3b" class="sektion"> 
+
+  <header>
+    <h1> ICANS - Management</h1>
+    <p>
+      Frühes Erkennen und Behandeln von ICANS ist essentiell<br>
+    </p>
+    
+  </header>
+
+  <div class="content"> 
+    <p>
+    <b>Allgemeinmaßnahmen</b><br>
+    <ul><li>Neurologisches Konsil</li>
+    <li>cCT (nativ)</li>
+    <li>Lumbalpunktion (falls keine Kontraindikation)</li>
+    <li>Screening intensivieren ab ICANS I° q4h; Ab ICANS II°: q1h
+    <li>Vorstellung Intensivmedizin ab ICANS II°, Verlegung Intesnvistation ab ICANS III°</li>
+  
+  </ul>
+
+  <b>Bei Agitation</b><br>
+    <ul><li>Niedrigdosiert Lorazepam (Tavor®) (0,25 - 0,5mg i.v. q8h) <br><u>oder</u>: Haloperidol (0,5mg i.v. q6h) <br> 
+      <i>Anwendung jeweils nur unter Monitoring</i></li>  
+  </ul>
+
+
+  <b>Bei Krampfanfällen (=ICANS III°)</b><br>
+    <ul>
+      <li><strong>Medikamentöse Anfallsunterbrechung </strong>(lange Anfallsdauer oder Gefährdung)<br> 
+        Lorazepam (Tavor®) 4mg i.v. langsam, ggf. Wiederholung nach 5-10min</li>
+      <li>Weitere Antikonvulsive Therapie/Prophylaxe zB. mit Levetiracetam nach Maßgabe Neurologisches Konsil</li>
+      <li>Verlegung ITS 1G</li>  
+
+  </ul>
+
+        </p>
+  </div>
+
+
+<div class="content">
+  <h3>ICANS-Behandlung - CD19-CAR-T-Zellen</h3>
+  <p style="color: red; font-weight: bold; margin-top: 0.5em;">
+    Auftreten von schwerem ICANS vor allem nach  CD19-CAR-T-Zellen:<br> insbesondere <u>Axi-Cel YESCARTA®</u> und <u>Brexu-Cel TECARTUS®</u>,
+    <br> seltener bei: Liso-Cel BREYANZI®, Tisa-Cel KYMRIAH®, Obe-Cel (AUCATZYL®).  
+  </p>
+
+  
+   
+  </p>
+  <table class="product-table">
+    <colgroup>
+      <col style="width: 15%;">
+      <col style="width: 20%;">
+      <col style="width: 65%;">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Grad</th>
+        <th>ICE-Score</th>
+        <th>Medikamentöse Maßnahmen bei CD19-CARs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="product-row">
+        <td>I°</td>
+        <td>Mild (9–7 Punkte)</td>
+        <td>Steroid + IL-1Blockade </td>
+      </tr>
+      <tr class="detail-row" style="display:none;">
+        <td colspan="3"><div class="detail-content">
+          Therapie: Dexamethason 10mg iv. einmalig + Anakinra 100 mg s.c. q12h für 7 Tage.<br>
+          Fortsetzung Dexamethason 10mg i.v. q6h falls <b>anhaltendes ICANS I°</b>
+          <br><br> Behandlung in der Regel auf KMT-Station.
+        </div></td>
+      </tr>
+      <tr class="product-row">
+        <td>II°</td>
+        <td>Moderat (6–3 Punkte)</td>
+        <td>Steroid intensivieren; IL-1 Blockade</td>
+      </tr>
+      <tr class="detail-row" style="display:none;">
+        <td colspan="3"><div class="detail-content">
+          Therapie: <br>
+          Dexamethason i.v. 20mg einmalig initial<br>+ Fortsetzung mit Dexamethason i.v. 10 mg q6h<br>+ Anakinra 100 mg s.c. q12h für 7 Tage. 
+          <br>Intensivierung auf Dexamethason i.v. 20mg q6h bei <b>anhaltendem ICANS II°</b> erwägen<br><br>Intensivmedizinische Vorstellung.
+        </div></td>
+      </tr>
+      <tr class="product-row">
+        <td>III°</td>
+        <td>Schwer (2–0 Punkte)</td>
+        <td>Steroid intensivieren; IL-1 Blockade</td>
+      </tr>
+      <tr class="detail-row" style="display:none;">
+        <td colspan="3"><div class="detail-content">
+          Therapie: Dexamethason i.v. 20 mg q6h + Anakinra 100 mg s.c. q12h für ≥7 Tage. <br>Behandlung auf Intensivstation.
+        </div></td>
+      </tr>
+      <tr class="product-row">
+        <td>IV°</td>
+        <td>Neuro-Scan nicht ausführbar</td>
+        <td>Steroid wechseln; IL-1 Blockade</td>
+      </tr>
+      <tr class="detail-row" style="display:none;">
+        <td colspan="3"><div class="detail-content">
+          Therapie: Wechsel auf Methylprednisolon 1 000 mg i.v. q24h + Anakinra 100 mg s.c. q12h für ≥7 Tage. <br>Behandlung auf Intensivstation.
+        </div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="content">
+
+  <h3>ICANS-Behandlung - BCMA-CAR-T-Zellen</h3>
+  <p style="color: green; font-weight: bold; margin-top: 0.5em;">
+    Bei BCMA-CAR-T-Zellen (Cilta-Cel CARVYKTI®) ist das ICANS selten.<br>
+    
+  </p>
+  <table class="product-table">
+    <colgroup>
+      <col style="width: 15%;">
+      <col style="width: 85%;">
+    </colgroup>
+    <thead>
+      <tr style="background-color: #fff9c4;">
+        <th>Grad</th>
+        <th>Medikamentöse Maßnahmen bei BCMA-CARs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="product-row">
+        <td>I°</td>
+        <td>Screening intensivieren<br>ICANs-Diagnose kritisch prüfen</td>
+      </tr>
+      <tr class="detail-row" style="display:none;">
+        <td colspan="2"><div class="detail-content">        
+          Um Fehldiagnosen zu vermeiden ist bei fraglichem ICANs I° bei <br>BCMA-CAR-T-Zellen keine spezifische Therapie empfohlen<br>
+          Bei einem <b>anhaltenden ICANS I°</b> kann eine Therapie als Einzelfallentscheidung erfolgen.
+          <br><br> Behandlung auf KMT-Station.
+        </div></td> 
+      </tr>
+      <tr class="product-row">
+        <td>II°</td>
+        <td>Steroidtherapie erwägen<br>ICANs-Diagnose kritisch prüfen</td>
+      </tr>
+      <tr class="detail-row" style="display:none;">
+        <td colspan="2"><div class="detail-content">
+          Therapie: Dexamethason i.v. 10 mg einmalig, ggf. Fortsetzung q6h bei anahltendem ICANS II°. <br>
+          <br>Behandlung auf KMT-Station.
+        </div></td>
+      </tr>
+      <tr class="product-row">
+        <td>III-IV°</td>
+        <td>Steroid intensivieren; IL-1 Blockade</td>
+      </tr>     
+      <tr class="detail-row" style="display:none;">
+        <td colspan="2"><div class="detail-content">
+          Therapie: Dexamethason i.v. 20 mg q6h + Anakinra 100 mg s.c. q12h für ≥7 Tage. <br>Behandlung auf Intensivstation.
+        </div></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+</section>
+
+
+ <!-- Sektion 4: IEC-HS / HLH -->
+
 <section id="sektion4" class="sektion">
-
-
 
  <header>
     <h1> Immuneffektorzell-assoziiertes Haemophagozytoseartiges Syndrom <br> IEC-HS / HLH</h1>
@@ -923,10 +1609,10 @@
 	3.	Zytopenien (≥2 Zelllinien betroffen)<br>
 	4.	Hyperferritinämie (typisch: Ferritin > 10.000 ng/mL, oft >100.000)<br>
 	5.	Hepatobiliäre Dysfunktion (↑ Bilirubin, ↑ Transaminasen, ↑ INR)<br>
-	6.	Hypofibrinogenämie (<150 mg/dL)<br>
+	6.	Hypofibrinogenämie (Gerinnung!)<br>
 	7.	Hämophagozytose (im Knochenmark oder anderen Geweben – fakultativ)<br>
 	8.	Anstieg von IL-6, <br>
-  9.  Anstieg von Triglyzeride<br> 
+  9.  Anstieg von Triglyzeriden<br> 
 </div>
   <header> <p>
     Die medikamentösen Maßnahmen sind zunächst ident zu schwerem CRS / ICANS<br>Eine Eskalation über die Maßnahmen bei CRS / ICANS hinaus <br>bleibt eine <b>Einzelfallentscheidung</b><br>
@@ -949,30 +1635,646 @@
 
 </section>
 
-<br>
+ <!-- Sektion 5: Risikoscores -->
+
 <section id="sektion5" class="sektion">
+  <header>
+    <h1>Risiko-Scores <br>im Kontext der CAR-T-Zell-Therapie</h1>
+    <p>
+      CAR-Haematotox-Score und EASIX-Scores dienen der Abschätzung des Risikos für schwere hämatologische Toxizität bzw. Hyperinflammations-Syndromen nach CAR-T-Zell-Therapie.<br>
+    </p>
+  </header>
+  <div class="content">
+<div class="accordion">
+  <button class="accordion-btn">CAR-Haematotox-Score</button>
+  <div class="panel">
+
+    <p>   Der CAR-Haematotox-Score wird aus den unten genannten Parametern berechnet. <br>
+      Ein höherer Score deutet auf ein höheres Risiko für schwere hämatologische Toxizität hin.<br>
+    </p>
+
+    <form id="carHemaForm">
+      <div class="select-group">
+        <label>
+          Platelet Count (µl):
+          <select id="platelet">
+            <option value="">--Bitte wählen--</option>
+            <option value="0">0: &gt; 175.000/µl</option>
+            <option value="1">1: 75.000–175.000/µl</option>
+            <option value="2">2: &lt; 75.000/µl</option>
+          </select>
+        </label>
+      </div>
+      <div class="select-group">
+        <label>
+          Absolute Neutrophil Count (ANC, /µl):
+          <select id="anc">
+            <option value="">--Bitte wählen--</option>
+            <option value="0">0: &gt; 1200/µl</option>
+            <option value="1">1: &lt; 1200/µl</option>
+          </select>
+        </label>
+      </div>
+      <div class="select-group">
+        <label>
+          Hemoglobin (g/dl):
+          <select id="hgb">
+            <option value="">--Bitte wählen--</option>
+            <option value="0">0: &gt; 9.0 g/dl</option>
+            <option value="1">1: &lt; 9.0 g/dl</option>
+          </select>
+        </label>
+      </div>
+      <div class="select-group">
+        <label>
+          C-reactive protein (CRP, mg/dl):
+          <select id="crp">
+            <option value="">--Bitte wählen--</option>
+            <option value="0">0: &lt; 3.0 mg/dl</option>
+            <option value="1">1: &gt; 3.0 mg/dl</option>
+          </select>
+        </label>
+      </div>
+      <div class="select-group">
+        <label>
+          Ferritin (ng/ml):
+          <select id="ferritin">
+            <option value="">--Bitte wählen--</option>
+            <option value="0">0: &lt; 650 ng/ml</option>
+            <option value="1">1: 650–2000 ng/ml</option>
+            <option value="2">2: &gt; 2000 ng/ml</option>
+          </select>
+        </label>
+      </div>
+      <button type="button" onclick="calculateCarHema()">Berechnen</button><br>
+   
+    </form>
+    <div id="carHemaResult"></div>
+  </div>
+
+  <button class="accordion-btn">EASIX-Scores</button>
+  
+  <div class="panel">
+
+    <p>Der <b>EASIX-Score (Endothelial Activation and Stress Index) </b>wurde im Kontext der allogenen Stammzelltransplantation entwickelt und validiert. 
+      Ein erhöhter Score ist mit erhöhter NRM, vermehrten endothelialen Komplikationen (VOD, TMA) und vermehrter GvHD assoziiert. Es existieren unterschiedliche Cut-off Werte.
+      <br><br>im Kontext der CAR-T-Zell-Therapie besteht eine Assoziation zum Auftreten der Immuneffektorzell-assoziierten Syndrome CRS und ICANS.<br><br>
+      Modifizierte Scores (mEASIX und EASIX-F) haben eine bessere Aussagekraft. Ein Einfluss auf NRM und Gesamtüberleben konnte aber nicht herausgearbeitet werden.<br> </p>
+
+    <div class="select-group">
+      <label>
+        Score-Typ:
+        <select id="easixType">
+          <option value="">--Bitte wählen--</option>
+          <option value="standard">EASIX</option>
+          <option value="ferritin">EASIX-F</option>
+          <option value="modified">m-EASIX</option>
+        </select>
+      </label>
+    </div>
+
+    <div id="easixStandard" class="easix-group" style="display:none;">
+      <form id="easixForm">
+        <label>
+          LDH (U/L):
+          <input type="number" id="ldh" required>
+        </label>
+        <label>
+          Kreatinin (mg/dL):
+          <input type="number" step="0.01" id="kreatinin" required>
+        </label>
+        <label>
+          Thrombozyten (10^9/L):
+          <input type="number" id="tz" required>
+        </label>
+        <button type="button" onclick="calculateEasix()">Berechnen</button>
+      </form>
+      <div id="easixResult"></div>
+    </div>
+
+    <div id="easixFerritin" class="easix-group" style="display:none;">
+      <form id="easixFForm">
+        <label>
+          LDH (U/L):
+          <input type="number" id="ldhF" required>
+        </label>
+        <label>
+          Kreatinin (mg/dL):
+          <input type="number" step="0.01" id="kreatininF" required>
+        </label>
+        <label>
+          Thrombozyten (10^9/L):
+          <input type="number" id="tzF" required>
+        </label>
+        <label>
+          Ferritin (ng/mL):
+          <input type="number" id="ferritinF" required>
+        </label>
+        <button type="button" onclick="calculateEasixF()">Berechnen</button>
+      </form>
+      <div id="easixFResult"></div>
+    </div>
+
+    <div id="easixModified" class="easix-group" style="display:none;">
+      <form id="measixForm">
+        <label>
+          LDH (U/L):
+          <input type="number" id="ldhM" required>
+        </label>
+        <label>
+          C-reactive Protein (CRP, mg/dL):
+          <input type="number" step="0.1" id="crpM" required>
+        </label>
+        <label>
+          Thrombozyten (10^9/L):
+          <input type="number" id="tzM" required>
+        </label>
+        <button type="button" onclick="calculateMeasix()">Berechnen</button>
+      </form>
+      <div id="measixResult"></div>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <div class="content">
+  
+
+  <div class="feld" onclick="toggleDesc2(6)" style="border-radius: 0.5rem;"> CAR-HAEMATOTOX, <br>Verlauf Neutrophile, Adaptiert nach Rejeski et al.; Blood 2021; 
+  </div>
+  
+  <!--- Einbledung von Grafik-->
+  
+  <div id="desc6" class="description" style="background-color: white; padding:0px">
+  
+    <head>
+      <meta charset="UTF-8">
+      <title>ANC-Verlauf (stilisiert)</title>
+      <script src="plotly-latest.min.js"></script>
+    </head>
+    <body style="font-family:sans-serif; margin:40px;">
+      <div style="display:flex; flex-direction:row; justify-content:center; align-items:center;" font-color="#000000">
+        <!-- Hauptplot -->
+        <div id="mainPlot" style="width:100%; height:600px;"></div>
+    
+        
+      <script>
+        // Zeitpunkte (Tage)
+        const time = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 10, 14,
+                      21, 28, 35, 42, 49, 56, 63, 70, 84, 112, 140];
+    
+        // Synthetische geglättete Verläufe (stilisiert, mit "second dip")
+        const quick =    [2800, 2750, 2600, 2500, 2400, 2000, 1200, 600, 300, 200, 250, 400, 600,
+                          1000, 1800, 2500, 3000, 2900, 2200, 2500, 2800, 2900, 3000, 3100, 3100, 3100];
+    
+        const intermittent = [2700, 2650, 2500, 2400, 2300, 1800, 1000, 400, 200, 100, 150, 300, 500,
+                              900, 1600, 2200, 2500, 2400, 1500, 1200, 1800, 2200, 2500, 2600, 2700, 2700];
+    
+        const aplastic = [1800, 1700, 1600, 1500, 1400, 1000, 400, 100, 50, 20, 20, 30, 40,
+                          60, 100, 200, 300, 350, 400, 500, 800, 1000, 1300, 1500, 1700, 1800];
+    
+        // Linienfarben
+        const colors = {
+          quick: 'lightgreen',
+          intermittent: 'lightblue',
+          aplastic: 'lightcoral'
+        };
+    
+        // Traces
+        const traces = [
+          {
+            x: time,
+            y: quick,
+            name: 'Quick Recovery',
+            mode: 'lines',
+            line: { color: colors.quick, width: 5, shape: 'spline' }
+          },
+          {
+            x: time,
+            y: intermittent,
+            name: 'Intermittent Recovery',
+            mode: 'lines',
+            line: { color: colors.intermittent, width: 5, shape: 'spline' }
+          },
+          {
+            x: time,
+            y: aplastic,
+            name: 'Aplastic',
+            mode: 'lines',
+            line: { color: colors.aplastic, width: 5, shape: 'spline' }
+          }
+        ];
+    
+        const layout = {
+          title: 'Absolute neutrophil count (ANC) over time',
+          xaxis: {
+            title: 'Time (days)',
+            tickvals: [-5, 0, 7, 14, 28, 42, 56, 84, 112, 140],
+            ticktext: ['-5', '0', 'W1', 'W2', 'W4', 'W6', 'W8', 'M3', 'M4', 'M5'],
+            showgrid: false
+          },
+          yaxis: {
+            title: 'ANC (cells/µL)',
+            range: [0, 3500],
+            tick0: 0,
+            dtick: 500,
+            showgrid: true,
+            gridcolor: '#eee'
+          },
+          shapes: [
+            {
+              type: 'line',
+              x0: Math.min(...time),
+              x1: Math.max(...time),
+              y0: 500,
+              y1: 500,
+              line: { color: 'gray', width: 1.5, dash: 'dash' }
+            },
+            {
+              type: 'line',
+              x0: Math.min(...time),
+              x1: Math.max(...time),
+              y0: 1500,
+              y1: 1500,
+              line: { color: 'gray', width: 1.5, dash: 'dash' }
+            }
+          ],
+          showlegend: false,
+          margin: { l: 60, r: 10, t: 50, b: 50 }
+        };
+    
+        Plotly.newPlot('mainPlot', traces, layout, {displayModeBar: false});
+    
+        // Rechte Balkenlegende
+        const barData = [{
+          x: [25, 52, 23],
+          y: ['Quick Recovery', 'Intermittent Recovery', 'Aplastic'],
+          type: 'bar',
+          orientation: 'h',
+          text: ['25%', '52%', '23%'],
+          textposition: 'auto',
+          marker: {
+            color: [colors.quick, colors.intermittent, colors.aplastic]
+          },
+          hoverinfo: 'none'
+        }];
+    
+        const barLayout = {
+          xaxis: { showticklabels: false },
+          yaxis: { showticklabels: false },
+          margin: { l: 0, r: 0, t: 0, b: 0 },
+          height: 300,
+          width: 200,
+          showlegend: false
+        };
+    
+        Plotly.newPlot('barLegend', barData, barLayout, {displayModeBar: false});
+      </script>
+  
+      </div>
+  
+      <div style="text-align: left; margin-top: 20px; padding-left: 10px;  font-color="#000000">
+        <p>Adaptiert nach Rejeski et al. Blood 2021</p> <a href="https://doi.org/10.1182/blood.2020010543" target="_blank">https://doi.org/10.1182/blood.2020010543</a><br>
+        <p>Die Grafik zeigt den Verlauf der Neutrophilen in der Aplasie <br> 
+          mit unterschiedlicher Charakteristik (sog. Quick Recovery, Intermittent Recovery, Aplastic) <br>
+          in einer großen Kohorte von Patient:innen mit CAR-T-Zelltherapie.</p> 
+       
+          <p>im ambulanten Verlauf zeigen viele Pat. einen erneuten passageren Abfall der Neutrophilen</p> <br>
+    </div>
+   
+    <div id="pic-scroll-anchor" class="pic-scroll-anchor"></div>
+</div>
+  
+</section>
+
+<!-- Sektion 6: CAR-T-Zell - Produkte: Grundlagen -->
+<section id="sektion6" class="sektion">
+  <header>
+    <h1>CAR-T-Zell - Produkte</h1>
+    <p>Übersicht über die kommerziell verfügbaren CAR-T-Zell-Produkte<br> mit ihren Indikationen und Konstrukt-Details.</p>
+  </header>
+  <div class="content">
+    <i>Zulassungstexte aktualisiert: 06/2025</i><br>
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>Produkt</th>
+          <th>Indikationen</th>
+          <th>Target</th>
+          <th>Costimulation</th>
+          <th>CRS-Risiko</th>
+          <th>ICANS-Risiko</th>
+        </tr>
+      </thead>
+      <tbody>
+  <tr class="product-row">
+    <td>Axi-Cel <br>(YESCARTA®)</td>
+    <td>DLBCL</td>
+    <td>CD19</td>
+    <td>CD28</td>
+    <td>hoch</td>
+    <td>hoch</td>
+  </tr>
+  <tr class="detail-row" style="display:none;">
+    <td colspan="6"><div class="detail-content">Axi-Cel (YESCARTA®), Hersteller Kite/Gilead: <br><br>
+    
+      Therapeutic indication<br><br>
+
+      Yescarta is indicated for the treatment of adult patients with diffuse large B cell lymphoma (DLBCL) and high-grade B-cell lymphoma (HGBL) that relapses within 12 months from completion of, or is refractory to, first-line chemoimmunotherapy.
+      <br><br>
+      Yescarta is indicated for the treatment of adult patients with relapsed or refractory (r/r) DLBCL and primary mediastinal large B cell lymphoma (PMBCL), after two or more lines of systemic therapy.
+      <br><br>
+      Yescarta is indicated for the treatment of adult patients with r/r follicular lymphoma (FL) after three or more lines of systemic therapy.
+    
+    </div></td>
+  </tr>
+  <tr class="product-row">
+    <td>Brexu-Cel <br>(TECARTUS®)</td>
+    <td>MCL, <br>B‑ALL(&#8805;26a)</td>
+    <td>CD19</td>
+    <td>CD28</td>
+    <td>hoch</td>
+    <td>hoch</td>
+  </tr>
+  <tr class="detail-row" style="display:none;">
+    <td colspan="6"><div class="detail-content">Brexu‑Cel (TECARTUS®), Hersteller Kite/Gilead: <br><br>
+    
+      Therapeutic indication<br><br>
+
+      Mantle cell lymphoma<br>
+      Tecartus is indicated for the treatment of adult patients with relapsed or refractory mantle cell lymphoma (MCL) after two or more lines of systemic therapy including a Bruton’s tyrosine kinase (BTK) inhibitor.
+      <br><br>
+      Acute lymphoblastic leukaemia<br>
+            Tecartus is indicated for the treatment of adult patients 26 years of age and above with relapsed or refractory B-cell precursor acute lymphoblastic leukaemia (ALL).
+    
+    </div></td>
+  </tr>
+
+  <tr class="product-row">
+    <td>Liso-Cel <br>(BREYANZI®)</td>
+    <td>DLBCL, FL</td>
+    <td>CD19</td>
+    <td>4‑1BB</td>
+    <td>mittel</td>
+    <td>mittel</td>
+  </tr>
+  <tr class="detail-row" style="display:none;">
+    <td colspan="6"><div class="detail-content">Liso‑Cel (BREYANZI®), Hersteller Bristol-Myers-Squibb, UK:
+
+<br><br>
+
+      Therapeutic indications:<br><br>
+
+      Breyanzi is indicated for the treatment of adult patients with diffuse large B-cell lymphoma (DLBCL), high grade B-cell lymphoma (HGBCL), primary mediastinal large B-cell lymphoma (PMBCL) and follicular lymphoma grade 3B (FL3B), who relapsed within 12 months from completion of, or are refractory to, first-line chemoimmunotherapy.
+<br><br>
+Breyanzi is indicated for the treatment of adult patients with relapsed or refractory DLBCL, PMBCL and FL3B, after two or more lines of systemic therapy.
+<br><br>
+Breyanzi is indicated for the treatment of adult patients with relapsed or refractory follicular lymphoma (FL) after two or more lines of systemic therapy.
+
+    </div></td>
+  </tr>
 
 
+  <tr class="product-row">
+    <td>Tisa-Cel <br>(KYMRIAH®)</td>
+    <td>DLBCL, <br>B-ALL(&#8804;25a)</td>
+    <td>CD19</td>
+    <td>4‑1BB</td>
+    <td>mittel</td>
+    <td>mittel</td>
+  </tr>
+  <tr class="detail-row" style="display:none;">
+    <td colspan="6"><div class="detail-content">Tisa‑Cel (KYMRIAH®), Hersteller Novartis AG:<br><br>
 
+      Therapeutic indication<br><br>
+
+Kymriah is indicated for the treatment of:<br>
+
+• Paediatric and young adult patients up to and including 25 years of age with B cell acute lymphoblastic leukaemia (ALL) that is refractory, in relapse post transplant or in second or later relapse.
+<br>
+• Adult patients with relapsed or refractory diffuse large B cell lymphoma (DLBCL) after two or more lines of systemic therapy.
+<br>
+• Adult patients with relapsed or refractory follicular lymphoma (FL) after two or more lines of systemic therapy.
+
+
+    </div></td>
+    
+  </tr>
+
+  <tr class="product-row">
+    <td>Obe-Cel <br>(AUCATZYL®)</td>
+    <td>B-ALL(&#8805;26a)</td>
+    <td>CD19</td>
+    <td>4‑1BB</td>
+    <td>mittel</td>
+    <td>mittel</td>
+  </tr>
+  <tr class="detail-row" style="display:none;">
+    <td colspan="6"><div class="detail-content">Obe-Cel (AUCATZYL®), Hersteller Autolus Therapeutics plc, UK:<br><br
+      
+      Therapeutic Indication:<br> Formelle Zulassung ausstehend, aber positives CHMP-votum<br><br>23-05-2025 EMA has recommended granting a conditional marketing authorisation in the European Union (EU) 
+      for Aucatzyl (obecabtagene autoleucel) to treat adults from 26 years of age with relapsed or refractory B-cell precursor 
+      acute lymphoblastic leukaemia (B ALL).
+    <br><br><br>
+    
+    </div></td>
+  </tr>
+
+
+  <tr class="product-row">
+    <td>Cilta-Cel (CARVYKTI®)</td>
+    <td>MM</td>
+    <td>BCMA</td>
+    <td>4‑1BB</td>
+    <td>gering</td>
+    <td>gering</td>
+  </tr>
+  <tr class="detail-row" style="display:none;">
+    <td colspan="6"><div class="detail-content">Cilta‑Cel (CARVYKTI®), Hersteller Janssen-Cilag International NV;<br> <br>
+
+      Therapeutic indication<br><br>
+      Carvykti is indicated for the treatment of adult patients with relapsed and refractory multiple myeloma, who have received at least one prior therapy, including an immunomodulatory agent and a proteasome inhibitor have demonstrated disease progression on the last therapy, and are refractory to lenalidomide.
+
+
+    </div></td>
+  </tr>
+  <tr class="product-row">
+    <td>Ide-Cel <br>(ABECMA®)</td>
+    <td>MM</td>
+    <td>BCMA</td>
+    <td>4‑1BB</td>
+    <td>gering-mittel</td>
+    <td>gering</td>
+  </tr>
+  <tr class="detail-row" style="display:none;">
+    <td colspan="6"><div class="detail-content">Ide‑Cel (ABECMA®), Hersteller Bristol-Myers Squibb, <br><br>
+      
+      <i>Das Produkt ist nicht mehr verfügbar, da es 
+      gegenüber CARVYKTI® (Cilta-Cel) unterlegen ist und (vom deutschen Markt) zurückgezogen wurde.
+    </i></div></td>
+  </tr>
+
+</tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Sektion 7: Quellen -->
+<section id="sektion7" class="sektion">
   <header>
      <h1> Quellen / Literatur</h1>
-     <p>
-       <b></b><br>
-       <br>
-     </p><br>
+     
+ </header>
 
- </section>
+<div class="content">
+  <table class="product-table reference-list-table">
+    <thead>
+      <tr>
+        <th>Quelle</th>
+        <th>DOI / link</th>
+        <th>Beschreibung</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Brudno JN, Maus MV, Hinrichs CS. CAR T Cells and T-Cell Therapies for Cancer: A Translational Science Review. JAMA. 2024;332:1924–1935.</td>
+        <td><a href="https://doi.org/10.1001/jama.2024.19462" target="_blank">10.1001/jama.2024.19462</a></td>
+        <td>Review der translationalen Wissenschaftsentwicklungen und des klinischen Nutzens von CAR-T-Zelltherapien zur Verbesserung der Überlebensraten.</td>
+      </tr>
+      <tr>
+        <td>Rejeski K, Perez A, Sesques P, et al. CAR-HEMATOTOX: a model for CAR T-cell–related hematologic toxicity in relapsed/refractory large B-cell lymphoma. Blood. 2021;138:2499–2513.</td>
+        <td><a href="https://doi.org/10.1182/blood.2020010543" target="_blank">10.1182/blood.2020010543</a></td>
+        <td>Entwicklung und Validierung eines Scores zur Vorhersage schwerer hämatologischer Toxizität nach CAR-T-Zelltherapie.</td>
+      </tr>
+      <tr>
+        <td>Kröger N, Gribben J, Chabannon C, Yakoub-Agha I, Einsele H (Hrsg.). The EBMT/EHA CAR-T Cell Handbook. Springer; 2022.</td>
+        <td><a href="https://doi.org/10.1007/978-3-030-94353-0" target="_blank">10.1007/978-3-030-94353-0</a></td>
+        <td>Handbuch mit Best-Practice-Empfehlungen und Leitlinien für die klinische Anwendung von CAR-T-Zelltherapien.</td>
+      </tr>
+      <tr>
+        <td>Dreger P, Corradini P, Gribben JG, et al. CD19-directed CAR T cells as first salvage therapy for large B-cell lymphoma: towards a rational approach. Lancet Haematol. 2023;10:e1006–e1015.</td>
+        <td><a href="https://doi.org/10.1016/S2352-3026(23)00307-1" target="_blank">10.1016/S2352-3026(23)00307-1</a></td>
+        <td>Empfehlungen eines strukturierten Managementansatzes für den Einsatz von CD19-CAR-T-Zellen als Erst-Salvagetherapie.</td>
+      </tr>
+      <tr>
+        <td>Hines MR, Knight TE, McNerney KO, et al. Immune Effector Cell-Associated Hemophagocytic Lymphohistiocytosis-Like Syndrome. Transplant Cell Ther. 2023;29:438.e1–438.e16.</td>
+        <td><a href="https://doi.org/10.1016/j.jtct.2023.03.006" target="_blank">10.1016/j.jtct.2023.03.006</a></td>
+        <td>Definition und Charakterisierung eines HLH-ähnlichen Syndroms als schwerwiegende Komplikation nach CAR-T-Zelltherapie inklusive Managementvorschlägen.</td>
+      </tr>
+      <tr>
+        <td>Camacho-Arteaga L, Iacoboni G, Kwon M, et al. Late Adverse Events After Chimeric Antigen Receptor T-Cell Therapy for Patients With Aggressive B-Cell Non-Hodgkin Lymphoma. JAMA Netw Open. 2025;8:e2461683.</td>
+        <td><a href="https://doi.org/10.1001/jamanetworkopen.2024.61683" target="_blank">10.1001/jamanetworkopen.2024.61683</a></td>
+        <td>Prospektive Kohortenstudie zu spät auftretenden Nebenwirkungen nach CAR-T-Zelltherapie, die eine langfristige Überwachung empfiehlt.</td>
+      </tr>
+      <tr>
+        <td>Cordas dos Santos DM, Tix T, Shouval R, Gafter-Gvili A, Alberge J-B, Cliff ERS, Theurich S, von Bergwelt-Baildon M, Ghobrial IM, Subklewe M, Perales M-A, Rejeski K. A systematic review and meta-analysis of nonrelapse mortality after CAR T cell therapy. Nat Med. 2024;30:2667–2678.</td>
+        <td><a href="https://doi.org/10.1038/s41591-024-03084-6" target="_blank">10.1038/s41591-024-03084-6</a></td>
+        <td>Systematische Übersichtsarbeit und Metaanalyse zur nicht-relapse Mortalität nach CAR-T-Zelltherapie mit quantitativer Auswertung der Haupttodesursachen.</td>
+      </tr>
+      <tr>
+        <td>Strati P, Jallouk A, Deng Q, et al. A phase 1 study of prophylactic anakinra to mitigate ICANS in patients with large B-cell lymphoma. Blood Adv. 2023;7:6785–6789.</td>
+        <td><a href="https://doi.org/10.1182/bloodadvances.2023010653" target="_blank">10.1182/bloodadvances.2023010653</a></td>
+        <td>Phase‑1-Studie zeigt, dass prophylaktisches Anakinra sicher ist und das Auftreten von ICANS nach CAR‑T-Zell-Therapie reduziert, ohne die antitumorale Wirkung zu beeinträchtigen.</td>
+      </tr>
+      <tr>
+        <td>Gazeau N, Liang EC, Wu Q “Vicky,” et al. Anakinra for refractory CRS or ICANS after CAR T-cell therapy. Transplant Cell Ther. 2023;29:430–437.</td>
+        <td><a href="https://doi.org/10.1016/j.jtct.2023.04.001" target="_blank">10.1016/j.jtct.2023.04.001</a></td>
+        <td>Multizentrische retrospektive Analyse belegt, dass Anakinra bei refraktärem CRS oder ICANS sicher anwendbar ist und eine 77 %ige Gesamtansprechrate ohne signifikante therapieassoziierte Mortalität erzielt.</td>
+      </tr>
+      <tr>
+        <td>Park JH, Nath K, Devlin SM, et al. CD19 CAR T-cell therapy and prophylactic anakinra in relapsed or refractory lymphoma: phase 2 trial interim results. Nat Med. 2023;29:1710–1717.</td>
+        <td><a href="https://doi.org/10.1038/s41591-023-02404-6" target="_blank">10.1038/s41591-023-02404-6</a></td>
+        <td>Zwischenanalyse einer Phase‑2-Studie zeigt eine niedrige Inzidenz schweren ICANS (9,7 %) und CRS (6,4 %) bei prophylaktischer Anakinra-Gabe ab Tag 2 nach CAR-T-Infusion.</td>
+      </tr>
+      <tr>
+        <td>Philippis CD, Mannina D, Giordano L, Costantini E, Marcheselli S, Mariotti J, Sarina B, Taurino D, Santoro A, Bramanti S. Impact of Preemptive Use of Tocilizumab on Chimeric Antigen Receptor T Cell Outcomes in Non-Hodgkin Lymphoma. Transplantation and Cellular Therapy. 2023;29:429.e1–429.e6.</td>
+        <td><a href="https://doi.org/10.1016/j.jtct.2023.03.019" target="_blank">10.1016/j.jtct.2023.03.019</a></td>
+        <td>Vorpilot-Studie zeigt, dass präemptiver Tocilizumab-Einsatz CRS reduziert, ohne antitumorale Wirkung zu beeinträchtigen.</td>
+      </tr>
+      <tr>
+        <td>Iacoboni G, Navarro V, Martín-López AÁ, Rejeski K, Kwon M, Jalowiec KA, Amat P, Reguera-Ortega JL, Gallur L, Blumenberg V, Gutiérrez-Herrero S, Roddie C, Benzaquén A, Delgado-Serrano J, Sánchez-Salinas MA, Bailén R, Carpio C, López-Corral L, Hernani R, … Barba P. Recent Bendamustine Treatment Before Apheresis Has a Negative Impact on Outcomes in Patients With Large B-Cell Lymphoma Receiving Chimeric Antigen Receptor T-Cell Therapy. J Clin Oncol. 2024;42(2):205–217.</td>
+        <td><a href="https://doi.org/10.1200/JCO.23.01097" target="_blank">10.1200/JCO.23.01097</a></td>
+        <td>Vorbehandlung mit Bendamustin vor Apherese verringert CAR-T-Zell-Transfektionsraten und verschlechtert klinische Behandlungsergebnisse. <br><br>Pat. mit Bendamustin innerhalb 9 Monate vor CAR-T haben ein extrem schlechtes outcome.</td>
+      </tr>
+      <tr>
+        <td>Galli E, Allain V, Di Blasi R, Bernard S, Vercellino L, Morin F, Moatti H, Caillat-Zucman S, Chevret S, Thieblemont C. G-CSF does not worsen toxicities and efficacy of CAR-T cells in refractory/relapsed B-cell lymphoma. Bone Marrow Transplant. 2020;55(12):2347–2349.</td>
+        <td><a href="https://doi.org/10.1038/s41409-020-01006-x" target="_blank">10.1038/s41409-020-01006-x</a></td>
+        <td>Studie zeigt, dass G-CSF-Gabe nach CAR-T-Therapie weder Toxizitäten noch Wirksamkeit beeinträchtigt.</td>
+      </tr>
+      <tr>
+        <td>Greenbaum U, Strati P, Saliba RM, Torres J, Rondon G, Nieto Y, Hosing C, Srour SA, Westin J, Fayad LE, Lee HJ, Iyer SP, Nair R, Nastoupil LJ, Parmar S, Rodriguez MA, Samaniego F, Steiner RE, Wang M, … Ahmed S. CRP and ferritin in addition to the EASIX score predict CAR-T–related toxicity. Blood Adv. 2021;5(14):2799–2806.</td>
+        <td><a href="https://doi.org/10.1182/bloodadvances.2021004575" target="_blank">10.1182/bloodadvances.2021004575</a></td>
+        <td>Erweiterung des EASIX-Scores um CRP und Ferritin verbessert die Vorhersage schwerer CAR-T-Toxizitäten.</td>
+      </tr>
+      <tr>
+        <td>Hay KA, Hanafi L-A, Li D, Gust J, Liles WC, Wurfel MM, López JA, Chen J, Chung D, Harju-Baker S, Cherian S, Chen X, Riddell SR, Maloney DG, Turtle CJ. Kinetics and biomarkers of severe cytokine release syndrome after CD19 chimeric antigen receptor–modified T-cell therapy. Blood. 2017;130(21):2295–2306.</td>
+        <td><a href="https://doi.org/10.1182/blood-2017-06-793141" target="_blank">10.1182/blood-2017-06-793141</a></td>
+        <td>Analyse der Kinetik und Biomarker-Profile identifiziert frühe Indikatoren für schweres CRS.</td>
+      </tr>
+      <tr>
+        <td>Lee DW, Santomasso BD, Locke FL, Ghobadi A, Turtle CJ, Brudno JN, Maus MV, Park JH, Mead E, Pavletic S, Go WY, Eldjerou L, Gardner RA, Frey N, Curran KJ, Peggs KS, Pasquini M, DiPersio JF, van den Brink MRM, … Neelapu SS. ASTCT Consensus Grading for Cytokine Release Syndrome and Neurologic Toxicity Associated with Immune Effector Cells. Biol Blood Marrow Transplant. 2019;25(4):625–638.</td>
+        <td><a href="https://doi.org/10.1016/j.bbmt.2018.12.758" target="_blank">10.1016/j.bbmt.2018.12.758</a></td>
+        <td>ASTCT-Konsensus definiert ein standardisiertes Grading für CRS und neurologische Toxizität nach IEC-Therapien.</td>
+      </tr>
+      <tr>
+        <td>Locke FL, Rossi JM, Neelapu SS, Jacobson CA, Miklos DB, Ghobadi A, Oluwole OO, Reagan PM, Lekakis LJ, Lin Y, Sherman M, Better M, Go WY, Wiezorek JS, Xue A, Bot A. Tumor burden, inflammation, and product attributes determine outcomes of axicabtagene ciloleucel in large B-cell lymphoma. Blood Adv. 2020;4(19):4898–4911.</td>
+        <td><a href="https://doi.org/10.1182/bloodadvances.2020002394" target="_blank">10.1182/bloodadvances.2020002394</a></td>
+        <td>Tumorlast, Entzündungsmarker und Produktcharakteristika korrelieren mit Therapieerfolg und Toxizität bei Axi-Cel.</td>
+      </tr>
+      <tr>
+        <td>Pennisi M, Sanchez-Escamilla M, Flynn JR, Shouval R, Alarcon Tomas A, Silverberg ML, Batlevi C, Brentjens RJ, Dahi PB, Devlin SM, Diamonte C, Giralt S, Halton EF, Jain T, Maloy M, Mead E, Palomba ML, Ruiz J, Santomasso B, … Perales MA. Modified EASIX predicts severe cytokine release syndrome and neurotoxicity after chimeric antigen receptor T cells. Blood Adv. 2021;5(17):3397–3406.</td>
+        <td><a href="https://doi.org/10.1182/bloodadvances.2020003885" target="_blank">10.1182/bloodadvances.2020003885</a></td>
+        <td>Modifizierter EASIX-Score ermöglicht präzisere Vorhersage von schwerem CRS und ICANS.</td>
+      </tr>
+      <tr>
+        <td>Schroeder T, Martens T, Fransecky L, Valerius T, Schub N, Pott C, Baldus C, Stölzel F. Management of chimeric antigen receptor T (CAR-T) cell-associated toxicities. Intensive Care Med. 2024;50(9):1459–1469.</td>
+        <td><a href="https://doi.org/10.1007/s00134-024-07576-4" target="_blank">10.1007/s00134-024-07576-4</a></td>
+        <td>Übersicht aktueller Strategien zum Management von CAR-T-assoziierten Toxizitäten auf Intensivstation.</td>
+      </tr>
+      <tr>
+        <td>Topp MS, van Meerten T, Houot R, Minnema MC, Bouabdallah K, Lugtenburg PJ, Thieblemont C, Wermke M, Song KW, Avivi I, Kuruvilla J, Dührsen U, Zheng Y, Vardhanabhuti S, Dong J, Bot A, Rossi JM, Plaks V, Sherman M, … Kersten MJ. Earlier corticosteroid use for adverse event management in patients receiving axicabtagene ciloleucel for large B-cell lymphoma. Br J Haematol. 2021;195(3):388–398.</td>
+        <td><a href="https://doi.org/10.1111/bjh.17673" target="_blank">10.1111/bjh.17673</a></td>
+        <td>Früher Einsatz von Steroiden vermindert Nebenwirkungen ohne Beeinträchtigung der Wirksamkeit bei Axi-Cel.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+
+<!-- Menübuttons links / rechts -->
 
 <button id="zurueckBtn" class="zurueck-btn">↑</button>
 
 <div id="menuOverlay" style="position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 1000; display: flex; flex-direction: column; gap: 0.5rem;">
   <a href="#sektion1" class="menu-btn">Aplasie</a>
   <a href="#sektion2a" class="menu-btn">CRS Grading</a>
-  <a href="#sektion2b" class="menu-btn">CRS Treatment</a>
-  <a href="#sektion3" class="menu-btn">ICANS</a>
+  <a href="#sektion2b" class="menu-btn">CRS Therapie</a>
+  <a href="#sektion2c" class="menu-btn">Steroid Reduktion</a>
+  <a href="#sektion3a" class="menu-btn">ICANS Grading</a>
+  <a href="#sektion3b" class="menu-btn">ICANS Therapie</a>
   <a href="#sektion4" class="menu-btn">IEC-HS / HLH</a>
-  <a href="#sektion5" class="menu-btn">Literatur</a>
+  <a href="#sektion5" class="menu-btn">Risk-Scores</a>
+  <a href="#sektion6" class="menu-btn">CAR-Produkte</a>
+  <a href="#sektion7" class="menu-btn">Literatur</a>
 </div>
+
+
+<!-- Skripte (Kalkulatoren etc.)-->
+
+<script>
+  // Smooth scroll für Inline-Links
+  document.querySelectorAll('.inline-link').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetEl = document.querySelector(link.getAttribute('href'));
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+  </script>
+
 
 <script>
 function toggleDesc(num) {
@@ -1030,7 +2332,135 @@ function toggleDesc2(num) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   });
+// Accordion toggle
+var accBtn = document.getElementsByClassName("accordion-btn");
+for (var i = 0; i < accBtn.length; i++) {
+  accBtn[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  });
+}
+
+// EASIX type selector: show appropriate form
+document.getElementById("easixType").addEventListener("change", function() {
+  ["easixStandard","easixFerritin","easixModified"].forEach(function(id) {
+    document.getElementById(id).style.display = "none";
+  });
+  var sel = this.value;
+  if (sel === "standard") {
+    document.getElementById("easixStandard").style.display = "block";
+  } else if (sel === "ferritin") {
+    document.getElementById("easixFerritin").style.display = "block";
+  } else if (sel === "modified") {
+    document.getElementById("easixModified").style.display = "block";
+  }
+});
+
+// CAR-Haematotox score calculation with select fields
+function calculateCarHema() {
+  var ids = ['platelet','anc','hgb','crp','ferritin'];
+  var score = 0;
+  for (var i = 0; i < ids.length; i++) {
+    var val = document.getElementById(ids[i]).value;
+    if (val === "") {
+      document.getElementById("carHemaResult").innerHTML = 
+        "<p style='color:red;'>Bitte alle Felder ausfüllen.</p>";
+      return;
+    }
+    score += parseInt(val, 10);
+  }
+  var interpretation = score <= 1 ? "Low risk (0-1)" : "High risk (≥2)";
+  document.getElementById("carHemaResult").innerHTML =
+    "<p>Score: <strong>" + score + "</strong></p><p>" + interpretation + "</p>";
+}
+// EASIX score calculation
+function calculateEasix() {
+  var ldh = parseFloat(document.getElementById("ldh").value) || 0;
+  var kreat = parseFloat(document.getElementById("kreatinin").value) || 0;
+  var tz = parseFloat(document.getElementById("tz").value) || 0;
+  if (!ldh || !kreat || !tz) {
+    document.getElementById("easixResult").innerHTML = "<p style='color:red;'>Bitte alle Felder ausfüllen.</p>";
+    return;
+  }
+  var score = (ldh * kreat) / tz;
+  var interp = score > 4 ? "Sehr hohes Risiko (EASIX >4)" :
+               score > 3 ? "Hohes Risiko (EASIX >3)" :
+               "Niedriges Risiko (EASIX ≤3)";
+  document.getElementById("easixResult").innerHTML =
+    "<p>Score: <strong>" + score.toFixed(2) + "</strong></p><p>" + interp + "</p>";
+}
+
+// EASIX-F score calculation
+function calculateEasixF() {
+  var ldh = parseFloat(document.getElementById("ldhF").value) || 0;
+  var kreat = parseFloat(document.getElementById("kreatininF").value) || 0;
+  var tz = parseFloat(document.getElementById("tzF").value) || 0;
+  var ferr = parseFloat(document.getElementById("ferritinF").value) || 0;
+  if (!ldh || !kreat || !tz || !ferr) {
+    document.getElementById("easixFResult").innerHTML = "<p style='color:red;'>Bitte alle Felder ausfüllen.</p>";
+    return;
+  }
+  var score = (ldh * kreat) / tz;
+  var interp = score > 4.6 ? "High Risk (EASIX >4.6)" :
+               (score <= 4.6 && ferr > 321) ? "Intermediate Risk (Ferritin >321 ng/mL)" :
+               "Low Risk (EASIX ≤4.6 und Ferritin ≤321 ng/mL)";
+  document.getElementById("easixFResult").innerHTML =
+    "<p>Score: <strong>" + score.toFixed(2) + "</strong></p><p>" + interp + "</p>";
+}
+
+// m-EASIX score calculation
+function calculateMeasix() {
+  var ldh = parseFloat(document.getElementById("ldhM").value) || 0;
+  var crp = parseFloat(document.getElementById("crpM").value) || 0;
+  var tz = parseFloat(document.getElementById("tzM").value) || 0;
+  if (!ldh || !crp || !tz) {
+    document.getElementById("measixResult").innerHTML = "<p style='color:red;'>Bitte alle Felder ausfüllen.</p>";
+    return;
+  }
+  var score = (ldh * crp) / tz;
+  var interp = score > 20 ? "High Risk (m-EASIX >20)" :
+               score >= 4 ? "Intermediate Risk (m-EASIX 4–20)" :
+               "Low Risk (m-EASIX <4)";
+  document.getElementById("measixResult").innerHTML =
+    "<p>Score: <strong>" + score.toFixed(2) + "</strong></p><p>" + interp + "</p>";
+}
+// CRS-Kalkulator Funktion
+function calculateCrs() {
+  var tempEl = document.querySelector('input[name="crsTemp"]:checked');
+  var vasoEl = document.querySelector('input[name="crsVaso"]:checked');
+  var o2El = document.querySelector('input[name="crsO2"]:checked');
+  var resultEl = document.getElementById("crsResult");
+  if (!tempEl || !vasoEl || !o2El) {
+    resultEl.innerHTML = "<p style='color:red;'>Bitte alle Felder ausfüllen.</p>";
+    return;
+  }
+  if (tempEl.value === "0") {
+    resultEl.innerHTML = "<p>Kein CRS (Temperatur &lt;38°C)</p>";
+    return;
+  }
+  var gradeVaso = parseInt(vasoEl.value, 10);
+  var gradeO2 = parseInt(o2El.value, 10);
+  var grade = Math.max(gradeVaso, gradeO2, 1);
+  if (grade > 4) grade = 4;
+  resultEl.innerHTML = "<p>CRS Grad <strong>" + grade + "</strong></p>";
+}
 </script>
 
+</script>
+<!-- Toggle detail rows in the CAR-Produkte table -->
+<script>
+// Toggle detail rows in the CAR-Produkte table
+document.querySelectorAll('.product-row').forEach(row => {
+  row.addEventListener('click', () => {
+    const detail = row.nextElementSibling;
+    const isOpen = detail.style.display === 'table-row';
+    document.querySelectorAll('.detail-row').forEach(dr => dr.style.display = 'none');
+    if (!isOpen) {
+      detail.style.display = 'table-row';
+    }
+  });
+});
+</script>
 </body>
 </html>
