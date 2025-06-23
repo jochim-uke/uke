@@ -882,20 +882,20 @@ window.addEventListener('DOMContentLoaded', () => {
 
       function getRecommendation(grade) {
         const standard = `
-          <p><strong>Temperatur ≥38 °C</strong>: Antibiotikatherapie & Infektionssuche</p>`;
+          <p><strong>Temperatur ≥38 °C</strong>: Bei Aplasie: Antibiotikatherapie & Infektionssuche</p>`;
         switch (grade) {
           case 1:
             return `<h3>CRS Grad 1</h3>${standard}
-              <p>&bull; Monitoring 4h<br>&bull; Antipyrese<br>&bull; Tocilizumab 8 mg/kg bei Persistenz</p>`;
+               `;
           case 2:
             return `<h3>CRS Grad 2</h3>${standard}
-              <p>&bull; Monitoring<br>&bull; Tocilizumab<br>&bull; Volumenmanagement</p>`;
+             `;
           case 3:
             return `<h3>CRS Grad 3</h3>${standard}
-              <p>&bull; Intensivstation<br>&bull; Tocilizumab<br>&bull; Dexamethason 10 mg</p>`;
+              `;
           case 4:
             return `<h3>CRS Grad 4</h3>${standard}
-              <p>&bull; Intensivmedizin<br>&bull; Tocilizumab<br>&bull; Methylprednisolon 1 g</p>`;
+              `;
           default:
             return '<p>Keine eindeutige Einstufung möglich.</p>';
         }
