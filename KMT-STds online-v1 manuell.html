@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medikation Übersicht</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    .container { padding: 1rem; }
+    details { border: 1px solid #ccc; border-radius: 5px; margin-bottom: 1rem; }
+    summary { background-color: #f7f7f7; padding: 0.75rem 1rem; cursor: pointer; font-weight: bold; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 0.5rem; border: 1px solid #ddd; text-align: left; }
+    th { background-color: #f0f0f0; }
+    @media (max-width: 600px) {
+      th, td { font-size: 0.9rem; padding: 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Medikation Übersicht</h1>
+
+    <details>
+      <summary>Antiemese</summary>
+      <table>
+        <thead>
+          <tr><th>Medikation</th><th>KMT-Std.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Olanzapin</td><td>2,5mg - 5mg für 4d zur Prophylaxe</td></tr>
+        </tbody>
+      </table>
+    </details>
+
+    <details>
+      <summary>Begleitmedikation TBI</summary>
+      <table>
+        <thead>
+          <tr><th>Medikation</th><th>KMT-Std.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>4mg Dexamethason i.v.</td><td>vor jeder TBI-Fraktion</td></tr>
+        </tbody>
+      </table>
+    </details>
+
+    <details>
+      <summary>Begleitmedikationen zu ATG</summary>
+      <table>
+        <thead>
+          <tr><th>Medikation</th><th>KMT-Std.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ATG-Fresenius</td><td>0,5mg/kg KG Methylprednisolon 30min vor Start und 6h nach Start ATG; 25mg Pethidin 30min vor Start und als Dauerinfusion über 12h parallel zum ATG</td></tr>
+          <tr><td>Thymoglobulin</td><td>Prämedikation mit 1mg/kg Methylprednisolon und 2mg Clemastin</td></tr>
+        </tbody>
+      </table>
+    </details>
+
+    <details>
+      <summary>Prämedikation Bei Kryo-Tx</summary>
+      <table>
+        <thead>
+          <tr><th>Medikation</th><th>KMT-Std.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Prämed-Allo-Tx</td><td>2mg/kg KG Methylprednisolon + 2mg Clemastin i.v.; Bei Cord-Blood: Erythrozytendepletion überprüfen</td></tr>
+        </tbody>
+      </table>
+    </details>
+
+    <details>
+      <summary>Prämedikation Bei Warm-Tx</summary>
+      <table>
+        <thead>
+          <tr><th>Medikation</th><th>KMT-Std.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Prämed-Allo-Tx</td><td>0,5mg/kg KG Methylprednisolon + 2mg Clemastin i.v.</td></tr>
+        </tbody>
+      </table>
+    </details>
+
+    <details>
+      <summary>CMV-Prophylaxe</summary>
+      <table>
+        <thead>
+          <tr><th>Medikation</th><th>KMT-Std.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Letermovir</td><td>480mg bzw. 240mg unter Ciclosporin ab d1 bis d100 (-200)</td></tr>
+        </tbody>
+      </table>
+    </details>
+
+    <details>
+      <summary>CMV-Therapie</summary>
+      <table>
+        <thead>
+          <tr><th>Medikation</th><th>KMT-Std.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Ganciclovir (Cymeven)</td><td>Initial 5mg/kg q12h; Erhaltung 5mg/kg q24h</td></tr>
+          <tr><td>Valganciclovir (Valcyte)</td><td>Initial 900mg q12h; Erhaltung 900mg q24h</td></tr>
+          <tr><td>Foscavir (Foscarnet)</td><td>90mg/kg q12h oder 60mg/kg q8h (Infusionsdauer mind. 2h bzw. 1h); Erhaltung 90mg/kg q24h (Infusionsdauer mind. 2h); Begleitbewässerung</td></tr>
+          <tr><td>Cidofovir</td><td>Initial 5mg/kg q7d; Erhaltung 5mg/kg q14d; +Probenecid oral; +Bewässerung</td></tr>
+          <tr><td>Maribavir</td><td>Bei Refraktär gegenüber mind. 1 Vortherapie; p.o.; nur bei Virämie</td></tr>
+          <tr><td>Ganciclovir + Foscarnet</td><td>Bei Refraktär gegenüber mind. 1 Vortherapie; i.v. Kombinationstherapie; jeweils halbe therapeutische Dosis</td></tr>
+          <tr><td>CMV-Ig (Cytotect)</td><td>400 IE/kg d1, d4, d8; 200 IE/kg d12, d16 (zusätzlich bei CMV-Pneumonie)</td></tr>
+        </tbody>
+      </table>
+    </details>
+
+    <details>
+      <summary>CRS / ICANS Therapie</summary>
+      <table>
+        <thead>
+          <tr><th>Medikation</th><th>KMT-Std.</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Anakinra</td><td>100mg q12h (ggf. bis 200mg q12h); i.v. möglich</td></tr>
+        </tbody>
+      </table>
+    </details>
+
+    <!-- Weitere Kategorien entsprechend hinzufügen -->
+
+  </div>
+</body>
+</html>
