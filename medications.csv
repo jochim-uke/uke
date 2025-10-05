@@ -19,28 +19,30 @@ Trimbow (3-Fach-Kombi);cGvHD Therapie;2x 2Hübe tgl. bei schwerer Lungen cGvHD (
 Letermovir;CMV-Prophylaxe bei allen CMV+ Recipients;480mg bzw. 240mg unter Ciclosporin ab d1 bis d100 (-200), idR 200 (bei allen 'hochrisiko')
 allgemein;CMV-Therapie ;"Bei Val-/Ganciclovir, Foscavir: 14 Tage in 'therapeutischer Dosis', danach 14 Tage Erhaltung wenn Abfall um mind. 1 Logstufe; Bei Maribavir immer 8 Wochen"
 Cidofovir;CMV-Therapie ;"Initial 5mg/kg q7d (1x/Woche!); Erhaltung 5mg/kg q14d (!alle 14 Tage); +Probenecid oral; +Bewässerung  (Nephroprotektion!); Reservemedikation"
-Foscavir (Foscarnet);CMV-Therapie ;"90mg/kg q12h oder 60mg/kg q8h (infusionsdauer mind. 2h bzw. 1h); Erhaltungsdosis 90mg/kg q24h (infusionsdauer mind. 2h); Begleitbewässerung!! Magnesium subst. fest; 1st line Alternative (zb. bei schlechtem Blutbild aber guter Niere) - unklar: bei foscarnet cabi steht 'nur' 60 q12h in der fachinfor, während bei foscavir (original) steht 2x 90 q12h;"
+Foscavir (Foscarnet);CMV-Therapie ;"90mg/kg q12h oder 60mg/kg q8h (infusionsdauer mind. 2h bzw. 1h); Erhaltungsdosis 90mg/kg q24h (infusionsdauer mind. 2h); Begleitbewässerung!! Magnesium subst. fest; 1st line Alternative (zb. bei schlechtem Blutbild aber guter Niere) - unklar bezüglich fachinformationen: bei foscarnet kabi steht 'nur' 60 q12h in der fachinfo, während bei foscavir (original)  2x 90 q12h steht; wir nehmen aber wie o.g. 2x90q12h bzw. 3x60 q8h.."
 Ganciclovir  (Cymeven);CMV-Therapie ;"Initial 5mg/kg q12h; Erhaltung 5mg/kg q24h ; 1st line iv. therapie ; cave: KM-Tox"
 Gancivlor + Foscarnet;CMV-Therapie ;"Bei Refraktarität gegenüber mind. 1 Vortherapie;  i.v. Kombinationstherapie; jeweils halbe therapeutische Dosis ; selten eingesetzt"
 Maribavir;CMV-Therapie ;"Bei Refraktarität gegenüber mind. 1 Vortherapie;  Nur p.o. möglich (cave bei GvHD/Diarrhoen); nur bei Virämie, nicht bei Organbefall (unsicher ob dort wirksam) ; teuer"
 Valganciclovir (Valcyte);CMV-Therapie ;"Initial 900mg q12h; Erhaltung 900mg q24h ; 1st line orale therapie"
 Ganciclovir / Valganciclovir;CMV-Therapie ;Einleitung einer präemptiven Therapie bei delta-Ct von ≥10 (cave bei Lz-Penie, dann nur Ct-Wert abs. verwertbar)
-CMV-Ig (Cytotect);CMV-Therapie (;"400IE/Kg d1,d4,d8; 200IE/Kg d12, d16 => mit einheiten rechnen, nicht mit milligramm.. Indikation: zusätzlich bei CMV-Pneumonie)"
+CMV-Ig (Cytotect);CMV-Therapie;"400IE/Kg d1,d4,d8; 200IE/Kg d12, d16 => mit einheiten rechnen, nicht mit milligramm.. Indikation: zusätzlich bei CMV-Pneumonie)"
 Magnesium i.v.  Additivum;E'Lytsubstitution;"50% Mg nutzen, dann 5ml in große TPE; (nicht ungebrgrenz einfach zweiwertige E'lyte rein weil das sonst ausfällt, kein ca++, kein mg++)"
 Calcium i.v. Additivum;E'Lytsubstitution;xxx ml > TPE SOP
 Magnesium i.v. mono;E'Lytsubstitution;"20mmol als perfusor (=50ml) über 5h oder peripher in 250ml; Mg Diasporal; 8mmol i.v als KI / Injektion bei neu VHF"
 Grenzwert für prämeptive therapie;EBV-Reaktivierung;"≥1.000Kop/mL (EDTA) galten früher als verdächtig; dann Kontrolle auch im Plasma und Nachkontrolle innerhalb 1 Woche; Aktuell ist kein fester cut-off etabliert; Dynamik beachten, aber auch hier keine festen threshold etabliert (Francis: 'wird sind alle blind'); KU, ggf. Sono und CT-Staging zur PTLD Suche. Ggf. Präemptiv Rituximab erwägen "
 Rituximab;EBV-Reaktivierung;"Präemptiv: einmalig 375mg/qm; Bei PTLD (nach Histo) ggf. 4-8 mal q7d bzw. auch Kombination mit CHOP je nach Verlauf"
-EBV-Spec T-Zellen;EBV-Reaktivierung;"Wissenschaftlich MHH; Kommerziell: Tabelecleucel (Tabe-Cel, Ebvallo); PTLD ab 2. Linie "
+EBV-Spec T-Zellen;EBV-Reaktivierung;"Wissenschaftlich MHH; Kommerziell: Tabelecleucel (Tabe-Cel, Ebvallo); PTLD ab 2. Linie oder mit KKÜ bzw. Stationär-NUB"
 Blutbild;ECP Vorraussetzungen;"Hb≥8,5 und Hkt ≥27% ; Tz >25/nl ; Leukozyten zwischen 1,5 und 25/nl (keine aplasie, kein infekt..)"
-Kalzium;ECP Vorraussetzungen;"1g Kalzium Brause; ODER (wenn parenteral nötig): 30min vorher 10ml Ca++-gluconat i.v./100ml NaCl über 30min"
+Kalzium;ECP Vorraussetzungen;"30min vorher 10ml Ca++-gluconat i.v./100ml NaCl über 30min; Alternativ Calcium-Brause 1g "
 Vermeidung Fette;ECP Vorraussetzungen;"Pausierung der parenteralen Ernährung mit Fetten ab 0.00 Uhr in der Nacht und Tausch gegen
-eine TPE ohne Fettzugabe, um eine ausreichende Kalorienzufuhr zu gewährleisten. Nur fettarme Mahlzeiten bei Pat mit oraler Kostzufuhr"
+eine TPE ohne Fettzugabe, um geringe Blutfettwerte während ECP und ausreichende Kalorienzufuhr gleichzeitig zu gewährleisten. Nur fettarme Mahlzeiten bei Pat mit oraler Kostzufuhr"
 Sonnenschutz;ECP Vorraussetzungen;nach ECP Einhaltung UV-Schutz-Maßnahmen  (Dunkelheit, Sonnencreme, Sonnenbrille)
 Deferasirox;Eisenchelation bei Transfusionsbedingter hyperferritinämie;"14mg/kg, abrunden, grundsätzl. Nach Fachinformation; ab d1 Konditionierung bis d+1 bei ptCY bzw. d+3 bei ATG"
 Entecavir (Baraclude);Hep B Prophylaxe bei pos. Serologie;"Alternative (außerhalb KMT): 0,5mg 1x/d; mind 1 Jahr nach Ende Immunsuppression nach Allo-Tx bzw. 1a nach Ende B-Zell-depletierender Therapie; nüchtern 2h vor Essen ; CAVE: im Allo-Kontext 2x graft-failure gesehen (DD zufall)"
 Tenofovir;Hep B Prophylaxe bei pos. Serologie;"Präparat Viread (Tenofovir-disoproxilfumarat): 245mg täglich; CAVE: NICHT Vemlidy verwenden (das ist für HIV oder so zugelassen und wird anders dosiert etc., nur 25mg..)! "
 Ganciclovir  (Cymeven);HHV6-Therapie;"HHV6-Encephalitis: Einleitung ggf. schon bei hochgrad. V.a., ggf Beendigung wenn LP negativ; analog CMV-Therapie"
+Aciclovir;VZV-Infektionen;"10mg/KgKG q8h, i.d.R. max. 750mg per ED, in jedem fall max 1000mg per ED; Therapiedauer nach Erkrankungsschwere, mind. 7 Tage; Im Anschluss Prophylaxe mit 2x 800 p.o. tgl. bei allogen transplantierten Pat bis 1a post-allo"
+Aciclovir;HSV-Infektionen;"10mg/KgKG q8h, i.d.R. max. 750mg per ED, in jedem fall max 1000mg per ED; Therapiedauer nach Erkrankungsschwere, mind. 5 Tage (mild), mind. 10 Tage (schwer)"
 Grenzwerte für Therapie;HHV6-Therapie;"Bei Organbefall (zB Magenbefall): nicht klar definiert, aber ca.: Hohes Verhältnis  ≥10 zu Beta-Globin Kopien ODER hohe absolute Kopienzahl ≥1mio Kop; Entscheidung dann auch in Zusammenschau mit Klinischen Beschwerden"
 ATG;Immunsuppression / aGvHD Prophylaxe;"15, 30, 60 mg/KgKG Abh. Von Protokoll bzw. Spendersituation / Grunderkrankung ; Immunsuppression mit CNI ab d-1"
 Ciclosporin A (CNI);Immunsuppression / aGvHD Prophylaxe;"Anfangs Ziel: 150-220 ; i.v. Dosis: 3mg/Kg i.v. als Dauerinfusion (100x soviel wie bei Tac) ; 200-250 bei aGvHD, 200-250 bei benignen hämatologischen Erkrankungen (SAA, Thal etc.)"
@@ -50,6 +52,7 @@ MMF ;Immunsuppression / aGvHD Prophylaxe;2x1000mg i.v. bzw. 2x 720mg p.o. ab d1 
 ptCY;Immunsuppression / aGvHD Prophylaxe;"d+3,d+4; (CAVE: Bei Transplantdatumverschiebung muss auch ptCy nach hinten verschoben werden!!) Haplo, MMUD ; CAVE: Immunsuppression mit CNI erst ab d+5 nach Tx (statt d-1 wie bei ATG); Tac bei Haplo / CSA bei MMUD "
 Sirolimus (mTOR-i);Immunsuppression / aGvHD Prophylaxe;machen wir eig nicht
 Tacrolimus (CNI);Immunsuppression / aGvHD Prophylaxe;"Anfangs Ziel: 10-15; i.v. 0,03mg/Kg i.v. als Dauerinfusion (1/100 der CSA-Dosis) ; 15-20 bei aGvHD ; Std. (nur) bei Haplo-Tx"
+CNI - Oralisierung;Immunsuppression / aGvHD Prophylaxe;"Das dreifach der i.v. Tagesdosis wird auf zwei Tagesdosen aufgeteilt (Bsp.: 4,5ml/h * 2mg/ml * 22h =198mg Tagedosis iv; Umrechnung: 198mg * 3 = 594mg Tagesdosis oral; Aufteilung auf zwei Dosen: ca. 2x 300mg) "
 Budesonid;Immunsuppression / aGvHD Therapie;3x 3mg tgl. (Magensagtresistente kapsen, Budenofalk) 
 CSA > Tac;Immunsuppression / aGvHD Therapie;Umstellung CSA auf TAC bei steroidrefraktärer aGvHD (Faktor für Umstellung: 100:1) 
 Dermatop (Prednicarbat);Immunsuppression / aGvHD Therapie;"Bei aGvHD der Haut I° (<25%); 0,25% bzw. 2,5mg/g ; Nicht in Gesicht/Hals ; 2-3x tgl."
@@ -57,11 +60,12 @@ MMF später wieder rein?;Immunsuppression / aGvHD Therapie;Hinzunahme wenn CNI n
 Pimecrolimus (Elidel);Immunsuppression / aGvHD Therapie;"Bei aGvHD der Haut I° (<25%); 1% ; 2x tgl. "
 Ruxolitinib;Immunsuppression / aGvHD Therapie;"2x tgl. 10mg (2x tgl. 5mg bei erheblichen Zytopenien) ; ausschleichen, nicht abrupt (rebound?);einsatz  bei steroidrefraktarität"
 Tacrolimus (Protopic);Immunsuppression / aGvHD Therapie;"Bei aGvHD der Haut I° (<25%);  0,1% ; 2x tgl. "
-Epinephrin;Katecholamin bei kardiogenem Schock / Reanimation;1:10 Spritze:  ganze Spritze = 10mL = 1mg ist die Dosis bei Reanimation q3min wenn nicht schockbar bzw. schock 3x frustran
-Noradrenalin ;Katecholamintherapie bei Sepsis;"Std. 3000µg/50mL => 1ml/h = ""1yNOR""; Bolus: 5-10µg = 0,1-0,2mL aus perfusor ODER 0,5- 1mL aus 1:100 Spritze"
+"""Eine dicke""";Kreislaufunterstützung;"Kein KMT-Std.; Gelgentlich verwendet zu katecholaminfreien Stabilisierung, insb. bei Leberzirrhose-Pat.; 1000mL Sterofundin + 1-2 Flaschen Humanalbumin über 4h "
+Epinephrin;Kreislaufunterstützung;Katecholamin bei kardiogenem Schock / Reanimation: 1:10 Spritze:  ganze Spritze = 10mL = 1mg ist die Dosis bei Reanimation q3min wenn nicht schockbar bzw. schock 3x frustran
+Noradrenalin ;Kreislaufunterstützung;"Katecholamintherapie bei Sepsis: Std. 3000µg/50mL => 1ml/h = ""1yNOR""; Bolus: 5-10µg = 0,1-0,2mL aus perfusor ODER 0,5- 1mL aus 1:100 Spritze ; Cave: keine hohen Laufraten über periphere Zugänge; periphere Zugänge vorher prüfen"
 Erydepletion;Knochenmarktransplantation;"Bei Major-BG Inkompatibilität; Bei Minor-BG Inkompatibilität? "
 Levetiracetam;Krampfprophylaxe unter Busulfan;"d-1 bis d+1 von Busulfan; 500 bzw. 750 bzw. 1000mg q12h je nach KG (<50kg, <60kg?, >60kg?) "
-Estramon conti ;Menstruationsprophylaxe / Ovarprotektion;"Add-back Therapie um Hormonentzungserscheinungen vorzubeugen; 30/95mg transdermal; 2x/w wechseln; ma hen wir irgendwie nicht so oft, zumindest nicht bei den Allo-Pat.; "
+Estramon conti ;Menstruationsprophylaxe / Ovarprotektion;"unsicher ob wir das machen sollten, bisher nicht etabliert; Add-back Therapie um Hormonentzungserscheinungen vorzubeugen; 30/95mg transdermal; 2x/w wechseln; ma hen wir irgendwie nicht so oft, zumindest nicht bei den Allo-Pat.; "
 MPA Gyn;Menstruationsprophylaxe / Ovarprotektion;"Wenn Zoladex <14 Tage vor Chemotherapie: 10mg tgl. bis Wiederanstieg der Thrombozyten; ggf. 20mg bei anh. Blutung"
 Zoladex  oder Trenantone;Menstruationsprophylaxe / Ovarprotektion;3-Monats Depot GnRH (Leuprorelin) 
 Thymoglobulin;MS-ATG;Immer ATG-Thymoglobulin prä-Tx (peri-Kond.)  nicht ATG-Fresenius
@@ -70,7 +74,7 @@ Micafungin;Pilzprophylaxe bei Allo;"stationär ab d0 oder Lz<1000/µl; Fortführ
 Posaconazol;Pilzprophylaxe bei HD-Auto mit ATG bei MS;ab d0 oder Lz <1000/µl
 Posaconazol;Pilzprophylaxe nach Allo;"Bei Allo ambulant wenn nötig, zB. unter Kortison/Darm-GvHD; Aufdosierung mit 2x 300mg q12h, danach 300mg q24h; Einsatz wenn Steroid >05mg/Kg MP / Predni oder Therapiedauer >1 Monat"
 Ambisome;Pilztherapie;"3mg/Kg i.v. kalkuliert; 5mg/Kg therapeutisch bei nachgewiesener Mucor "
-Anidulafungin;Pilztherapie;"selten verwendet; "
+Anidulafungin;Pilztherapie;"selten verwendet; ggf. nach Fachinformation"
 Caspofungin;Pilztherapie;"70mg/d an d1; dann 50mg/d (ab 80KgKG jedoch Erhaltung auch mit 70mg) "
 Isavuconazol;Pilztherapie;Loading: 1200mg über 48h, dann 200mg tgl. i.v. oder peroral
 Micafungin;Pilztherapie;"Prophylaxe mit 50mg abs. bei allen; CAVE: IMMER mit lokal Nystatin/Ampho enoral; Therapie machen eigentlich niht (FA f. Therapie: 100mg bis 150mg/d (bei Pat >40KgKG) )"
@@ -78,20 +82,20 @@ Voriconazol i.v.;Pilztherapie;"ungern bei Niereninsuff (deshalb insg. Zurückhal
 Voriconazol p.o.;Pilztherapie;"therapeutisch: 2x 400mg/d an d1, dann 2x tgl. 200mg ; TDM (Ziel mind. 1mg/l, max 4-6mg/l)"
 Fluconazol;Pilztherapie;"400mg p.o./i.v. für Soor; für invasive ggf. mehr falls nicht eh anderes mittel verwendet"
 Cotrim;PjP + Toxoplasmose Prophylaxe;"Di, Fr 2x960; first line"
-Dapsone + Pyrimethanin;PjP + Toxoplasmose Prophylaxe;machen wir NICHT
+Dapsone + Pyrimethamin;PjP + Toxoplasmose Prophylaxe;machen wir NICHT
 Wellvone;PjP + Toxoplasmose Prophylaxe;"2x 750mg (5ml) second line; auch bei toxo pos.; alternative 1x 1500mg wenn von pat. bevorzugt"
 Dapsone;PjP aber keine Toxoplasmose Prophylaxe;"machen wir  NICHT; alternative wenn toxo neg. (selten verwendet)"
 Pentamidin;PjP aber keine Toxoplasmose Prophylaxe;"alternative wenn toxo neg.; 300mg inf./inh., bei ≤50Kg machen 4mg/KgKG"
-Prämed-Auto-Tx ;Prämedikation Tx;0,5mg/KgKG Metyhlprednisolon + 2mg Clemastin 
+Prämed-Auto-Tx ;Prämedikation Tx;0,5mg/KgKG Metyhlprednisolon + 2mg Clemastin (50-100mg 'normales' Predni wären auch okay => II. Med Std.) 
 Prämed-Allo-Tx kryo;Prämedikation Tx;"1mg/KgKG Methylprednisolon + 2mg Clemastin i.v. ; Bei Cord-Blood: Erythrozytendepletion überprüfen"
 Prämed-Allo-Tx warm;Prämedikation Tx;"0,5mg/KgKG Methylprednisolon + 2mg Clemastin i.v.; "
 Mesna;Prophylaxe hämorrhagische Zystitis;"60-100% kumulativ der Cyclophosphamiddosis entweder Std. 0, 4, 8 bei niedriger Dosis oder iv über 24h bei HD-Therapie; Bei Oralisierungen dosis verdoppeln"
-Cyclo-Mobi bei MM;Stammzellsammlung;3000mg/qm 
+Cyclo-Mobi bei MM;Stammzellsammlung;3000mg/qm
 Cyclo-Mobi bei MS;Stammzellsammlung;1000mg/qm 
 G-CSF Chemo-Mobi;Stammzellsammlung;"ab d5-d6 1 tgl. (mein Std.) morgens (oder abends); nach -KMT-SOP 2x tgl. das ignorieren wir aber offenbar; Apherese d10-d14"
 G-CSF Steady-State Mobi;Stammzellsammlung;"2x tgl. G-CSF d1 bis Sammlung;  Monitoring d4; Sammlung  ggf. ab d4, Ausnahme: kein Monitoring bei Gesunden Spendern sondern dann  direkt Apherese an d4; G-CSF Stopp bei Lz >70TSD/µl"
 Plerixafor (Mozobil);Stammzellsammlung;"Am späten Abend davor; 11h vor sammlung ist anvisiert; liegt eignetlich bei Anja in der tpko immer rum"
-Dipeptamin;TPE;"nur bei allo; evtl. immunogener benefit; alles fragl., deshalb NUR allo"
+Dipeptamin;TPE-Zusatz;"nur bei allo; evtl. immunogener benefit; alles fragl., deshalb NUR allo"
 TK-z;Transfusionsgrenzen;"<10/nl bzw. <15/nl ab 65j stationär; <20/nl ambulant; <30/nl vor punktionen"
 Hb;Transfusionsgrenzen;"<8g/dL; ggf individuell niedriger bei Siderose; idR 2Ek;"
 Hb vor ECP;Transfusionsgrenzen;Hb≥8,5 und Hkt ≥27%
@@ -104,3 +108,8 @@ Fludarabin;Zeitabstände;Fludarabin -> Cytarabin: Da müssen exakt 4h dazwischen
 Busulfan;Zeitabstände;Bis zum Tag vor Stammzellgabe (≥24h)
 Melphalan;Zeitabstände;48h vor Stammzellen
 TBI;Zeitabstände;bis unmittelbar vor Stammzellgabe möglich
+Midazolam (Dormicum);Palliative Sedierung;"Midazolam (Dormicum) als Perfusor 50mg/50mL (gleiche Konzentration wie bei Kurzsedierung mit 5mg/5ml Ampullen; Herstellung des Perfusors aber ggf. mit Verwendung höher konzentrierter Ampullen und Verdünnung mit NaCl). Bolus initial 0,5-1ml (evtl. deutl. mehr, wie bei Einleitung einer Sedierung), dann Start mit 1ml/h "
+Propofol;Palliative Sedierung;
+Notfallsedierung;Palliative Sedierung;5 mg Midazolam + 5 mg Morphin i.v. oder 10 mg Midazolam + 10 mg Morphin s.c. 
+Daptomycin;Antibiotika;"Std. Dosis kalkuliert: 4 mg/kgKG (dosis wie bei hautinfektionen lt. Uptodate) ; Bei nachgewieser Blutstrominfektion: 10mg/kgKG (8-12 lt. Uptodate) ; UAW: Myopathie"
+DLIs - Dosis;Donor-Lymphocyte-Infusion;"Dosis zwischen 1x10^5 CD3+ Zellen/KgKG und 1x 10^7 CD3+ Zellen/KgKG; Start mit geringerer Dosis, dann Eskalation; Höhere Dosis bei 'Spätrezidiv'; Höhere Dosis bei Matched-related Donor;  Zeitintervall zwischen zwei Gaben: 4-6 Wochen"
