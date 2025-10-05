@@ -102,12 +102,12 @@ Hb vor ECP;Transfusionsgrenzen;Hb≥8,5 und Hkt ≥27%
 Tz vor ECP;Transfusionsgrenzen;Tz>25/nl
 UDC;VOD-Prophylaxe;2x 500mg tgl. ab Konditionierung bis d100 (ggf. weniger bei geringem Gewicht) 
 Defibrotide;VOD-Therapie;"6,25 mg/kg q6h (TD 25mg/kg; ED auf 200mg gerundet, ggf. unterschiedliche EDs) "
-Thiotepa;Zeitabstände;Mind. 2h nach Ende Fludarabin
-Fludarabin;Zeitabstände;2 Tag Pause zwischen letzter Gabe und Stammzellgabe, notfalls nur 1 Tag (>>24h)
-Fludarabin;Zeitabstände;Fludarabin -> Cytarabin: Da müssen exakt 4h dazwischen liegen
-Busulfan;Zeitabstände;Bis zum Tag vor Stammzellgabe (≥24h)
-Melphalan;Zeitabstände;48h vor Stammzellen
-TBI;Zeitabstände;bis unmittelbar vor Stammzellgabe möglich
+Fludarabin > Thiotepa;Zeitabstände;Mind. 2h nach Ende Fludarabin
+Fludarabin > Stammzellen;Zeitabstände;2 Tag Pause zwischen letzter Gabe und Stammzellgabe, notfalls nur 1 Tag (>>24h)
+Fludarabin > AraC;Zeitabstände;Fludarabin -> AraC (Cytarabin): Da müssen exakt 4h dazwischen liegen (FLA-Ida Protokoll) 
+Busulfan > Stammzellen;Zeitabstände;Bis zum Tag vor Stammzellgabe (≥24h)
+Melphalan > Stammzellen;Zeitabstände;48h vor Stammzellen
+TBI > Stammzellen;Zeitabstände;bis unmittelbar vor Stammzellgabe möglich
 Midazolam (Dormicum);Palliative Sedierung;"Midazolam (Dormicum) als Perfusor 50mg/50mL (gleiche Konzentration wie bei Kurzsedierung mit 5mg/5ml Ampullen; Herstellung des Perfusors aber ggf. mit Verwendung höher konzentrierter Ampullen und Verdünnung mit NaCl). Bolus initial 0,5-1ml (evtl. deutl. mehr, wie bei Einleitung einer Sedierung), dann Start mit 1ml/h "
 Propofol;Palliative Sedierung;
 Notfallsedierung;Palliative Sedierung;5 mg Midazolam + 5 mg Morphin i.v. oder 10 mg Midazolam + 10 mg Morphin s.c. 
