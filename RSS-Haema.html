@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hematology RSS — PubMed Query (Last 60 Days)</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: #111a2b;
+      --muted: #9bb1d4;
+      --text: #e8eefc;
+      --accent: #2a7de1;
+      --accent-2: #3db0ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+    header { padding: 28px 20px; text-align: center; }
+    header h1 { margin: 0; font-size: 1.6rem; letter-spacing: 0.3px; }
+    header p { margin: 6px 0 0; color: var(--muted); }
+
+    .container { max-width: 980px; margin: 0 auto; padding: 0 16px 48px; }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 14px;
+      padding: 18px;
+      margin: 14px 0 22px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+    }
+    .card h2 { margin: 0 0 10px; font-size: 1.1rem; }
+    .help { color: var(--muted); font-size: 0.95rem; margin: 6px 0 12px; }
+
+    textarea, input[type="text"] {
+      width: 100%; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);
+      background: #0c1424; color: var(--text); padding: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: 0.92rem;
+    }
+    textarea { min-height: 220px; }
+
+    .row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+    button, a.button {
+      appearance: none; border: none; cursor: pointer; text-decoration: none; color: white;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      padding: 10px 14px; border-radius: 10px; font-weight: 600; font-size: 0.95rem;
+      box-shadow: 0 8px 22px rgba(42,125,225,0.35);
+    }
+    button.secondary { background: #1b2740; box-shadow: none; color: var(--text); }
+
+    .feed-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-top: 14px; }
+    .feed-item { background: #0c1424; border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 12px; }
+    .feed-item h3 { margin: 0 0 6px; font-size: 1rem; }
+    .feed-item a { color: #cfe4ff; }
+    .muted { color: var(--muted); font-size: 0.85rem; }
+    .small { font-size: 0.85rem; }
+    footer { color: var(--muted); text-align: center; padding: 24px 0 36px; }
+    code { color: #d2e2ff; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hematology PubMed RSS (Last 60 Days)</h1>
+    <p>One-click: open PubMed with a prebuilt, high-impact hematology trials search limited to the last 60 days — then create an RSS feed there.</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>1) PubMed query (copy/edit as you like)</h2>
+      <p class="help">This query focuses on hematology (malignant + select benign), clinical trials/randomized/phase language, and high-impact journals (incl. <em>Bone Marrow Transplantation</em>). It already limits to the last 60 days.</p>
+      <textarea id="pm-query">
+(
+  "hematologic neoplasms"[tiab] OR
+  leukemia[tiab] OR
+  "multiple myeloma"[tiab] OR myeloma[tiab] OR
+  "myelodysplastic syndrome"[tiab] OR "myelodysplastic syndromes"[tiab] OR MDS[tiab] OR myelodysplasia[tiab] OR "myelodysplastic"[tiab] OR
+  "myeloproliferative neoplasms"[tiab] OR "myeloproliferative"[tiab] OR MPN[tiab] OR
+  "polycythemia vera"[tiab] OR "essential thrombocythemia"[tiab] OR myelofibrosis[tiab] OR
+  "acute myeloid leukemia"[tiab] OR AML[tiab] OR
+  "acute lymphoblastic leukemia"[tiab] OR ALL[tiab] OR
+  "chronic lymphocytic leukemia"[tiab] OR CLL[tiab] OR
+  "chronic myeloid leukemia"[tiab] OR CML[tiab] OR
+  DLBCL[tiab] OR "diffuse large b cell lymphoma"[tiab] OR
+  "b cell lymphoma"[tiab] OR
+  "hodgkin lymphoma"[tiab] OR "hodgkin's lymphoma"[tiab] OR
+  "non-hodgkin lymphoma"[tiab] OR "non-hodgkin's lymphoma"[tiab] OR NHL[tiab] OR
+  "cutaneous t-cell lymphoma"[tiab] OR CTCL[tiab] OR
+  "sezary syndrome"[tiab] OR
+  "primary mediastinal b-cell lymphoma"[tiab] OR PMBCL[tiab] OR
+  "follicular lymphoma"[tiab] OR
+  "mantle cell lymphoma"[tiab] OR
+  "marginal zone lymphoma"[tiab] OR
+  "peripheral t-cell lymphoma"[tiab] OR PTCL[tiab] OR
+  "anaplastic large cell lymphoma"[tiab] OR ALCL[tiab] OR
+  "burkitt lymphoma"[tiab] OR
+  "lymphoplasmacytic lymphoma"[tiab] OR LPL[tiab] OR
+  "waldenstrom macroglobulinemia"[tiab] OR "waldenström macroglobulinemia"[tiab] OR WM[tiab] OR
+  "hairy cell leukemia"[tiab] OR
+  "blastic plasmacytoid dendritic cell neoplasm"[tiab] OR BPDCN[tiab] OR
+  "aplastic anemia"[tiab] OR
+  "paroxysmal nocturnal hemoglobinuria"[tiab] OR PNH[tiab] OR
+  "immune thrombocytopenia"[tiab] OR ITP[tiab] OR
+  "thrombotic thrombocytopenic purpura"[tiab] OR TTP[tiab] OR
+  "hemophagocytic lymphohistiocytosis"[tiab] OR HLH[tiab] OR
+  "sickle cell disease"[tiab] OR "sickle cell"[tiab] OR
+  thalassemia[tiab] OR "hemophilia"[tiab]
+)
+AND
+(
+  clinical trial[ptyp] OR randomized controlled trial[ptyp] OR
+  "phase 1"[tiab] OR "phase I"[tiab] OR
+  "phase 2"[tiab] OR "phase II"[tiab] OR
+  "phase 3"[tiab] OR "phase III"[tiab] OR
+  randomized[tiab] OR randomised[tiab] OR "controlled trial"[tiab] OR
+  "first-in-human"[tiab] OR "proof-of-concept"[tiab]
+)
+AND
+(
+  "N Engl J Med"[jour] OR
+  "Lancet"[jour] OR "Lancet Haematol"[jour] OR "Lancet Oncol"[jour] OR
+  "J Clin Oncol"[jour] OR "JAMA Oncol"[jour] OR
+  "Blood"[jour] OR "Blood Adv"[jour] OR
+  "Leukemia"[jour] OR "Haematologica"[jour] OR
+  "Nat Med"[jour] OR "Clin Cancer Res"[jour] OR
+  "Ann Oncol"[jour] OR "Bone Marrow Transplant"[jour]
+)
+AND ("last 60 days"[dp])
+      </textarea>
+      <div class="row">
+        <button id="copy-query">Copy query</button>
+        <button class="secondary" id="open-pubmed">Open in PubMed</button>
+      </div>
+      <p class="small muted">In PubMed, click <strong>Create alert → RSS</strong> to get a permanent RSS URL for this search.</p>
+    </section>
+
+    <section class="card">
+      <h2>2) (Optional) Preview an RSS feed here</h2>
+      <p class="help">After you create an RSS URL in PubMed, paste it below to preview the latest items on this page. Uses a lightweight public converter (<code>rss2json.com</code>).</p>
+      <input id="rss-url" type="text" placeholder="Paste your PubMed RSS URL here…" />
+      <div class="row">
+        <button id="load-feed">Load feed</button>
+      </div>
+      <div id="feed" class="feed-list" aria-live="polite"></div>
+      <p class="small muted">Note: If your network blocks the converter, GitHub Pages can’t fetch XML cross‑origin. In that case, consider a GitHub Action to fetch & cache JSON at build time.</p>
+    </section>
+
+    <section class="card">
+      <h2>3) Tips</h2>
+      <ul class="small">
+        <li>Adjust the journals in the query’s <code>[jour]</code> block to taste.</li>
+        <li>Split into "Lymphoid" vs "Myeloid" by cloning the page and narrowing the disease list.</li>
+        <li>Change date window by replacing <code>("last 60 days"[dp])</code> with <code>("last 30 days"[dp])</code>, etc.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Built for UKE hematology — static page for GitHub Pages. No cookies, no tracking.
+  </footer>
+
+  <script>
+    const textarea = document.getElementById('pm-query');
+    const copyBtn = document.getElementById('copy-query');
+    const openBtn = document.getElementById('open-pubmed');
+
+    copyBtn.addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(textarea.value); copyBtn.textContent = 'Copied!'; setTimeout(()=>copyBtn.textContent='Copy query', 1500); } catch(e) { alert('Copy failed'); }
+    });
+
+    function buildPubMedURL(q) {
+      const base = 'https://pubmed.ncbi.nlm.nih.gov/';
+      // Sanitize: flatten newlines/tabs to single spaces, trim, and collapse multiple spaces
+      const term = q.replace(/\s+/g, ' ').trim();
+      const params = new URLSearchParams();
+      params.set('term', term);
+      // Keep newest-first; date window is handled inside the query via [dp]
+      params.set('sort', 'date');
+      return base + '?' + params.toString();
+    }
+
+    openBtn.addEventListener('click', () => {
+      const url = buildPubMedURL(textarea.value);
+      console.log('PubMed URL:', url);
+      window.open(url, '_blank');
+    });
+
+    // Lightweight RSS preview using rss2json.com
+    const loadBtn = document.getElementById('load-feed');
+    const feedUrlInput = document.getElementById('rss-url');
+    const feedContainer = document.getElementById('feed');
+
+    async function loadFeed() {
+      const u = feedUrlInput.value.trim();
+      if (!u) { alert('Please paste a PubMed RSS URL first.'); return; }
+      feedContainer.innerHTML = '<p class="muted">Loading…</p>';
+      try {
+        const api = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(u)}`;
+        const res = await fetch(api);
+        if (!res.ok) throw new Error('Network error');
+        const data = await res.json();
+        if (!data.items) throw new Error('No items in feed');
+        feedContainer.innerHTML = data.items.slice(0, 12).map(item => {
+          const d = new Date(item.pubDate);
+          const dateStr = d.toISOString().slice(0,10);
+          return `<article class="feed-item">
+              <h3><a href="${item.link}" target="_blank" rel="noopener">${item.title}</a></h3>
+              <div class="muted">${dateStr}</div>
+              <div class="small">${(item.description||'').replace(/<[^>]+>/g, '').slice(0,220)}…</div>
+          </article>`;
+        }).join('');
+      } catch (e) {
+        feedContainer.innerHTML = `<p class="muted">Could not load feed. ${e.message}</p>`;
+      }
+    }
+
+    loadBtn.addEventListener('click', loadFeed);
+  </script>
+</body>
+</html>
