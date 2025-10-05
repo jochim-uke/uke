@@ -58,6 +58,14 @@
     .small { font-size: 0.85rem; }
     footer { color: var(--muted); text-align: center; padding: 24px 0 36px; }
     code { color: #d2e2ff; }
+
+    .builder { display: grid; gap: 12px; }
+    .builder .block-title { margin: 0; font-weight: 700; font-size: 0.95rem; color: var(--muted); }
+    .tokens { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px 12px; }
+    .tokens label { display: flex; align-items: center; gap: 8px; background:#0c1424; border:1px solid rgba(255,255,255,0.09); border-radius: 10px; padding: 8px 10px; }
+    .tokens input[type="checkbox"] { transform: scale(1.05); }
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    select { background:#0c1424; color: var(--text); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:8px 10px; }
   </style>
 </head>
 <body>
@@ -70,68 +78,48 @@
     <section class="card">
       <h2>1) PubMed query (copy/edit as you like)</h2>
       <p class="help">This query focuses on hematology (malignant + select benign), clinical trials/randomized/phase language, and high-impact journals (incl. <em>Bone Marrow Transplantation</em>). It already limits to the last 60 days.</p>
+      <div class="builder" id="query-builder">
+        <div>
+          <h3 class="block-title">1) Erkrankungen (Suchterme)</h3>
+          <div id="disease-list" class="tokens" role="group" aria-label="Diseases"></div><br>
+          <div class="controls">
+            <button id="disease-all" class="secondary" type="button">Alle auswählen</button>
+            <button id="disease-none" class="secondary" type="button">Keine</button>
+          </div>
+        </div>
+        <div>
+          <h3 class="block-title">2) Journals</h3>
+          <div id="journals-list" class="tokens" role="group" aria-label="Journals"></div>
+          <div class="controls"><br>
+            <button id="journals-all" class="secondary" type="button">Alle auswählen</button>
+            <button id="journals-none" class="secondary" type="button">Keine</button>
+          </div>
+        </div>
+        <div>
+          <h3 class="block-title">3) Zeitfenster</h3>
+          <div class="controls">
+            <label for="time-window" class="small">Letzte…</label>
+            <select id="time-window">
+              <option value="30">30 Tage</option>
+              <option value="60" selected>60 Tage</option>
+              <option value="90">90 Tage</option>
+              <option value="180">180 Tage</option>
+            </select>
+            <span class="small muted">(wird als <code>("last N days"[dp])</code> in den Query eingefügt)</span>
+          </div>
+        </div>
+        <div class="controls">
+          <button id="generate" type="button">Query generieren</button>
+        </div><br>
+      </div>
       <textarea id="pm-query">
-(
-  "hematologic neoplasms"[tiab] OR
-  leukemia[tiab] OR
-  "multiple myeloma"[tiab] OR myeloma[tiab] OR
-  "myelodysplastic syndrome"[tiab] OR "myelodysplastic syndromes"[tiab] OR MDS[tiab] OR myelodysplasia[tiab] OR "myelodysplastic"[tiab] OR
-  "myeloproliferative neoplasms"[tiab] OR "myeloproliferative"[tiab] OR MPN[tiab] OR
-  "polycythemia vera"[tiab] OR "essential thrombocythemia"[tiab] OR myelofibrosis[tiab] OR
-  "acute myeloid leukemia"[tiab] OR AML[tiab] OR
-  "acute lymphoblastic leukemia"[tiab] OR ALL[tiab] OR
-  "chronic lymphocytic leukemia"[tiab] OR CLL[tiab] OR
-  "chronic myeloid leukemia"[tiab] OR CML[tiab] OR
-  DLBCL[tiab] OR "diffuse large b cell lymphoma"[tiab] OR
-  "b cell lymphoma"[tiab] OR
-  "hodgkin lymphoma"[tiab] OR "hodgkin's lymphoma"[tiab] OR
-  "non-hodgkin lymphoma"[tiab] OR "non-hodgkin's lymphoma"[tiab] OR NHL[tiab] OR
-  "cutaneous t-cell lymphoma"[tiab] OR CTCL[tiab] OR
-  "sezary syndrome"[tiab] OR
-  "primary mediastinal b-cell lymphoma"[tiab] OR PMBCL[tiab] OR
-  "follicular lymphoma"[tiab] OR
-  "mantle cell lymphoma"[tiab] OR
-  "marginal zone lymphoma"[tiab] OR
-  "peripheral t-cell lymphoma"[tiab] OR PTCL[tiab] OR
-  "anaplastic large cell lymphoma"[tiab] OR ALCL[tiab] OR
-  "burkitt lymphoma"[tiab] OR
-  "lymphoplasmacytic lymphoma"[tiab] OR LPL[tiab] OR
-  "waldenstrom macroglobulinemia"[tiab] OR "waldenström macroglobulinemia"[tiab] OR WM[tiab] OR
-  "hairy cell leukemia"[tiab] OR
-  "blastic plasmacytoid dendritic cell neoplasm"[tiab] OR BPDCN[tiab] OR
-  "aplastic anemia"[tiab] OR
-  "paroxysmal nocturnal hemoglobinuria"[tiab] OR PNH[tiab] OR
-  "immune thrombocytopenia"[tiab] OR ITP[tiab] OR
-  "thrombotic thrombocytopenic purpura"[tiab] OR TTP[tiab] OR
-  "hemophagocytic lymphohistiocytosis"[tiab] OR HLH[tiab] OR
-  "sickle cell disease"[tiab] OR "sickle cell"[tiab] OR
-  thalassemia[tiab] OR "hemophilia"[tiab]
-)
-AND
-(
-  clinical trial[ptyp] OR randomized controlled trial[ptyp] OR
-  "phase 1"[tiab] OR "phase I"[tiab] OR
-  "phase 2"[tiab] OR "phase II"[tiab] OR
-  "phase 3"[tiab] OR "phase III"[tiab] OR
-  randomized[tiab] OR randomised[tiab] OR "controlled trial"[tiab] OR
-  "first-in-human"[tiab] OR "proof-of-concept"[tiab]
-)
-AND
-(
-  "N Engl J Med"[jour] OR
-  "Lancet"[jour] OR "Lancet Haematol"[jour] OR "Lancet Oncol"[jour] OR
-  "J Clin Oncol"[jour] OR "JAMA Oncol"[jour] OR
-  "Blood"[jour] OR "Blood Adv"[jour] OR
-  "Leukemia"[jour] OR "Haematologica"[jour] OR
-  "Nat Med"[jour] OR "Clin Cancer Res"[jour] OR
-  "Ann Oncol"[jour] OR "Bone Marrow Transplant"[jour]
-)
-AND ("last 60 days"[dp])
+/* Der Query wird von der UI oben generiert. Passen Sie ihn bei Bedarf manuell an. */
       </textarea>
       <div class="row">
         <button id="copy-query">Copy query</button>
         <button class="secondary" id="open-pubmed">Open in PubMed</button>
       </div>
+      <p id="status" class="small muted"></p>
       <p class="small muted">In PubMed, click <strong>Create alert → RSS</strong> to get a permanent RSS URL for this search.</p>
     </section>
 
@@ -161,9 +149,132 @@ AND ("last 60 days"[dp])
   </footer>
 
   <script>
+    const JOURNALS = [
+      { label: 'N Engl J Med', token: '"N Engl J Med"[jour]' },
+      { label: 'Lancet', token: '"Lancet"[jour]' },
+      { label: 'Lancet Haematol', token: '"Lancet Haematol"[jour]' },
+      { label: 'Lancet Oncol', token: '"Lancet Oncol"[jour]' },
+      { label: 'J Clin Oncol', token: '"J Clin Oncol"[jour]' },
+      { label: 'JAMA Oncol', token: '"JAMA Oncol"[jour]' },
+      { label: 'Blood', token: '"Blood"[jour]' },
+      { label: 'Blood Adv', token: '"Blood Adv"[jour]' },
+      { label: 'Leukemia', token: '"Leukemia"[jour]' },
+      { label: 'Haematologica', token: '"Haematologica"[jour]' },
+      { label: 'Nat Med', token: '"Nat Med"[jour]' },
+      { label: 'Clin Cancer Res', token: '"Clin Cancer Res"[jour]' },
+      { label: 'Ann Oncol', token: '"Ann Oncol"[jour]' },
+      { label: 'Bone Marrow Transplant', token: '"Bone Marrow Transplant"[jour]' }
+    ];
+
+    const DISEASES = [
+      { label: 'AML', tokens: ['"acute myeloid leukemia"[tiab]','AML[tiab]'] },
+      { label: 'ALL', tokens: ['"acute lymphoblastic leukemia"[tiab]','ALL[tiab]'] },
+      { label: 'CLL', tokens: ['"chronic lymphocytic leukemia"[tiab]','CLL[tiab]'] },
+      { label: 'CML', tokens: ['"chronic myeloid leukemia"[tiab]','CML[tiab]'] },
+      { label: 'Multiple myeloma', tokens: ['"multiple myeloma"[tiab]','myeloma[tiab]'] },
+      { label: 'MDS', tokens: ['"myelodysplastic syndrome"[tiab]','"myelodysplastic syndromes"[tiab]','MDS[tiab]','myelodysplasia[tiab]','"myelodysplastic"[tiab]'] },
+      { label: 'MPN', tokens: ['"myeloproliferative neoplasms"[tiab]','"myeloproliferative"[tiab]','MPN[tiab]','"polycythemia vera"[tiab]','"essential thrombocythemia"[tiab]','myelofibrosis[tiab]','pmf[tiab]'] },
+      {
+  label: 'DLBCL / High-grade B-NHL', tokens: [ 'DLBCL[tiab]','"diffuse large b cell lymphoma"[tiab]', '"diffuse large B-cell lymphoma"[tiab]', '"large b cell lymphoma"[tiab]', '"large b-cell lymphoma"[tiab]', '"high-grade b-cell lymphoma"[tiab]']
+},
+      { label: 'CNS lymphoma', tokens: ['"central nervous system lymphoma"[tiab]','"cns lymphoma"[tiab]'] },
+      { label: 'T-cell lymphoma (broad)', tokens: ['"t-cell lymphoma"[tiab]','"t cell lymphoma"[tiab]','"t-cell lymphomas"[tiab]','"t cell lymphomas"[tiab]'] },
+      { label: 'B-Cell lymphoma (broad)', tokens: ['"b cell lymphoma"[tiab]','"bnhl"[tiab]','"non-hodgkin lymphoma"[tiab]']},
+      { label: 'Follicular lymphoma', tokens: ['"follicular lymphoma"[tiab]'] },
+      { label: 'Mantle cell lymphoma', tokens: ['"mantle cell lymphoma"[tiab]'] },
+      { label: 'Marginal zone lymphoma', tokens: ['"marginal zone lymphoma"[tiab]'] },
+      { label: 'PTCL/ALCL', tokens: ['"peripheral t-cell lymphoma"[tiab]','PTCL[tiab]','"anaplastic large cell lymphoma"[tiab]','ALCL[tiab]'] },
+      { label: 'Burkitt lymphoma', tokens: ['"burkitt lymphoma"[tiab]'] },
+      { label: 'PMBCL', tokens: ['"primary mediastinal b-cell lymphoma"[tiab]','PMBCL[tiab]'] },
+      { label: 'Hodgkin-Lymphoma', tokens: ['"hodgkin lymphoma"[tiab]','"hodgkin\'s lymphoma"[tiab]','"non-hodgkin\'s lymphoma"[tiab]','NHL[tiab]','"b cell lymphoma"[tiab]'] },
+      { label: 'MF/Sezary', tokens: ['"cutaneous t-cell lymphoma"[tiab]','CTCL[tiab]','"sezary syndrome"[tiab]'] },
+      { label: 'LPL/Waldenström', tokens: ['"lymphoplasmacytic lymphoma"[tiab]','LPL[tiab]','"waldenstrom macroglobulinemia"[tiab]','"waldenström macroglobulinemia"[tiab]','WM[tiab]'] },
+      { label: 'Hairy cell leukemia', tokens: ['"hairy cell leukemia"[tiab]'] },
+      { label: 'BPDCN', tokens: ['"blastic plasmacytoid dendritic cell neoplasm"[tiab]','BPDCN[tiab]'] },
+      { label: 'Aplastic anemia', tokens: ['"aplastic anemia"[tiab]'] },
+      { label: 'PNH', tokens: ['"paroxysmal nocturnal hemoglobinuria"[tiab]','PNH[tiab]'] },
+      { label: 'ITP/TTP/HLH', tokens: ['"immune thrombocytopenia"[tiab]','ITP[tiab]','"thrombotic thrombocytopenic purpura"[tiab]','TTP[tiab]','"hemophagocytic lymphohistiocytosis"[tiab]','HLH[tiab]'] },
+      { label: 'Sickle cell / Thal / Hemophilia', tokens: ['"sickle cell disease"[tiab]','"sickle cell"[tiab]','thalassemia[tiab]','"hemophilia"[tiab]'] }
+    ];
+
+    function renderChecklist(list, containerId) {
+      const wrap = document.getElementById(containerId);
+      wrap.innerHTML = list.map((item, idx) => {
+        const id = `${containerId}_${idx}`;
+        return `<label for="${id}"><input type="checkbox" id="${id}" data-idx="${idx}" checked> ${item.label}</label>`;
+      }).join('');
+    }
+
+    function buildOrBlockFromTokens(groups) {
+      // groups: array of arrays (each group is OR-joined internally), then all groups OR-joined together
+      const tokens = groups.map(g => g.join(' OR '));
+      const orJoined = '  ' + tokens.join(' OR\n  ');
+      return `(\n${orJoined}\n)`;
+    }
+
+    function setTextareaValue(val) {
+      try {
+        const wasRO = textarea.hasAttribute('readonly');
+        if (wasRO) textarea.removeAttribute('readonly');
+        textarea.value = val;
+        // also update the underlying node textContent to cover rare Safari repaint issues
+        textarea.textContent = val;
+        textarea.dispatchEvent(new Event('input', { bubbles: true }));
+        if (wasRO) textarea.setAttribute('readonly', '');
+      } catch (_) {
+        // noop
+      }
+    }
+
+    function generateQuery() {
+      // Diseases selected
+      const dWrap = document.getElementById('disease-list');
+      const dSelected = Array.from(dWrap.querySelectorAll('input[type="checkbox"]:checked')).map(cb => DISEASES[cb.getAttribute('data-idx')].tokens);
+      const diseaseBlock = buildOrBlockFromTokens(dSelected.length ? dSelected : DISEASES.map(x => x.tokens));
+
+      // Trials block (fixed)
+      const trialsBlock = `(\n  clinical trial[ptyp] OR randomized controlled trial[ptyp] OR\n  "phase 1"[tiab] OR "phase I"[tiab] OR\n  "phase 2"[tiab] OR "phase II"[tiab] OR\n  "phase 3"[tiab] OR "phase III"[tiab] OR\n  randomized[tiab] OR randomised[tiab] OR "controlled trial"[tiab] OR\n  "first-in-human"[tiab] OR "proof-of-concept"[tiab]\n)`;
+
+      // Journals selected
+      const jWrap = document.getElementById('journals-list');
+      const jSelected = Array.from(jWrap.querySelectorAll('input[type="checkbox"]:checked')).map(cb => JOURNALS[cb.getAttribute('data-idx')].token);
+      const journalsTokens = jSelected.length ? jSelected : JOURNALS.map(j => j.token);
+      const journalsBlock = `(\n  ${journalsTokens.join(' OR\n  ')}\n)`;
+
+      // Time window
+      const days = document.getElementById('time-window').value || '60';
+      const dateBlock = `("last ${days} days"[dp])`;
+
+      // Exclude reviews (fixed per your request)
+      const excludeReviews = 'NOT (Review[pt] OR Systematic Review[pt] OR Meta-Analysis[pt])';
+
+      const query = `${diseaseBlock}\nAND\n${trialsBlock}\nAND\n${journalsBlock}\n${excludeReviews}\nAND ${dateBlock}`;
+      setTextareaValue(query);
+      status.textContent = 'Query generiert (' + new Date().toLocaleTimeString() + ')';
+    }
+
     const textarea = document.getElementById('pm-query');
     const copyBtn = document.getElementById('copy-query');
     const openBtn = document.getElementById('open-pubmed');
+    const status = document.getElementById('status');
+
+    // Render builder UI
+    renderChecklist(DISEASES, 'disease-list');
+    renderChecklist(JOURNALS, 'journals-list');
+    // Buttons for disease/journal select-all/none
+    document.getElementById('disease-all').onclick = () => { document.querySelectorAll('#disease-list input[type="checkbox"]').forEach(cb => cb.checked = true); };
+    document.getElementById('disease-none').onclick = () => { document.querySelectorAll('#disease-list input[type="checkbox"]').forEach(cb => cb.checked = false); };
+    document.getElementById('journals-all').onclick = () => { document.querySelectorAll('#journals-list input[type="checkbox"]').forEach(cb => cb.checked = true); };
+    document.getElementById('journals-none').onclick = () => { document.querySelectorAll('#journals-list input[type="checkbox"]').forEach(cb => cb.checked = false); };
+    // Generate button
+    const genBtn = document.getElementById('generate');
+    genBtn.addEventListener('click', (e) => { e.preventDefault(); generateQuery(); });
+    // Auto-generate on any change in builder UI
+    document.getElementById('disease-list').addEventListener('change', generateQuery);
+    document.getElementById('journals-list').addEventListener('change', generateQuery);
+    document.getElementById('time-window').addEventListener('change', generateQuery);
+    // Generate once on load
+    generateQuery();
 
     copyBtn.addEventListener('click', async () => {
       try { await navigator.clipboard.writeText(textarea.value); copyBtn.textContent = 'Copied!'; setTimeout(()=>copyBtn.textContent='Copy query', 1500); } catch(e) { alert('Copy failed'); }
