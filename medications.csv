@@ -113,20 +113,22 @@ Propofol;Palliative Sedierung;
 Notfallsedierung;Palliative Sedierung;5 mg Midazolam + 5 mg Morphin i.v. oder 10 mg Midazolam + 10 mg Morphin s.c. 
 Daptomycin;Antibiotika;"Std. Dosis kalkuliert: 4 mg/kgKG (dosis wie bei hautinfektionen lt. Uptodate) ; Bei nachgewieser Blutstrominfektion: 10mg/kgKG (8-12 lt. Uptodate) ; UAW: Myopathie"
 DLIs - Dosis;Donor-Lymphocyte-Infusion;"Dosis zwischen 1x10^5 CD3+ Zellen/KgKG und 1x 10^7 CD3+ Zellen/KgKG; Start mit geringerer Dosis, dann Eskalation; Höhere Dosis bei 'Spätrezidiv'; Höhere Dosis bei Matched-related Donor;  Zeitintervall zwischen zwei Gaben: 4-6 Wochen"
-AML <60-65a;Konditionierung (Std.);TT2-Bu3 bzw. AUC60 (Spiegelmessung bei geplanter Deferasirox-Therapie peritransplant, bei Eisenüberladung mit Ferritin >1000)
-AML >60-65a;Konditionierung (Std.);TT2-Bu2 bzw. AUC40 (Spiegelmessung bei geplanter Deferasirox-Therapie peritransplant, bei Eisenüberladung mit Ferritin >1000)
+HaploMMRD cave:anders als bei MUD,MRD,MMUD;Konditionierung (Std.);"myeloische: TBF (TT2, Bu2-3 bzw. AUC40/60, Flu); lymphatische: TBI 8-12Gy / Flu"
+ALL <55 MRD-pos./MRD-NA;Konditionierung (Std.);TBI 12gy/Flu
+ALL <55 MRD-neg.;Konditionierung (Std.);TBI 12gy/Flu, ggf. Reduktion auf 8gy
+ALL >55;Konditionierung (Std.);TBI 8gy/Flu
+DLBCL Chemosensibel;Konditionierung (Std.);chemosensibel (z.B. oft Richter-Transformationen aus CLL): LEAM
+DLBCL Chemorefraktär;Konditionierung (Std.);chemorefraktär (die meisten post-CAR-DLBCLs): TBI 8/12Gy und Flu
+AML <60-65a;Konditionierung (Std.);TT2-Bu3 bzw. AUC60 
+AML >60-65a;Konditionierung (Std.);TT2-Bu2 bzw. AUC40 
 AML sehr komorbid;Konditionierung (Std.);TreoFlu
 AML ohne Remission;Konditionierung (Std.);sequentielle Konditionierung (FLAMSA, zZ seltener) oder alternative Therapien (GO-HAM, Vidaza,...) gefolgt von Flu(2d) und TBI 8Gy
 AML 2. Tx;Konditionierung (Std.);TBI 8gy/Flu
 AML extramedullär;Konditionierung (Std.);TBI 8gy/Flu
-ALL <55 MRD-pos./MRD-NA;Konditionierung (Std.);TBI 12gy/Flu
-ALL <55 MRD-neg.;Konditionierung (Std.);TBI 12gy/Flu, ggf. Reduktion auf 8gy
-ALL >55;Konditionierung (Std.);TBI 8gy/Flu
-MDS / CMML <60-65;Konditionierung (Std.);TT2-Bu3 bzw. AUC60 (Spiegelmessung bei geplanter Deferasirox-Therapie peritransplant, bei Eisenüberladung mit Ferritin >1000)
-MDS / CMML <60-65;Konditionierung (Std.);TT2-Bu2 bzw. AUC40 (Spiegelmessung bei geplanter Deferasirox-Therapie peritransplant, bei Eisenüberladung mit Ferritin >1000)
+MDS / CMML <60-65;Konditionierung (Std.);TT2-Bu3 bzw. AUC60 
+MDS / CMML <60-65;Konditionierung (Std.);TT2-Bu2 bzw. AUC40 
 MDS / CMML sehr komorbid;Konditionierung (Std.);TreoFlu
 Myelofibrose (PMF, post-ET-MF, post-PV-MF);Konditionierung (Std.);FluBu AUC60 (immer mit Spiegelmessung)
-HaploMMRD;Konditionierung (Std.);"myeloische: TBF (TT2, Bu2-3 bzw. AUC40/60, Flu); lymphatische: TBI 8-12Gy / Flu"
 ATG vs. PTCy;Konditionierung (Std.);"myeloische Grunderkrankung:
 MRD --> ATG 15mg/kg + CsA;
 MUD --> ATG 30mg/kg + CsA;
@@ -140,3 +142,4 @@ lymphatische Erkrankungen:
 ALL und jung --> PTCy;
 ALL und alt --> PTCy (wenn vetretbar, GMALL-Standard wäre aber FluTBI8Gy/ATG, daher auch mgl.);
 Lymphome --> PTCy, bei TBI immer. Die Kombi LEAM + PTCy ist sehr toxisch, daher hier manchmal auch eher ATG."
+Bu-Spiegelmessung;Konditionierung (Std.);"Bei Myelofibrose immer; Sonst: Spiegelmessung bei geplanter Deferasirox-Therapie peritransplant, bei Eisenüberladung mit Ferritin >1000"
