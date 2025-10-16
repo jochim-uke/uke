@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Medikamenten-Suche</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="container">
+    <h1>Medikamenten-Suche</h1>
+    <div class="controls">
+      <input id="searchInput" type="search" placeholder="Suche in allen Spalten …" aria-label="Suche" />
+      <select id="categoryFilter" aria-label="Kategorie filtern">
+        <option value="">Alle Kategorien</option>
+      </select>
+      <select id="indicationFilter" aria-label="Indikation filtern">
+        <option value="">Alle Indikationen</option>
+      </select>
+      <select id="pageSize" aria-label="Einträge pro Seite">
+        <option>25</option>
+        <option selected>50</option>
+        <option>100</option>
+        <option>250</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="tableWrap" class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th data-key="medication">Medication</th>
+            <th data-key="Category">Category</th>
+            <th data-key="Indication">Indication</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <tr><td colspan="3">Lade Daten …</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <nav class="pager" aria-label="Pagination">
+      <button id="prevBtn" disabled>◀︎ Zurück</button>
+      <span id="pageInfo">Seite 1/1</span>
+      <button id="nextBtn" disabled>Weiter ▶︎</button>
+    </nav>
+  </main>
+
+  <!-- PapaParse: robustes CSV-Parsing (auch große/quotierte CSVs) -->
+  <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
