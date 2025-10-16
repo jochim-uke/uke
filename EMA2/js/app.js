@@ -1,5 +1,5 @@
 // Konfiguration
-const CSV_PATH = "data/medications.csv";
+const CSV_PATH = "/data/medications.csv";
 const COLUMNS = ["medication", "Category", "Indication"]; // Spaltennamen in deiner CSV
 
 // State
