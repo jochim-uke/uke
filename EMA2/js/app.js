@@ -1,5 +1,5 @@
 // Konfiguration
-const CSV_PATH = "/data/medications.csv";
+const CSV_PATH = "data/medications.csv";
 const COLUMNS = ["medication", "Category", "Indication"]; // Spaltennamen in deiner CSV
 
 // State
@@ -28,12 +28,14 @@ const debounce = (fn, ms=200) => {
 
 // Laden & Parsen der CSV
 function loadCSV() {
+  console.log("CSV_PATH =", CSV_PATH, "base =", window.location.href);
   Papa.parse(CSV_PATH, {
     download: true,
     header: true,
     dynamicTyping: false,
     skipEmptyLines: true,
     worker: true, // schneller bei großen Dateien
+    // delimiter: ";", // UNCOMMENT if your CSV uses semicolons
     complete: (res) => {
       // Nur relevante Spalten mappen, Leerräume trimmen
       rows = res.data.map(r => ({
@@ -45,6 +47,7 @@ function loadCSV() {
       applyFilters();
     },
     error: (err) => {
+      console.error("PapaParse error:", err);
       tbody.innerHTML = `<tr><td colspan="3">Fehler beim Laden der CSV: ${err?.message || err}</td></tr>`;
     }
   });
