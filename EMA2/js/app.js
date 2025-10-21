@@ -28,18 +28,6 @@ const debounce = (fn, ms=200) => {
 function escapeHTML(s) {
   return String(s ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
-function escapeRegExp(str) {
-  return String(str ?? "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-function highlightText(text, query) {
-  const src = String(text ?? "");
-  const q = String(query ?? "").trim();
-  if (!q) return escapeHTML(src);
-  const terms = Array.from(new Set(q.split(/\s+/).filter(t => t.length > 1))).map(escapeRegExp);
-  if (!terms.length) return escapeHTML(src);
-  const re = new RegExp("(" + terms.join("|") + ")", "gi");
-  return escapeHTML(src).replace(re, '<mark>$1</mark>');
-}
 function splitIndications(text) {
   if (!text) return [];
   const t = String(text).replace(/\s+/g, " ").trim();
@@ -49,7 +37,6 @@ function splitIndications(text) {
 }
 // Expose helpers globally
 window.escapeHTML = escapeHTML;
-window.highlightText = highlightText;
 window.splitIndications = splitIndications;
 
 // Laden & Parsen der CSV
@@ -177,12 +164,11 @@ function render() {
     const frag = document.createDocumentFragment();
     for (const r of view) {
       const tr = document.createElement("tr");
-      const qNow = searchInput.value.trim();
       const chunks = splitIndications(r.Indication);
-      const indHtml = chunks.map(ch => highlightText(ch, qNow)).join('<br>');
+      const indHtml = chunks.map(ch => escapeHTML(ch)).join('<br>');
       tr.innerHTML = `
-        <td>${highlightText(r.Name, qNow)}</td>
-        <td>${highlightText(r.Tradename, qNow)}</td>
+        <td>${escapeHTML(r.Name)}</td>
+        <td>${escapeHTML(r.Tradename)}</td>
         <td>${indHtml}</td>
       `;
       frag.appendChild(tr);
