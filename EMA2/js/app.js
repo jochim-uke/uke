@@ -161,12 +161,12 @@ function render() {
     const frag = document.createDocumentFragment();
     for (const r of view) {
       const tr = document.createElement("tr");
-      // Replace the lines with splitIndications call without tradename argument
+      const qNow = searchInput.value.trim();
       const chunks = splitIndications(r.Indication);
       const indHtml = chunks.map(ch => highlightText(ch, qNow)).join('<br>');
       tr.innerHTML = `
-        <td>${escapeHTML(r.Name)}</td>
-        <td>${escapeHTML(r.Tradename)}</td>
+        <td>${highlightText(r.Name, qNow)}</td>
+        <td>${highlightText(r.Tradename, qNow)}</td>
         <td>${indHtml}</td>
       `;
       frag.appendChild(tr);
@@ -182,6 +182,23 @@ function render() {
 
 function escapeHTML(s) {
   return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function escapeRegExp(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+// Highlight query terms (case-insensitive) inside already-escaped text
+function highlightText(text, query) {
+  const src = (text ?? "").toString();
+  const q = (query ?? "").trim();
+  if (!q) return escapeHTML(src);
+  // split on whitespace, ignore 1-char tokens to reduce noise
+  const terms = Array.from(new Set(q.split(/\s+/).filter(t => t.length > 1))).map(escapeRegExp);
+  if (!terms.length) return escapeHTML(src);
+  const re = new RegExp("(" + terms.join("|") + ")", "gi");
+  // escape first, then inject <mark>
+  return escapeHTML(src).replace(re, '<mark>$1</mark>');
 }
 
 // Events
