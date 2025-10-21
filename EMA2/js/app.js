@@ -25,6 +25,33 @@ const debounce = (fn, ms=200) => {
   let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
 };
 
+function escapeHTML(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function escapeRegExp(str) {
+  return String(str ?? "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+function highlightText(text, query) {
+  const src = String(text ?? "");
+  const q = String(query ?? "").trim();
+  if (!q) return escapeHTML(src);
+  const terms = Array.from(new Set(q.split(/\s+/).filter(t => t.length > 1))).map(escapeRegExp);
+  if (!terms.length) return escapeHTML(src);
+  const re = new RegExp("(" + terms.join("|") + ")", "gi");
+  return escapeHTML(src).replace(re, '<mark>$1</mark>');
+}
+function splitIndications(text) {
+  if (!text) return [];
+  const t = String(text).replace(/\s+/g, " ").trim();
+  if (!t) return [];
+  const parts = t.split(/(?<=[.;])\s+(?=[A-Z])/);
+  return parts.map(s => s.trim()).filter(Boolean);
+}
+// Expose helpers globally
+window.escapeHTML = escapeHTML;
+window.highlightText = highlightText;
+window.splitIndications = splitIndications;
+
 // Laden & Parsen der CSV
 function loadCSV() {
   console.log("CSV_PATH =", CSV_PATH, "base =", window.location.href);
@@ -100,17 +127,6 @@ function loadCSV() {
     });
 }
 
-// Neue splitIndications-Funktion
-function splitIndications(text) {
-  if (!text) return [];
-  // normalize whitespace
-  const t = String(text).replace(/\s+/g, " ").trim();
-  if (!t) return [];
-  // Split at "." or ";" followed by space and a capital letter
-  const parts = t.split(/(?<=[.;])\s+(?=[A-Z])/);
-  return parts.map(s => s.trim()).filter(Boolean);
-}
-
 // Filter-Dropdowns befüllen
 function buildFilters(data) {
   const setToOpts = (sel, values) => {
@@ -178,27 +194,6 @@ function render() {
   prevBtn.disabled = (page <= 1);
   nextBtn.disabled = (page >= pages);
   pageInfo.textContent = `Seite ${page} / ${pages} — ${total} Einträge`;
-}
-
-function escapeHTML(s) {
-  return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-}
-
-function escapeRegExp(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
-
-// Highlight query terms (case-insensitive) inside already-escaped text
-function highlightText(text, query) {
-  const src = (text ?? "").toString();
-  const q = (query ?? "").trim();
-  if (!q) return escapeHTML(src);
-  // split on whitespace, ignore 1-char tokens to reduce noise
-  const terms = Array.from(new Set(q.split(/\s+/).filter(t => t.length > 1))).map(escapeRegExp);
-  if (!terms.length) return escapeHTML(src);
-  const re = new RegExp("(" + terms.join("|") + ")", "gi");
-  // escape first, then inject <mark>
-  return escapeHTML(src).replace(re, '<mark>$1</mark>');
 }
 
 // Events
