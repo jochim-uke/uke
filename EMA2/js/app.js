@@ -32,7 +32,7 @@ function splitIndications(text) {
   if (!text) return [];
   const t = String(text).replace(/\s+/g, " ").trim();
   if (!t) return [];
-  const parts = t.split(/(?<=[.;])\s+(?=[A-Z])/);
+  const parts = t.split(/(?<=[.;])\s*/);
   return parts.map(s => s.trim()).filter(Boolean);
 }
 // Expose helpers globally
@@ -165,7 +165,7 @@ function render() {
     for (const r of view) {
       const tr = document.createElement("tr");
       const chunks = splitIndications(r.Indication);
-      const indHtml = chunks.map(ch => escapeHTML(ch)).join('<br>');
+      const indHtml = chunks.map(ch => escapeHTML(ch)).join('<br><br>');
       tr.innerHTML = `
         <td>${escapeHTML(r.Name)}</td>
         <td>${escapeHTML(r.Tradename)}</td>
