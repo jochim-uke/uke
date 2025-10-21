@@ -100,6 +100,17 @@ function loadCSV() {
     });
 }
 
+// Neue splitIndications-Funktion
+function splitIndications(text) {
+  if (!text) return [];
+  // normalize whitespace
+  const t = String(text).replace(/\s+/g, " ").trim();
+  if (!t) return [];
+  // Split at "." or ";" followed by space and a capital letter
+  const parts = t.split(/(?<=[.;])\s+(?=[A-Z])/);
+  return parts.map(s => s.trim()).filter(Boolean);
+}
+
 // Filter-Dropdowns befüllen
 function buildFilters(data) {
   const setToOpts = (sel, values) => {
@@ -150,10 +161,13 @@ function render() {
     const frag = document.createDocumentFragment();
     for (const r of view) {
       const tr = document.createElement("tr");
+      // Replace the lines with splitIndications call without tradename argument
+      const chunks = splitIndications(r.Indication);
+      const indHtml = chunks.map(ch => highlightText(ch, qNow)).join('<br>');
       tr.innerHTML = `
         <td>${escapeHTML(r.Name)}</td>
         <td>${escapeHTML(r.Tradename)}</td>
-        <td>${escapeHTML(r.Indication)}</td>
+        <td>${indHtml}</td>
       `;
       frag.appendChild(tr);
     }
