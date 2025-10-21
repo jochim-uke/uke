@@ -1,6 +1,6 @@
 // Konfiguration
 const CSV_PATH = "data/medications.csv";
-const COLUMNS = ["medication", "Category", "Indication"]; // Spaltennamen in deiner CSV
+const COLUMNS = ["Name", "Tradename", "Disease", "Indication"]; // erweitert: Disease für Suche/Filter
 
 // State
 let rows = [];
@@ -12,8 +12,7 @@ let sortDir = 1; // 1 = asc, -1 = desc
 
 // DOM
 const searchInput = document.getElementById("searchInput");
-const categoryFilter = document.getElementById("categoryFilter");
-const indicationFilter = document.getElementById("indicationFilter");
+const diseaseFilter = document.getElementById("diseaseFilter");
 const pageSizeSel = document.getElementById("pageSize");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
@@ -66,26 +65,28 @@ function loadCSV() {
         return;
       }
 
-      // Header-Mapping (case-insensitiv, unterstützt deutsche Varianten)
+      // Header-Mapping (case-insensitiv, unterstützt alte & deutsche Varianten)
       const firstRow = res.data[0] || {};
       const keyMapLower = Object.keys(firstRow).reduce((acc, k) => {
         acc[k.toLowerCase().replace(/\s+/g, "")] = k; return acc;
       }, {});
 
-      const keyMedication = keyMapLower["medication"] || keyMapLower["medikament"] || keyMapLower["arznei"];
-      const keyCategory   = keyMapLower["category"]   || keyMapLower["kategorie"];
-      const keyIndication = keyMapLower["indication"] || keyMapLower["indikation"];
+      const keyName       = keyMapLower["name"]        || keyMapLower["medication"] || keyMapLower["medikament"] || keyMapLower["arznei"];
+      const keyTradename  = keyMapLower["tradename"]   || keyMapLower["handelsname"] || keyMapLower["brand"] || keyMapLower["marke"];
+      const keyDisease    = keyMapLower["disease"]     || keyMapLower["erkrankung"] || keyMapLower["krankheit"] || keyMapLower["diagnose"];
+      const keyIndication = keyMapLower["indication"]  || keyMapLower["indikation"];
 
-      if (!keyMedication || !keyCategory || !keyIndication) {
+      if (!keyName || !keyIndication || !keyDisease) {
         console.error("Header mapping failed. Available headers:", Object.keys(firstRow));
-        tbody.innerHTML = `<tr><td colspan="3">Fehlende Spalten. Erwartet: medication, Category, Indication (oder: Medikament, Kategorie, Indikation). Gefunden: ${Object.keys(firstRow).join(", ")}</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="3">Fehlende Spalten. Erwartet: Tradename, Name, Disease, Indication (Kompatibel: Handelsname, Medikament/Arznei, Erkrankung/Krankheit, Indikation). Gefunden: ${Object.keys(firstRow).join(", ")}</td></tr>`;
         return;
       }
 
-      // Daten normalisieren
+      // Daten normalisieren (Tradename darf leer sein)
       rows = res.data.map((r) => ({
-        medication: safe(r[keyMedication]),
-        Category: safe(r[keyCategory]),
+        Name: safe(r[keyName]),
+        Tradename: keyTradename ? safe(r[keyTradename]) : "",
+        Disease: safe(r[keyDisease]),
         Indication: safe(r[keyIndication]),
       }));
 
@@ -111,21 +112,18 @@ function buildFilters(data) {
     });
     sel.appendChild(frag);
   };
-  setToOpts(categoryFilter, data.map(r => r.Category));
-  setToOpts(indicationFilter, data.map(r => r.Indication));
+  setToOpts(diseaseFilter, data.map(r => r.Disease));
 }
 
 // Anwenden von Suche/Filtern/Sortierung
 function applyFilters() {
   const q = searchInput.value.trim().toLowerCase();
-  const cat = categoryFilter.value;
-  const ind = indicationFilter.value;
+  const dis = diseaseFilter.value;
 
   filtered = rows.filter(r => {
-    const byCat = !cat || r.Category === cat;
-    const byInd = !ind || r.Indication === ind;
-    const byQuery = !q || COLUMNS.some(k => r[k].toLowerCase().includes(q));
-    return byCat && byInd && byQuery;
+    const byDis = !dis || r.Disease === dis;
+    const byQuery = !q || COLUMNS.some(k => (r[k] || "").toLowerCase().includes(q));
+    return byDis && byQuery;
   });
 
   if (sortKey) {
@@ -153,8 +151,8 @@ function render() {
     for (const r of view) {
       const tr = document.createElement("tr");
       tr.innerHTML = `
-        <td>${escapeHTML(r.medication)}</td>
-        <td>${escapeHTML(r.Category)}</td>
+        <td>${escapeHTML(r.Name)}</td>
+        <td>${escapeHTML(r.Tradename)}</td>
         <td>${escapeHTML(r.Indication)}</td>
       `;
       frag.appendChild(tr);
@@ -174,8 +172,7 @@ function escapeHTML(s) {
 
 // Events
 searchInput.addEventListener("input", debounce(applyFilters, 150));
-categoryFilter.addEventListener("change", applyFilters);
-indicationFilter.addEventListener("change", applyFilters);
+diseaseFilter.addEventListener("change", applyFilters);
 pageSizeSel.addEventListener("change", () => { pageSize = parseInt(pageSizeSel.value,10)||50; render(); });
 prevBtn.addEventListener("click", () => { page--; render(); });
 nextBtn.addEventListener("click", () => { page++; render(); });
