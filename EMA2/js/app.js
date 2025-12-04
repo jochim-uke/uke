@@ -44,7 +44,14 @@ window.splitIndications = splitIndications;
 function loadCSV() {
   console.log("CSV_PATH =", CSV_PATH, "base =", window.location.href);
 
-  const safe = (v) => (v == null ? "" : String(v).replace("\ufeff", "").trim());
+  const safe = (v) => {
+    if (v == null) return "";
+    return String(v)
+      .replace("\ufeff", "")       // BOM entfernen
+      .replace(/\u00A0/g, " ")      // echte Unicode-NBSP in normale Leerzeichen umwandeln
+      .replace(/&nbsp;/gi, " ")      // wörtliche "&nbsp;" aus der CSV in Leerzeichen umwandeln
+      .trim();
+  };
 
   fetch(CSV_PATH)
     .then((r) => {
