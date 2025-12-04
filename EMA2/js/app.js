@@ -88,7 +88,7 @@ function loadCSV() {
 
       if (!Array.isArray(res.data) || res.data.length === 0) {
         console.error("CSV parse produced no rows. Errors:", res.errors);
-        tbody.innerHTML = `<tr><td colspan="4">Keine Daten gefunden. Prüfe Trennzeichen (Komma vs. Semikolon) und Header.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="3">Keine Daten gefunden. Prüfe Trennzeichen (Komma vs. Semikolon) und Header.</td></tr>`;
         return;
       }
 
@@ -108,7 +108,7 @@ function loadCSV() {
 
       if (!keyName || !keyIndication || !keyDisease) {
         console.error("Header mapping failed. Available headers:", Object.keys(firstRow));
-        tbody.innerHTML = `<tr><td colspan="4">Fehlende Spalten. Erwartet: Tradename, Name, Disease, Indication (Kompatibel: Handelsname, Medikament/Arznei, Erkrankung/Krankheit, Indikation). Gefunden: ${Object.keys(firstRow).join(", ")}</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="3">Fehlende Spalten. Erwartet: Tradename, Name, Disease, Indication (Kompatibel: Handelsname, Medikament/Arznei, Erkrankung/Krankheit, Indikation). Gefunden: ${Object.keys(firstRow).join(", ")}</td></tr>`;
         return;
       }
 
@@ -129,7 +129,7 @@ function loadCSV() {
     })
     .catch((err) => {
       console.error("CSV load/parse error:", err);
-      tbody.innerHTML = `<tr><td colspan="4">Fehler beim Laden/Parsen: ${err?.message || err}</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="3">Fehler beim Laden/Parsen: ${err?.message || err}</td></tr>`;
     });
 }
 
@@ -178,11 +178,10 @@ function render() {
 
   // Rows
   if (view.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="4">Keine Einträge gefunden.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="3">Keine Einträge gefunden.</td></tr>`;
   } else {
     const frag = document.createDocumentFragment();
     for (const r of view) {
-      const tr = document.createElement("tr");
       const chunks = splitIndications(r.Indication);
       const indHtml = chunks.map(ch => escapeHTML(ch)).join('<br><br>');
 
@@ -190,19 +189,47 @@ function render() {
       let urlHtml = '';
       if (r.URL) {
         const rawUrl = r.URL.trim();
-        // Falls kein Protokoll angegeben ist, standardmäßig https:// ergänzen
         const href = rawUrl.match(/^https?:\/\//i) ? rawUrl : `https://${rawUrl}`;
         const safeHref = href.replace(/\"/g, '%22');
         urlHtml = `<a href="${safeHref}" target="_blank" rel="noopener noreferrer">Link</a>`;
       }
 
-      tr.innerHTML = `
+      // Hauptzeile (Name, Tradename, Link)
+      const trMain = document.createElement("tr");
+      trMain.className = "row-main";
+      trMain.innerHTML = `
         <td>${escapeHTML(r.Name)}</td>
         <td>${escapeHTML(r.Tradename)}</td>
-        <td>${indHtml}</td>
         <td>${urlHtml}</td>
       `;
-      frag.appendChild(tr);
+      trMain.tabIndex = 0;
+      trMain.setAttribute("aria-expanded", "false");
+
+      // Detailzeile (Indikation)
+      const trDetail = document.createElement("tr");
+      trDetail.className = "row-detail";
+      trDetail.innerHTML = `
+        <td colspan="3">${indHtml || '<span class="muted">Keine Indikation hinterlegt.</span>'}</td>
+      `;
+      trDetail.style.display = "none";
+
+      // Toggle-Logik: Klick oder Enter/Space auf Hauptzeile toggelt Detailzeile
+      const toggle = () => {
+        const isOpen = trDetail.style.display !== "none";
+        trDetail.style.display = isOpen ? "none" : "table-row";
+        trMain.setAttribute("aria-expanded", String(!isOpen));
+      };
+
+      trMain.addEventListener("click", toggle);
+      trMain.addEventListener("keydown", (ev) => {
+        if (ev.key === "Enter" || ev.key === " ") {
+          ev.preventDefault();
+          toggle();
+        }
+      });
+
+      frag.appendChild(trMain);
+      frag.appendChild(trDetail);
     }
     tbody.replaceChildren(frag);
   }
