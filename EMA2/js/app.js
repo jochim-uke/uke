@@ -126,8 +126,8 @@ function loadCSV() {
 
       console.log(`CSV ok: ${rows.length} Zeilen`);
       buildFilters(rows);
-      statusFilter.value = "authorised";
-      categoryFilter.value = "human";
+      statusFilter.value = "Authorised";
+      categoryFilter.value = "Human";
       applyFilters();
     })
     .catch((err) => {
