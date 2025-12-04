@@ -213,6 +213,8 @@ function render() {
   pageInfo.textContent = `Seite ${page} / ${pages} — ${total} Einträge`;
 }
 
+
+
 // Events
 searchInput.addEventListener("input", debounce(applyFilters, 150));
 diseaseFilter.addEventListener("change", applyFilters);
@@ -233,6 +235,38 @@ ths.forEach(th => {
     }
     applyFilters();
   });
+});
+
+function updateDataTimestamp() {
+  const el = document.getElementById("dataUpdated");
+  if (!el) return;
+
+  fetch("data/medications.csv", { method: "HEAD" })
+    .then((res) => {
+      const lm = res.headers.get("Last-Modified");
+      if (!lm) {
+        return;
+      }
+      const d = new Date(lm);
+      el.textContent = d.toLocaleString("de-DE", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+    })
+    .catch(() => {
+      // Fallback: notfalls HTML-Datum verwenden
+      const d = new Date(document.lastModified);
+      el.textContent = d.toLocaleString("de-DE");
+    });
+}
+
+// irgendwo nach DOM-Ready aufrufen:
+document.addEventListener("DOMContentLoaded", () => {
+  updateDataTimestamp();
+  // ... dein bisheriges init/loadCSV etc.
 });
 
 loadCSV();
