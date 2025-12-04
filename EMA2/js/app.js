@@ -38,7 +38,7 @@ function splitIndications(text) {
     .trim();
   if (!t) return [];
   // Split at every period or semicolon, independent of what follows (Safari-friendly, no lookbehind)
-  const parts = t.split(/[.;]+/);
+  const parts = t.split(/;|\.\s+/);
   return parts.map(s => s.trim()).filter(Boolean);
 }
 // Expose helpers globally
