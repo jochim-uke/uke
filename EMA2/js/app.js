@@ -30,7 +30,12 @@ function escapeHTML(s) {
 }
 function splitIndications(text) {
   if (!text) return [];
-  const t = String(text).replace(/\s+/g, " ").trim();
+  const t = String(text)
+    .replace("\ufeff", "")      // BOM entfernen, falls doch noch vorhanden
+    .replace(/\u00A0/g, " ")     // echte Unicode-NBSP in normale Leerzeichen
+    .replace(/&nbsp;/gi, " ")     // wörtliche "&nbsp;" in Leerzeichen
+    .replace(/\s+/g, " ")        // alle Whitespaces zusammenfassen
+    .trim();
   if (!t) return [];
   // Split at every period or semicolon, independent of what follows (Safari-friendly, no lookbehind)
   const parts = t.split(/[.;]+/);
