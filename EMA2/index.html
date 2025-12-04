@@ -4,16 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Medikamenten-Suche</title>
-     <p class="updated">
-      Daten aktualisiert am: <span id="dataUpdated">–</span>
-    </p>
-
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
   <header class="container">
     <h1>Medikamenten-Suche</h1>
 
+    <p class="updated">
+      Daten aktualisiert am: <span id="dataUpdated">–</span>
+    </p>
 
     <div class="controls">
       <input id="searchInput" type="search" placeholder="Suche in allen Spalten …" aria-label="Suche" />
@@ -38,17 +37,19 @@
       <table>
         <thead>
           <tr>
-            <th data-key="Name">Name</th>
-            <th data-key="Tradename">Tradename</th>
-            <th data-key="Indication">Indication</th>
-            <th data-key="URL">Link</th>
+            <th scope="col" data-key="Name">Name</th>
+            <th scope="col" data-key="Tradename">Tradename</th>
+            <th scope="col" data-key="URL">Link</th>
           </tr>
         </thead>
         <tbody id="tbody">
-          <tr><td colspan="4">Lade Daten …</td></tr>
+          <tr><td colspan="3">Lade Daten …</td></tr>
         </tbody>
       </table>
     </div>
+
+
+
     <nav class="pager" aria-label="Pagination">
       <button id="prevBtn" disabled>◀︎ Zurück</button>
       <span id="pageInfo">Seite 1/1</span>
