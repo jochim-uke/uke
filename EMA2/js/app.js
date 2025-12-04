@@ -12,7 +12,8 @@ let sortDir = 1; // 1 = asc, -1 = desc
 
 // DOM
 const searchInput = document.getElementById("searchInput");
-const diseaseFilter = document.getElementById("diseaseFilter");
+const statusFilter = document.getElementById("statusFilter");
+const categoryFilter = document.getElementById("categoryFilter");
 const pageSizeSel = document.getElementById("pageSize");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
@@ -145,18 +146,21 @@ function buildFilters(data) {
     });
     sel.appendChild(frag);
   };
-  setToOpts(diseaseFilter, data.map(r => r.Disease));
+  setToOpts(statusFilter, data.map(r => r.Status));
+  setToOpts(categoryFilter, data.map(r => r.Category));
 }
 
 // Anwenden von Suche/Filtern/Sortierung
 function applyFilters() {
   const q = searchInput.value.trim().toLowerCase();
-  const dis = diseaseFilter.value;
+  const status = statusFilter.value;
+  const category = categoryFilter.value;
 
   filtered = rows.filter(r => {
-    const byDis = !dis || r.Disease === dis;
+    const byStatus = !status || r.Status === status;
+    const byCategory = !category || r.Category === category;
     const byQuery = !q || COLUMNS.some(k => (r[k] || "").toLowerCase().includes(q));
-    return byDis && byQuery;
+    return byStatus && byCategory && byQuery;
   });
 
   if (sortKey) {
@@ -244,7 +248,8 @@ function render() {
 
 // Events
 searchInput.addEventListener("input", debounce(applyFilters, 150));
-diseaseFilter.addEventListener("change", applyFilters);
+statusFilter.addEventListener("change", applyFilters);
+categoryFilter.addEventListener("change", applyFilters);
 pageSizeSel.addEventListener("change", () => { pageSize = parseInt(pageSizeSel.value,10)||50; render(); });
 prevBtn.addEventListener("click", () => { page--; render(); });
 nextBtn.addEventListener("click", () => { page++; render(); });
