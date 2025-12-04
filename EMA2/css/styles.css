@@ -16,3 +16,20 @@ tbody tr:hover td { background:#f6faff; }
 button { padding:8px 12px; border:1px solid #d0d0d0; background:#fff; border-radius:8px; cursor:pointer; }
 button[disabled]{ opacity:0.5; cursor:not-allowed; }
 #pageInfo { font-variant-numeric: tabular-nums; }
+
+/* EMA Link Button */
+.ema-btn {
+  display: inline-block;
+  background-color: #0b3d91;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ema-btn:hover,
+.ema-btn:focus {
+  background-color: #092f6f;
+}
