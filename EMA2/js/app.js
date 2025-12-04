@@ -197,7 +197,7 @@ function render() {
         const rawUrl = r.URL.trim();
         const href = rawUrl.match(/^https?:\/\//i) ? rawUrl : `https://${rawUrl}`;
         const safeHref = href.replace(/\"/g, '%22');
-        urlHtml = `<a href="${safeHref}" target="_blank" rel="noopener noreferrer">Link</a>`;
+        urlHtml = `<a href="${safeHref}" target="_blank" rel="noopener noreferrer" class="ema-btn">EMA-Link↗</a>`;
       }
 
       // Hauptzeile (Name, Tradename, Link)
