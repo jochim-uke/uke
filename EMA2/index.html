@@ -18,24 +18,19 @@
       Quelle: European Medicines Agency (EMA). Daten abgerufen von <a href="https://www.ema.europa.eu/en/medicines/download-medicine-data" target="_blank" rel="noopener">https://www.ema.europa.eu/en/medicines/download-medicine-data</a>.<br>
 </p>
     <div class="controls">
-      <input id="searchInput" type="search" placeholder="Suche in allen Spalten …" aria-label="Suche" />
+      <div class="control-row control-row--search">
+        <input id="searchInput" type="search" placeholder="Suche in allen Spalten …" aria-label="Suche" />
+      </div>
 
-
-      <select id="statusFilter" aria-label="Status filtern">
-        <option value="">Alle Status</option>
-      </select>
-      
-      <select id="categoryFilter" aria-label="Kategorie filtern">
-        <option value="">Alle Kategorien</option>
-      </select>
-
-
-      <select id="pageSize" aria-label="Einträge pro Seite">
-        <option>25</option>
-        <option selected>50</option>
-        <option>100</option>
-        <option>250</option>
-      </select>
+      <div class="control-row control-row--filters">
+        <select id="statusFilter" aria-label="Status filtern">
+          <option value="">Alle Status</option>
+        </select>
+        
+        <select id="categoryFilter" aria-label="Kategorie filtern">
+          <option value="">Alle Kategorien</option>
+        </select>
+      </div>
     </div>
   </header>
 
