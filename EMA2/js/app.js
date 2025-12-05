@@ -62,8 +62,8 @@ function loadCSV() {
       .replace(/&nbsp;/gi, " ")          // wörtliche "&nbsp;" aus der CSV in Leerzeichen umwandeln
       .replace(/\be\.g\./gi, "for example")  // e.g. → for example
       .replace(/\bi\.e\./gi, "that is")      // i.e. → that is
-      .replace(/&lt/?gi, "<")
-      .replace(/&gt/?gi, ">")
+      .replace(/&lt;?/gi, "<")
+      .replace(/&gt;?/gi, ">")
       .trim();
   };
 
