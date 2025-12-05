@@ -33,3 +33,10 @@ button[disabled]{ opacity:0.5; cursor:not-allowed; }
 .ema-btn:focus {
   background-color: #092f6f;
 }
+
+
+/* Hervorhebung des Suchbegriffs */
+mark.hl {
+  background-color: #ffeb3b;
+  padding: 0 1px;
+}
