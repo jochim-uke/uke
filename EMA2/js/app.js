@@ -44,11 +44,32 @@ function splitIndications(text) {
   const parts = t.split(/;|\.(?=[A-Za-z])|\.\s+/);
   return parts.map(s => s.trim()).filter(Boolean);
 }
+// Suchbegriff im Text hervorheben (case-insensitive), mit HTML-Escaping
+function highlightText(text, query) {
+  const q = (query || "").trim();
+  const s = text == null ? "" : String(text);
+  if (!q) return escapeHTML(s);
 
+  const lower = s.toLowerCase();
+  const lowerQ = q.toLowerCase();
+  let html = "";
+  let pos = 0;
+  let idx;
+
+  while ((idx = lower.indexOf(lowerQ, pos)) !== -1) {
+    const before = s.slice(pos, idx);
+    const match = s.slice(idx, idx + q.length);
+    html += escapeHTML(before) + '<mark class="hl">' + escapeHTML(match) + '</mark>';
+    pos = idx + q.length;
+  }
+  html += escapeHTML(s.slice(pos));
+  return html;
+}
 
 // Expose helpers globally
 window.escapeHTML = escapeHTML;
 window.splitIndications = splitIndications;
+window.highlightText = highlightText;
 
 // Laden & Parsen der CSV
 function loadCSV() {
@@ -195,9 +216,10 @@ function render() {
     tbody.innerHTML = `<tr><td colspan="3">Keine Einträge gefunden.</td></tr>`;
   } else {
     const frag = document.createDocumentFragment();
+    const query = searchInput.value.trim();
     for (const r of view) {
       const chunks = splitIndications(r.Indication);
-      const indHtml = chunks.map(ch => escapeHTML(ch)).join('<br><br>');
+      const indHtml = chunks.map(ch => highlightText(ch, query)).join('<br><br>');
 
       // URL-Spalte als klickbarer Link (falls vorhanden)
       let urlHtml = '';
@@ -212,8 +234,8 @@ function render() {
       const trMain = document.createElement("tr");
       trMain.className = "row-main";
       trMain.innerHTML = `
-        <td>${escapeHTML(r.Name)}</td>
-        <td>${escapeHTML(r.Tradename)}</td>
+        <td>${highlightText(r.Name, query)}</td>
+        <td>${highlightText(r.Tradename, query)}</td>
         <td>${urlHtml}</td>
       `;
       trMain.tabIndex = 0;
