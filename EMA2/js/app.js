@@ -29,19 +29,38 @@ const debounce = (fn, ms=200) => {
 function escapeHTML(s) {
   return String(s ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
+
+
 function splitIndications(text) {
-  if (!text) return [];
-  const t = String(text)
-    .replace("\ufeff", "")      // BOM entfernen, falls doch noch vorhanden
-    .replace(/\u00A0/g, " ")     // echte Unicode-NBSP in normale Leerzeichen
-    .replace(/&nbsp;/gi, " ")     // wörtliche "&nbsp;" in Leerzeichen
-    .replace(/\s+/g, " ")        // alle Whitespaces zusammenfassen
-    .trim();
+  const t = safe(text);
   if (!t) return [];
-  // Split at every period or semicolon, independent of what follows (Safari-friendly, no lookbehind)
-  const parts = t.split(/;|\.(?=[A-Za-z])|\.\s+/);
-  return parts.map(s => s.trim()).filter(Boolean);
+
+  // Erst normal splitten
+  let parts = t.split(/;|\.(?=[A-Za-z])|\.\s+/)
+               .map(s => s.trim())
+               .filter(Boolean);
+
+  // Dann Abkürzungen wieder zusammenfügen, falls sie fälschlich getrennt wurden
+  const abbreviations = ["e.g.", "i.e.", "d.d.", "k.s."];
+
+  const merged = [];
+  for (let i = 0; i < parts.length; i++) {
+    const current = parts[i];
+    const next = parts[i+1] || "";
+
+    // Falls aus Versehen gesplittet in: "e", "g." → wieder zusammenfassen
+    const combined = current + "." + next;
+    if (abbreviations.includes(combined)) {
+      merged.push(combined);
+      i++; // Skip next
+    } else {
+      merged.push(current);
+    }
+  }
+
+  return merged;
 }
+
 // Expose helpers globally
 window.escapeHTML = escapeHTML;
 window.splitIndications = splitIndications;
