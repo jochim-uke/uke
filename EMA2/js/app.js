@@ -32,34 +32,19 @@ function escapeHTML(s) {
 
 
 function splitIndications(text) {
-  const t = safe(text);
+  if (!text) return [];
+  const t = String(text)
+    .replace("\ufeff", "")      // BOM entfernen, falls doch noch vorhanden
+    .replace(/\u00A0/g, " ")     // echte Unicode-NBSP in normale Leerzeichen
+    .replace(/&nbsp;/gi, " ")     // wörtliche "&nbsp;" in Leerzeichen
+    .replace(/\s+/g, " ")        // alle Whitespaces zusammenfassen
+    .trim();
   if (!t) return [];
-
-  // Erst normal splitten
-  let parts = t.split(/;|\.(?=[A-Za-z])|\.\s+/)
-               .map(s => s.trim())
-               .filter(Boolean);
-
-  // Dann Abkürzungen wieder zusammenfügen, falls sie fälschlich getrennt wurden
-  const abbreviations = ["e.g.", "i.e.", "d.d.", "k.s."];
-
-  const merged = [];
-  for (let i = 0; i < parts.length; i++) {
-    const current = parts[i];
-    const next = parts[i+1] || "";
-
-    // Falls aus Versehen gesplittet in: "e", "g." → wieder zusammenfassen
-    const combined = current + "." + next;
-    if (abbreviations.includes(combined)) {
-      merged.push(combined);
-      i++; // Skip next
-    } else {
-      merged.push(current);
-    }
-  }
-
-  return merged;
+  // Split at every period or semicolon, independent of what follows (Safari-friendly, no lookbehind)
+  const parts = t.split(/;|\.(?=[A-Za-z])|\.\s+/);
+  return parts.map(s => s.trim()).filter(Boolean);
 }
+
 
 // Expose helpers globally
 window.escapeHTML = escapeHTML;
@@ -72,9 +57,11 @@ function loadCSV() {
   const safe = (v) => {
     if (v == null) return "";
     return String(v)
-      .replace("\ufeff", "")       // BOM entfernen
-      .replace(/\u00A0/g, " ")      // echte Unicode-NBSP in normale Leerzeichen umwandeln
-      .replace(/&nbsp;/gi, " ")      // wörtliche "&nbsp;" aus der CSV in Leerzeichen umwandeln
+      .replace("\ufeff", "")             // BOM entfernen
+      .replace(/\u00A0/g, " ")           // echte Unicode-NBSP in normale Leerzeichen umwandeln
+      .replace(/&nbsp;/gi, " ")          // wörtliche "&nbsp;" aus der CSV in Leerzeichen umwandeln
+      .replace(/\be\.g\./gi, "for example")  // e.g. → for example
+      .replace(/\bi\.e\./gi, "that is")      // i.e. → that is
       .trim();
   };
 
