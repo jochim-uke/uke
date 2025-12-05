@@ -17,14 +17,14 @@ Formoterol;cGvHD Therapie;bei mittelschwerer Lungen cGvHD
 Monetlukast;cGvHD Therapie;10mg tgl. bei cGvHD der Lunge (FAM-Schema)
 Trimbow (3-Fach-Kombi);cGvHD Therapie;2x 2Hübe tgl. bei schwerer Lungen cGvHD (FAM-Schema)
 Letermovir;CMV-Prophylaxe bei allen CMV+ Recipients;480mg bzw. 240mg unter Ciclosporin ab d1 bis d100 (-200), idR 200 (bei allen 'hochrisiko')
-allgemein;CMV-Therapie ;"Bei Val-/Ganciclovir, Foscavir: 14 Tage in 'therapeutischer Dosis', danach 14 Tage Erhaltung wenn Abfall um mind. 1 Logstufe; Bei Maribavir immer 8 Wochen"
-Cidofovir;CMV-Therapie ;"Initial 5mg/kg q7d (1x/Woche!); Erhaltung 5mg/kg q14d (!alle 14 Tage); +Probenecid oral; +Bewässerung  (Nephroprotektion!); Reservemedikation"
-Foscavir (Foscarnet);CMV-Therapie ;"90mg/kg q12h oder 60mg/kg q8h (infusionsdauer mind. 2h bzw. 1h); Erhaltungsdosis 90mg/kg q24h (infusionsdauer mind. 2h); Begleitbewässerung!! Magnesium subst. fest; 1st line Alternative (zb. bei schlechtem Blutbild aber guter Niere) - unklar bezüglich fachinformationen: bei foscarnet kabi steht 'nur' 60 q12h in der fachinfo, während bei foscavir (original)  2x 90 q12h steht; wir nehmen aber wie o.g. 2x90q12h bzw. 3x60 q8h.."
-Ganciclovir  (Cymeven);CMV-Therapie ;"Initial 5mg/kg q12h; Erhaltung 5mg/kg q24h ; 1st line iv. therapie ; cave: KM-Tox"
-Gancivlor + Foscarnet;CMV-Therapie ;"Bei Refraktarität gegenüber mind. 1 Vortherapie;  i.v. Kombinationstherapie; jeweils halbe therapeutische Dosis ; selten eingesetzt"
-Maribavir;CMV-Therapie ;"Bei Refraktarität gegenüber mind. 1 Vortherapie;  Nur p.o. möglich (cave bei GvHD/Diarrhoen); nur bei Virämie, nicht bei Organbefall (unsicher ob dort wirksam) ; teuer"
-Valganciclovir (Valcyte);CMV-Therapie ;"Initial 900mg q12h; Erhaltung 900mg q24h ; 1st line orale therapie"
-Ganciclovir / Valganciclovir;CMV-Therapie ;Einleitung einer präemptiven Therapie bei delta-Ct von ≥10 (cave bei Lz-Penie, dann nur Ct-Wert abs. verwertbar)
+allgemein;CMV-Therapie;"Bei Val-/Ganciclovir, Foscavir: 14 Tage in 'therapeutischer Dosis', danach 14 Tage Erhaltung wenn Abfall um mind. 1 Logstufe; Bei Maribavir immer 8 Wochen"
+Cidofovir;CMV-Therapie;"Initial 5mg/kg q7d (1x/Woche!); Erhaltung 5mg/kg q14d (!alle 14 Tage); +Probenecid oral; +Bewässerung  (Nephroprotektion!); Reservemedikation"
+Foscavir (Foscarnet);CMV-Therapie;"90mg/kg q12h oder 60mg/kg q8h (infusionsdauer mind. 2h bzw. 1h); Erhaltungsdosis 90mg/kg q24h (infusionsdauer mind. 2h); Begleitbewässerung!! Magnesium subst. fest; 1st line Alternative (zb. bei schlechtem Blutbild aber guter Niere) - unklar bezüglich fachinformationen: bei foscarnet kabi steht 'nur' 60 q12h in der fachinfo, während bei foscavir (original)  2x 90 q12h steht; wir nehmen aber wie o.g. 2x90q12h bzw. 3x60 q8h.."
+Ganciclovir  (Cymeven);CMV-Therapie;"Initial 5mg/kg q12h; Erhaltung 5mg/kg q24h ; 1st line iv. therapie ; cave: KM-Tox"
+Gancivlor + Foscarnet;CMV-Therapie;"Bei Refraktarität gegenüber mind. 1 Vortherapie;  i.v. Kombinationstherapie; jeweils halbe therapeutische Dosis ; selten eingesetzt"
+Maribavir;CMV-Therapie;"Bei Refraktarität gegenüber mind. 1 Vortherapie;  Nur p.o. möglich (cave bei GvHD/Diarrhoen); nur bei Virämie, nicht bei Organbefall (unsicher ob dort wirksam) ; teuer"
+Valganciclovir (Valcyte);CMV-Therapie;"Initial 900mg q12h; Erhaltung 900mg q24h ; 1st line orale therapie"
+Ganciclovir / Valganciclovir;CMV-Therapie;Einleitung einer präemptiven Therapie bei delta-Ct von ≥10 (cave bei Lz-Penie, dann nur Ct-Wert abs. verwertbar)
 CMV-Ig (Cytotect);CMV-Therapie;"400IE/Kg d1,d4,d8; 200IE/Kg d12, d16 => mit einheiten rechnen, nicht mit milligramm.. Indikation: zusätzlich bei CMV-Pneumonie)"
 Magnesium i.v.  Additivum;E'Lytsubstitution;"50% Mg nutzen, dann 5ml in große TPE; (nicht ungebrgrenz einfach zweiwertige E'lyte rein weil das sonst ausfällt, kein ca++, kein mg++)"
 Calcium i.v. Additivum;E'Lytsubstitution;xxx ml > TPE SOP
@@ -144,3 +144,8 @@ ALL und jung --> PTCy;
 ALL und alt --> PTCy (wenn vetretbar, GMALL-Standard wäre aber FluTBI8Gy/ATG, daher auch mgl.);
 Lymphome --> PTCy, bei TBI immer. Die Kombi LEAM + PTCy ist sehr toxisch, daher hier manchmal auch eher ATG."
 Bu-Spiegelmessung;Konditionierung (Std.);"Bei Myelofibrose immer; Sonst: Spiegelmessung bei geplanter Deferasirox-Therapie peritransplant, bei Eisenüberladung mit Ferritin >1000"
+PPSB (Faktoren IX,X,VII,II + ProteinC+S);Gerinnungsstörung;"Dosisfindung komplex, ggf. RS Gerinnung halten; Eher 2. Linie bei Leberversagen (nach FFPs) Individuell in Abhängigkeit von Indikation/Blutung/Quickwert, zB konservativ: 1500E für 70Kg Person; oder: 25 IE /kgKG bei Quick 40-25%; 35 IE/KgKG bei Quick 20-25%; 50 IE/KgKG bei Quick <20%"
+FFP (Fresh-Frozen-Plasma);Gerinnungsstörung;"Dosisfindung komplex, ggf. RS Gerinnung halten;  1. Linie bei Blutung oder ggf. auch vor Intervention; Dosis individuell 1-2x "
+Fibrinogen (Haemocomplettan);Gerinnungsstörung;"Dosisfindung komplex, ggf. RS Gerinnung halten; Substitution bei Fibrinogen <1g/dL erwägen; Bei Fib <0,6g/dL: zwingend substituieren; Std.-Dosis 2g bei 70Kg, bei <50Kg nur 1g, bei >90kg 3g (=Analog GMALL unter Peg-Asp); ggf. Geringere Substitution bei grenzwertigen Fib-Werten; "
+Faktor XIII (Fibrogammin);Gerinnungsstörung;"Dosisfindung komplex, ggf. RS Gerinnung halten; täglich mindestens 15 – 20 in- ternationale Einheiten (I.E.) pro kg Körper-gewicht bis zur Besserung der Symptome bzw. bis zur spontanen Normalisierung des FXIII-Spiegels verabreicht werden.Substitution bei erworbenem F XIII-Mangel, zB. unter Peg-Asparaginase (Leukämie-Behandlung) oder bei DIC/Sepsis; (F XII kann isoliert erniedrigt sein > klinische blutungsneigung bei normalem Quick/PTT)"
+Antithrombin-III;Gerinnungsstörung;"Dosisfindung komplex, ggf. RS Gerinnung halten;  Bei Therapie mit Asparaginase: • AT-Aktivität <60 %: 20 IE/kg KG; AT-Aktivität <50 %: 30 IE/kg KG; AT-Aktivität <40 %: 40 IE/kg KG(=Analog GMALL unter Peg-Asp)"
