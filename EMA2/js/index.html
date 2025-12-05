@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Medikamenten-Suche</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="container">
+    <h1>EMA Medikamenten-Suche</h1>
+
+    <p class="updated">
+      Daten aktualisiert am: <span id="dataUpdated">–</span>
+    </p>
+    
+    <p style="font-size: 80%;"><b>Hinweis:</b> Dieses Tool basiert auf den zentral über die EMA zugelassenen Arzneimitteln. (s.u.) <br>
+      Quelle: European Medicines Agency (EMA). Daten abgerufen von <a href="https://www.ema.europa.eu/en/medicines/download-medicine-data" target="_blank" rel="noopener">https://www.ema.europa.eu/en/medicines/download-medicine-data</a>.<br>
+</p>
+    <div class="controls">
+      <input id="searchInput" type="search" placeholder="Suche in allen Spalten …" aria-label="Suche" />
+      
+      <br>
+
+      <select id="statusFilter" aria-label="Status filtern">
+        <option value="">Alle Status</option>
+      </select>
+      
+      <select id="categoryFilter" aria-label="Kategorie filtern">
+        <option value="">Alle Kategorien</option>
+      </select>
+
+
+     
+      
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="tableWrap" class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col" data-key="Name">Name</th>
+            <th scope="col" data-key="Tradename">Tradename</th>
+            <th scope="col" data-key="URL">Link</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <tr><td colspan="3">Lade Daten …</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+    <nav class="pager" aria-label="Pagination">
+      <button id="prevBtn" disabled>◀︎ Zurück</button>
+      <span id="pageInfo">Seite 1/1</span>
+      <button id="nextBtn" disabled>Weiter ▶︎</button>
+    </nav>
+
+<p style="font-size: 80%; margin-top: 2em;"> <b>Hinweise:</b> Dieses Tool basiert auf den zentral über die EMA zugelassenen Arzneimitteln.<br>
+
+    Dies beinhaltet praktisch alle relevanten Zulassungen der letzten 25-30 Jahre. Die EMA wurde 1995 gegründet und zentrale Zulassungsverfahren wurden Ende der 1990er Jahre zum Standard. 
+    Historische, national zugelassene, oder aus anderen Gründen nicht zentral genehmigte Präparate sind in dieser Datenbank <u>nicht</u> enthalten und werden daher in der Suche fehlen. 
+    Beispielsweise sind 'alte' Chemotherapeutika (zB. Cyclophosphamid) oder 'alte' Blutdruckmedikamente (zB. Ramipril) nicht enthalten. 
+    Sämtliche moderne Onkologika (zB. Imatinib GLIVEC) sollten jedoch enthalten sein. Doppeleinträge bestehen für einige Präparate, bei denen bereits Generika bestehen (zB. Imatinib Accord).<br><br> Durch Formatierungsfehler in den Originaldaten kommt es gelegentlich zu Anzeigefehlern oder fehlerhaften Sonderzeichen.
+</p>
+     
+<p style="font-size: 80%; margin-top: 1em;">
+  <b> 
+    Haftungsausschluss</b>:<br>
+- Dieses Tool dient ausschließlich Informationszwecken.<br>
+- Es ersetzt keine medizinische Beratung <br>
+- Es ist nicht als offizielles regulatorisches Instrument der EMA oder anderer Behörden zu verstehen.
+<br><br>
+
+<a href="licenses.html" target="_blank" rel="noopener">Lizenzinformationen</a>
+
+</p>
+
+  </main>
+
+  <!-- PapaParse: robustes CSV-Parsing (auch große/quotierte CSVs) -->
+  <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
