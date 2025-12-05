@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DLBCL – News (RSS)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+<header>
+  <h1>DLBCL – Aktuelle Studien & News</h1>
+  <p>High-Impact / Clinical trials - PubMed-RSS zu DLBCL / High-Grade B-NHL.</p>
+</header>
+
+<main class="container">
+
+  <section class="card">
+   
+  
+
+    <div id="feed" class="feed-list"></div>
+
+    <br>
+    <h2>Linkout zu PubMed RSS-Feed / Pubmed Suche</h2>
+    <p class="help">Dieser RSS-Stream basiert auf einem vordefinierten Pubmed-Suchstring der die ausgewählten Publikationen auf high-impact Journale beschränkt und aktiv nach klinischen Studien filtert. Review und Original-research Artikel sind ausgeschlossen. Die zugrunde liegenden Treffer (und weitere) können unter untenstehendem Link aufgerufen werden:</p>
+
+    <p><a class="button" href="https://pubmed.ncbi.nlm.nih.gov/?term=%28+DLBCL%5Btiab%5D+OR+%22diffuse+large+b+cell+lymphoma%22%5Btiab%5D+OR+%22diffuse+large+B-cell+lymphoma%22%5Btiab%5D+OR+%22large+b+cell+lymphoma%22%5Btiab%5D+OR+%22large+b-cell+lymphoma%22%5Btiab%5D+OR+%22high-grade+b-cell+lymphoma%22%5Btiab%5D+%29+AND+%28+clinical+trial%5Bptyp%5D+OR+randomized+controlled+trial%5Bptyp%5D+OR+%22phase+1%22%5Btiab%5D+OR+%22phase+I%22%5Btiab%5D+OR+%22phase+2%22%5Btiab%5D+OR+%22phase+II%22%5Btiab%5D+OR+%22phase+3%22%5Btiab%5D+OR+%22phase+III%22%5Btiab%5D+OR+randomized%5Btiab%5D+OR+randomised%5Btiab%5D+OR+%22controlled+trial%22%5Btiab%5D+OR+%22first-in-human%22%5Btiab%5D+OR+%22proof-of-concept%22%5Btiab%5D+%29+AND+%28+%22N+Engl+J+Med%22%5Bjour%5D+OR+%22Lancet%22%5Bjour%5D+OR+%22Lancet+Oncol%22%5Bjour%5D+OR+%22Lancet+Haematol%22%5Bjour%5D+OR+%22JAMA%22%5Bjour%5D+OR+%22JAMA+Oncol%22%5Bjour%5D+OR+%22J+Clin+Oncol%22%5Bjour%5D+OR+%22Nat+Med%22%5Bjour%5D+OR+%22Nature%22%5Bjour%5D+OR+%22Science%22%5Bjour%5D+OR+%22Cell%22%5Bjour%5D+OR+%22Cancer+Cell%22%5Bjour%5D+OR+%22Cancer+Discov%22%5Bjour%5D+OR+%22Clin+Cancer+Res%22%5Bjour%5D+OR+%22Ann+Oncol%22%5Bjour%5D+OR+%22Nat+Cancer%22%5Bjour%5D+OR+%22Nat+Rev+Clin+Oncol%22%5Bjour%5D+OR+%22Sci+Transl+Med%22%5Bjour%5D+OR+%22J+Exp+Med%22%5Bjour%5D+OR+%22Cancer+Res%22%5Bjour%5D+OR+%22Cancers+%28Basel%29%22%5Bjour%5D+OR+%22Blood%22%5Bjour%5D+%29+AND+%28%22last+180+days%22%5Bdp%5D%29+NOT+%28Review%5Bpt%5D+OR+Systematic+Review%5Bpt%5D%29&sort=date" target="_blank">
+      Öffne PubMed-Suche
+    </a></p>
+
+    <label class="small">RSS-URL:</label>
+
+    <input id="rss-url" type="text"
+    value="https://pubmed.ncbi.nlm.nih.gov/rss/search/1RAka_j-eJMw9lavw4f1z5u3y-SPjUQB4-izra7J8cl6NByIOE/?limit=20&utm_campaign=pubmed-2&fc=20251205082035"
+    placeholder="PubMed RSS-URL einfügen…" />
+
+  </section>
+
+  <p class="muted small">
+    Dieses Tool nutzt den Drittanbieter-Dienst <a href="https://rss2json.com" target="_blank">rss2json.com</a> zur Umwandlung von RSS in JSON.  
+    Alle RSS-Inhalte stammen direkt aus PubMed (NCBI) und unterliegen deren Nutzungsbedingungen.
+    </p>
+
+</main>
+
+<script>
+const feedUrlInput = document.getElementById('rss-url');
+const feedContainer = document.getElementById('feed');
+
+async function loadFeed() {
+  const u = feedUrlInput.value.trim();
+  if (!u) { alert('Bitte RSS-URL einfügen.'); return; }
+
+  feedContainer.innerHTML = '<p class="muted">Lade…</p>';
+  try {
+    const api = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(u)}`;
+    const res = await fetch(api);
+    if (!res.ok) throw new Error('Netzwerkfehler');
+    const data = await res.json();
+    if (!data.items) throw new Error('Feed enthält keine Items');
+
+    feedContainer.innerHTML = data.items.slice(0,30).map(item => {
+      const d = new Date(item.pubDate);
+      const dateStr = d.toISOString().slice(0,30);
+      return `<article class="feed-item">
+        <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+        <div class="muted">${dateStr}</div>
+        <div class="small">${(item.description||'').replace(/<[^>]+>/g,'').slice(0,220)}…</div>
+      </article>`;
+    }).join('');
+
+  } catch (e) {
+    feedContainer.innerHTML = `<p class="muted">Fehler: ${e.message}</p>`;
+  }
+}
+
+// Seite lädt den Feed automatisch beim Aufruf
+loadFeed();
+</script>
+</body>
+</html>

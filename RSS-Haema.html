@@ -4,97 +4,46 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hematology RSS — PubMed Query (Last 60 Days)</title>
-  <style>
-    :root {
-      --bg: #0b1220;
-      --card: #111a2b;
-      --muted: #9bb1d4;
-      --text: #e8eefc;
-      --accent: #2a7de1;
-      --accent-2: #3db0ff;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; background: var(--bg); color: var(--text);
-      font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-    }
-    header { padding: 28px 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 1.6rem; letter-spacing: 0.3px; }
-    header p { margin: 6px 0 0; color: var(--muted); }
-
-    .container { max-width: 980px; margin: 0 auto; padding: 0 16px 48px; }
-
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 14px;
-      padding: 18px;
-      margin: 14px 0 22px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.25);
-    }
-    .card h2 { margin: 0 0 10px; font-size: 1.1rem; }
-    .help { color: var(--muted); font-size: 0.95rem; margin: 6px 0 12px; }
-
-    textarea, input[type="text"] {
-      width: 100%; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);
-      background: #0c1424; color: var(--text); padding: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: 0.92rem;
-    }
-    textarea { min-height: 220px; }
-
-    .row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
-    button, a.button {
-      appearance: none; border: none; cursor: pointer; text-decoration: none; color: white;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      padding: 10px 14px; border-radius: 10px; font-weight: 600; font-size: 0.95rem;
-      box-shadow: 0 8px 22px rgba(42,125,225,0.35);
-    }
-    button.secondary { background: #1b2740; box-shadow: none; color: var(--text); }
-
-    .feed-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-top: 14px; }
-    .feed-item { background: #0c1424; border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 12px; }
-    .feed-item h3 { margin: 0 0 6px; font-size: 1rem; }
-    .feed-item a { color: #cfe4ff; }
-    .muted { color: var(--muted); font-size: 0.85rem; }
-    .small { font-size: 0.85rem; }
-    footer { color: var(--muted); text-align: center; padding: 24px 0 36px; }
-    code { color: #d2e2ff; }
-
-    .builder { display: grid; gap: 12px; }
-    .builder .block-title { margin: 0; font-weight: 700; font-size: 0.95rem; color: var(--muted); }
-    .tokens { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px 12px; }
-    .tokens label { display: flex; align-items: center; gap: 8px; background:#0c1424; border:1px solid rgba(255,255,255,0.09); border-radius: 10px; padding: 8px 10px; }
-    .tokens input[type="checkbox"] { transform: scale(1.05); }
-    .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-    select { background:#0c1424; color: var(--text); border:1px solid rgba(255,255,255,0.12); border-radius:10px; padding:8px 10px; }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <h1>Hematology PubMed RSS (Last 60 Days)</h1>
-    <p>One-click: open PubMed with a prebuilt, high-impact hematology trials search limited to the last 60 days — then create an RSS feed there.</p>
+    <h1>Hematology PubMed Search</h1>
+    <p>One-click: open PubMed with a prebuilt, high-impact hematology trials search limited to the last 60-180 days — then create an RSS feed there.</p>
   </header>
 
   <main class="container">
     <section class="card">
       <h2>1) PubMed query (copy/edit as you like)</h2>
-      <p class="help">This query focuses on hematology (malignant + select benign), clinical trials/randomized/phase language, and high-impact journals (incl. <em>Bone Marrow Transplantation</em>). It already limits to the last 60 days.</p>
+      <p class="help">This query focuses on hematology (malignant + select benign), clinical trials/randomized/phase language, and high-impact journals. It already limits to the last 60 days, which can be extended if preferred.</p>
       <div class="builder" id="query-builder">
         <div>
           <h3 class="block-title">1) Erkrankungen (Suchterme)</h3>
-          <div id="disease-list" class="tokens" role="group" aria-label="Diseases"></div><br>
+          <div id="disease-list" class="tokens" role="group" aria-label="Diseases"></div>
           <div class="controls">
             <button id="disease-all" class="secondary" type="button">Alle auswählen</button>
             <button id="disease-none" class="secondary" type="button">Keine</button>
           </div>
         </div>
         <div>
+         
           <h3 class="block-title">2) Journals</h3>
-          <div id="journals-list" class="tokens" role="group" aria-label="Journals"></div>
-          <div class="controls"><br>
-            <button id="journals-all" class="secondary" type="button">Alle auswählen</button>
-            <button id="journals-none" class="secondary" type="button">Keine</button>
+         
+          <h4 class="block-title">Top Journals</h4>
+          <div id="journals-top" class="tokens" role="group" aria-label="Top Journals"></div>
+          <div class="controls">
+            <button id="journals-top-all" class="secondary" type="button">Alle auswählen</button>
+            <button id="journals-top-none" class="secondary" type="button">Keine</button>
+          </div>
+         
+          <h4 class="block-title">Weitere Journale</h4>
+          <div id="journals-other" class="tokens" role="group" aria-label="Weitere Journale"></div>
+          <div class="controls">
+            <button id="journals-other-all" class="secondary" type="button">Alle auswählen</button>
+            <button id="journals-other-none" class="secondary" type="button">Keine</button>
           </div>
         </div>
+        
         <div>
           <h3 class="block-title">3) Zeitfenster</h3>
           <div class="controls">
@@ -104,20 +53,42 @@
               <option value="60" selected>60 Tage</option>
               <option value="90">90 Tage</option>
               <option value="180">180 Tage</option>
+              <option value="364">1 Jahr</option>
             </select>
             <span class="small muted">(wird als <code>("last N days"[dp])</code> in den Query eingefügt)</span>
           </div>
         </div>
+        <div>
+          <h3 class="block-title">4) Studientyp / Publikationstyp</h3>
+          <div class="tokens" role="group" aria-label="Studientyp">
+            <label class="small">
+              <input type="radio" name="study-mode" value="trials_no_meta" checked>
+              Klinische Studien (ohne Metaanalysen)
+            </label>
+            <label class="small">
+              <input type="radio" name="study-mode" value="trials_with_meta">
+              Klinische Studien + Metaanalysen
+            </label>
+            <label class="small">
+              <input type="radio" name="study-mode" value="reviews">
+              Reviews / Metaanalysen
+            </label>
+            <label class="small">
+              <input type="radio" name="study-mode" value="none">
+              Kein Filter (alle Publikationstypen)
+            </label>
+          </div>
+        </div>
         <div class="controls">
-          <button id="generate" type="button">Query generieren</button>
+          <button id="generate" type="button" class="secondary">Query generieren</button>
         </div><br>
       </div>
       <textarea id="pm-query">
 /* Der Query wird von der UI oben generiert. Passen Sie ihn bei Bedarf manuell an. */
       </textarea>
       <div class="row">
-        <button id="copy-query">Copy query</button>
-        <button class="secondary" id="open-pubmed">Open in PubMed</button>
+        <button id="copy-query" class="secondary">Copy query</button>
+        <button class="primary" id="open-pubmed"><b>Suche in PubMed ausführen</b></button>
       </div>
       <p id="status" class="small muted"></p>
       <p class="small muted">In PubMed, click <strong>Create alert → RSS</strong> to get a permanent RSS URL for this search.</p>
@@ -137,33 +108,71 @@
     <section class="card">
       <h2>3) Tips</h2>
       <ul class="small">
-        <li>Adjust the journals in the query’s <code>[jour]</code> block to taste.</li>
-        <li>Split into "Lymphoid" vs "Myeloid" by cloning the page and narrowing the disease list.</li>
-        <li>Change date window by replacing <code>("last 60 days"[dp])</code> with <code>("last 30 days"[dp])</code>, etc.</li>
+        <li>Manuelle Änderungen am Query sind möglich. Klicken Sie dazu einfach in das Textfeld und bearbeiten Sie den Text.</li>
+        <li>Um den RSS-Feed  zu nutzen, erstellen Sie in PubMed eine Benachrichtigung (Create alert) und wählen Sie dort die RSS-Option aus.</li>
+     
       </ul>
     </section>
+
+    <p class="muted small">
+      Dieses Tool nutzt den Drittanbieter-Dienst <a href="https://rss2json.com" target="_blank">rss2json.com</a> zur Umwandlung von RSS in JSON.  
+      Alle RSS-Inhalte stammen direkt aus PubMed (NCBI) und unterliegen deren Nutzungsbedingungen.
+      </p>
+
   </main>
 
-  <footer>
-    Built for UKE hematology — static page for GitHub Pages. No cookies, no tracking.
-  </footer>
+
 
   <script>
-    const JOURNALS = [
+    const JOURNALS_TOP = [
       { label: 'N Engl J Med', token: '"N Engl J Med"[jour]' },
       { label: 'Lancet', token: '"Lancet"[jour]' },
-      { label: 'Lancet Haematol', token: '"Lancet Haematol"[jour]' },
       { label: 'Lancet Oncol', token: '"Lancet Oncol"[jour]' },
-      { label: 'J Clin Oncol', token: '"J Clin Oncol"[jour]' },
+      { label: 'Lancet Haematol', token: '"Lancet Haematol"[jour]' },
+      { label: 'JAMA', token: '"JAMA"[jour]' },
       { label: 'JAMA Oncol', token: '"JAMA Oncol"[jour]' },
-      { label: 'Blood', token: '"Blood"[jour]' },
-      { label: 'Blood Adv', token: '"Blood Adv"[jour]' },
-      { label: 'Leukemia', token: '"Leukemia"[jour]' },
-      { label: 'Haematologica', token: '"Haematologica"[jour]' },
+      { label: 'J Clin Oncol', token: '"J Clin Oncol"[jour]' },
       { label: 'Nat Med', token: '"Nat Med"[jour]' },
+      { label: 'Nature', token: '"Nature"[jour]' },
+      { label: 'Science', token: '"Science"[jour]' },
+      { label: 'Cell', token: '"Cell"[jour]' },
+      { label: 'Cancer Cell', token: '"Cancer Cell"[jour]' },
+      { label: 'Cancer Discovery', token: '"Cancer Discov"[jour]' },
       { label: 'Clin Cancer Res', token: '"Clin Cancer Res"[jour]' },
       { label: 'Ann Oncol', token: '"Ann Oncol"[jour]' },
-      { label: 'Bone Marrow Transplant', token: '"Bone Marrow Transplant"[jour]' }
+      { label: 'Nat Cancer', token: '"Nat Cancer"[jour]' },
+      { label: 'Nat Rev Clin Oncol', token: '"Nat Rev Clin Oncol"[jour]' },
+      { label: 'Sci Transl Med', token: '"Sci Transl Med"[jour]' },
+      { label: 'J Exp Med', token: '"J Exp Med"[jour]' },
+      { label: 'Cancer Res', token: '"Cancer Res"[jour]' },
+      { label: 'Cancers (Basel)', token: '"Cancers (Basel)"[jour]' },
+      { label: 'Blood', token: '"Blood"[jour]' },
+
+    ];
+
+    const JOURNALS_OTHER = [
+      { label: 'Blood Adv', token: '"Blood Adv"[jour]' },
+      { label: 'HemaSphere', token: '"HemaSphere"[jour]' },
+      { label: 'Haematologica', token: '"Haematologica"[jour]' },
+      { label: 'Leukemia', token: '"Leukemia"[jour]' },
+      { label: 'Am J Hematol', token: '"Am J Hematol"[jour]' },
+      { label: 'Br J Haematol', token: '"Br J Haematol"[jour]' },
+      { label: 'Eur J Haematol', token: '"Eur J Haematol"[jour]' },
+      { label: 'Ann Hematol', token: '"Ann Hematol"[jour]' },
+      { label: 'Bone Marrow Transplant', token: '"Bone Marrow Transplant"[jour]' },
+      { label: 'J Hematol Oncol', token: '"J Hematol Oncol"[jour]' },
+      { label: 'Exp Hematol Oncol', token: '"Exp Hematol Oncol"[jour]' },
+      { label: 'Leuk Lymphoma', token: '"Leuk Lymphoma"[jour]' },
+      { label: 'Leuk Res', token: '"Leuk Res"[jour]' },
+      { label: 'Acta Haematol', token: '"Acta Haematol"[jour]' },
+      { label: 'Blood Rev', token: '"Blood Rev"[jour]' },
+      { label: 'Blood Cancer J', token: '"Blood Cancer J"[jour]' },
+      { label: 'Frontiers in Hematology', token: '"Front Immunol"[jour]' },
+      { label: 'J Thromb Haemost', token: '"J Thromb Haemost"[jour]' },
+      { label: 'Transplant Cell Ther', token: '"Transplant Cell Ther"[jour]' },
+      { label: 'Hematological Oncology', token: '"Hematological Oncology"[jour]' },
+      { label: 'Clin Lymphoma Myeloma Leuk', token: '"Clin Lymphoma Myeloma Leuk"[jour]' }
+
     ];
 
     const DISEASES = [
@@ -229,26 +238,80 @@
     function generateQuery() {
       // Diseases selected
       const dWrap = document.getElementById('disease-list');
-      const dSelected = Array.from(dWrap.querySelectorAll('input[type="checkbox"]:checked')).map(cb => DISEASES[cb.getAttribute('data-idx')].tokens);
-      const diseaseBlock = buildOrBlockFromTokens(dSelected.length ? dSelected : DISEASES.map(x => x.tokens));
-
-      // Trials block (fixed)
-      const trialsBlock = `(\n  clinical trial[ptyp] OR randomized controlled trial[ptyp] OR\n  "phase 1"[tiab] OR "phase I"[tiab] OR\n  "phase 2"[tiab] OR "phase II"[tiab] OR\n  "phase 3"[tiab] OR "phase III"[tiab] OR\n  randomized[tiab] OR randomised[tiab] OR "controlled trial"[tiab] OR\n  "first-in-human"[tiab] OR "proof-of-concept"[tiab]\n)`;
+      const dSelected = Array.from(
+        dWrap.querySelectorAll('input[type="checkbox"]:checked')
+      ).map(cb => DISEASES[cb.getAttribute('data-idx')].tokens);
+      const diseaseBlock = buildOrBlockFromTokens(
+        dSelected.length ? dSelected : DISEASES.map(x => x.tokens)
+      );
 
       // Journals selected
-      const jWrap = document.getElementById('journals-list');
-      const jSelected = Array.from(jWrap.querySelectorAll('input[type="checkbox"]:checked')).map(cb => JOURNALS[cb.getAttribute('data-idx')].token);
-      const journalsTokens = jSelected.length ? jSelected : JOURNALS.map(j => j.token);
-      const journalsBlock = `(\n  ${journalsTokens.join(' OR\n  ')}\n)`;
+      const jTop = Array.from(
+        document
+          .getElementById('journals-top')
+          .querySelectorAll('input[type="checkbox"]:checked')
+      ).map(cb => JOURNALS_TOP[cb.getAttribute('data-idx')].token);
+      const jOther = Array.from(
+        document
+          .getElementById('journals-other')
+          .querySelectorAll('input[type="checkbox"]:checked')
+      ).map(cb => JOURNALS_OTHER[cb.getAttribute('data-idx')].token);
+      const journalsTokens =
+        jTop.length || jOther.length
+          ? [...jTop, ...jOther]
+          : [
+              ...JOURNALS_TOP.map(j => j.token),
+              ...JOURNALS_OTHER.map(j => j.token),
+            ];
+      const journalsBlock = `(
+  ${journalsTokens.join(' OR\n  ')}
+)`;
 
       // Time window
       const days = document.getElementById('time-window').value || '60';
       const dateBlock = `("last ${days} days"[dp])`;
 
-      // Exclude reviews (fixed per your request)
-      const excludeReviews = 'NOT (Review[pt] OR Systematic Review[pt] OR Meta-Analysis[pt])';
+      // Study / publication type modes
+      const trialsBlock = `(
+  clinical trial[ptyp] OR randomized controlled trial[ptyp] OR
+  "phase 1"[tiab] OR "phase I"[tiab] OR
+  "phase 2"[tiab] OR "phase II"[tiab] OR
+  "phase 3"[tiab] OR "phase III"[tiab] OR
+  randomized[tiab] OR randomised[tiab] OR "controlled trial"[tiab] OR
+  "first-in-human"[tiab] OR "proof-of-concept"[tiab]
+)`;
 
-      const query = `${diseaseBlock}\nAND\n${trialsBlock}\nAND\n${journalsBlock}\n${excludeReviews}\nAND ${dateBlock}`;
+      const negFilters = [];  // store NOT blocks to append at end
+
+      const modeEl = document.querySelector('input[name="study-mode"]:checked');
+      const mode = modeEl ? modeEl.value : 'trials_no_meta';
+
+      const parts = [diseaseBlock];
+
+      if (mode === 'trials_no_meta') {
+        parts.push(trialsBlock);
+        negFilters.push('(Review[pt] OR Systematic Review[pt] OR Meta-Analysis[pt])');
+      } else if (mode === 'trials_with_meta') {
+        parts.push(trialsBlock);
+        negFilters.push('(Review[pt] OR Systematic Review[pt])');
+      } else if (mode === 'reviews') {
+        parts.push('(Review[pt] OR Systematic Review[pt] OR Meta-Analysis[pt])');
+      } else if (mode === 'none') {
+        // no study-type filters
+      }
+
+      // Journals + Zeitfenster immer ans Ende der AND-Blöcke
+      parts.push(journalsBlock);
+      parts.push(dateBlock);
+
+      // Build core query (AND blocks)
+      let query = parts.join('\nAND\n');
+
+      // Append NOT blocks at the end — PubMed-safe
+      if (negFilters.length > 0) {
+        query += '\nNOT ' + negFilters.join(' NOT ');
+      }
+
       setTextareaValue(query);
       status.textContent = 'Query generiert (' + new Date().toLocaleTimeString() + ')';
     }
@@ -260,19 +323,28 @@
 
     // Render builder UI
     renderChecklist(DISEASES, 'disease-list');
-    renderChecklist(JOURNALS, 'journals-list');
-    // Buttons for disease/journal select-all/none
+    renderChecklist(JOURNALS_TOP, 'journals-top');
+    renderChecklist(JOURNALS_OTHER, 'journals-other');
+    // Buttons for disease select-all/none
     document.getElementById('disease-all').onclick = () => { document.querySelectorAll('#disease-list input[type="checkbox"]').forEach(cb => cb.checked = true); };
     document.getElementById('disease-none').onclick = () => { document.querySelectorAll('#disease-list input[type="checkbox"]').forEach(cb => cb.checked = false); };
-    document.getElementById('journals-all').onclick = () => { document.querySelectorAll('#journals-list input[type="checkbox"]').forEach(cb => cb.checked = true); };
-    document.getElementById('journals-none').onclick = () => { document.querySelectorAll('#journals-list input[type="checkbox"]').forEach(cb => cb.checked = false); };
+    // Buttons for journals-top/journals-other select-all/none
+    document.getElementById('journals-top-all').onclick = () => { document.querySelectorAll('#journals-top input[type="checkbox"]').forEach(cb => cb.checked = true); generateQuery(); };
+    document.getElementById('journals-top-none').onclick = () => { document.querySelectorAll('#journals-top input[type="checkbox"]').forEach(cb => cb.checked = false); generateQuery(); };
+    document.getElementById('journals-other-all').onclick = () => { document.querySelectorAll('#journals-other input[type="checkbox"]').forEach(cb => cb.checked = true); generateQuery(); };
+    document.getElementById('journals-other-none').onclick = () => { document.querySelectorAll('#journals-other input[type="checkbox"]').forEach(cb => cb.checked = false); generateQuery(); };
     // Generate button
     const genBtn = document.getElementById('generate');
     genBtn.addEventListener('click', (e) => { e.preventDefault(); generateQuery(); });
     // Auto-generate on any change in builder UI
     document.getElementById('disease-list').addEventListener('change', generateQuery);
-    document.getElementById('journals-list').addEventListener('change', generateQuery);
+    document.getElementById('journals-top').addEventListener('change', generateQuery);
+    document.getElementById('journals-other').addEventListener('change', generateQuery);
     document.getElementById('time-window').addEventListener('change', generateQuery);
+    // Study-mode radio buttons
+    document
+      .querySelectorAll('input[name="study-mode"]')
+      .forEach(el => el.addEventListener('change', generateQuery));
     // Generate once on load
     generateQuery();
 
