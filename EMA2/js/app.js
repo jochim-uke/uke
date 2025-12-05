@@ -29,16 +29,20 @@ const debounce = (fn, ms=200) => {
 function escapeHTML(s) {
   return String(s ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
-function splitIndications(text) {
-  if (!text) return [];
-  const t = String(text)
-    .replace("\ufeff", "")      // BOM entfernen, falls doch noch vorhanden
-    .replace(/\u00A0/g, " ")     // echte Unicode-NBSP in normale Leerzeichen
-    .replace(/&nbsp;/gi, " ")     // wörtliche "&nbsp;" in Leerzeichen
-    .replace(/\s+/g, " ")        // alle Whitespaces zusammenfassen
+const safe = (v) => {
+  if (v == null) return "";
+  return String(v)
+    .replace("\ufeff", "")           // BOM entfernen
+    .replace(/\u00A0/g, " ")         // echtes NBSP → Leerzeichen
+    .replace(/&nbsp;/gi, " ")        // wörtliches &nbsp;
+    .replace(/&lt;/gi, "<")          // HTML: < 
+    .replace(/&gt;/gi, ">")          // HTML: >
+    .replace(/\s+/g, " ")            // Whitespaces zusammenfassen
     .trim();
+};
+function splitIndications(text) {
+  const t = safe(text);
   if (!t) return [];
-  // Split at every period or semicolon, independent of what follows (Safari-friendly, no lookbehind)
   const parts = t.split(/;|\.\s+/);
   return parts.map(s => s.trim()).filter(Boolean);
 }
