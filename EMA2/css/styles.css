@@ -37,6 +37,8 @@ button[disabled]{ opacity:0.5; cursor:not-allowed; }
 
 /* Hervorhebung des Suchbegriffs */
 mark.hl {
-  background-color: #ffeb3b;
-  padding: 0 1px;
+  background-color: #fffa7c;
+  border-radius: 2px;
+  padding: 0 2px;
+  outline: 1px solid rgba(0,0,0,0.05);
 }
