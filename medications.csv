@@ -5,7 +5,7 @@ Somatostatin-Perfusor;aGvHD Supportivtherapie;machen wir eig nicht
 Daptomycin;Antibiotika;"Gram+ wirksame Alternative zu Vancomycin (außer bei Pneumonie); Std. Dosis kalkuliert: 4 mg/kgKG (dosis wie bei hautinfektionen lt. Uptodate) ; Bei nachgewieser Blutstrominfektion: 10mg/kgKG (8-12 lt. Uptodate) ; UAW: Myopathie ; CAVE(!): Keine Wirkung gegen pneumonische Erreger "
 Meropenem;Antibiotika;"3x1g; ggf. prolongiert"
 Vancomycin;Antibiotika;"In Abh. von Körpergewicht und Nierenfunktion; Bei höhergradiger Niereninsuff nicht einsetzen (Alternativ Daptomycin oder Linezolid)"
-Linezolid;Antibiotika;"Gram+ wirksame Alternative zu Vancomycin (auch bei Pneumonie);"
+Linezolid;Antibiotika;"2x 600mg p.o./i.v. ; Gram+ wirksame Alternative zu Vancomycin (auch bei Pneumonie);"
 Ceftazidim;Antibiotika;"3x 2g; cave bei höhergradiger Niereninsuff (ZNS-Tox.) "
 Piperacillin/Tazobactam;Antibiotika;"4x 4,5g; ggf. DA bei Niereninsuff; 1. Std. bei FUO in Aplasie unter Auto-Tx und bei CAR-T"
 Gentamicin;Antibiotika;"Reserve; 5mg/KgKG, ggf. 7mg/Kg; Bei Übergewicht idealized body weight nutzen; Maximal-Spiegel (30min n. Infusione, Ziel 7-10mg/L und Minimal-Spiegel vor nächster Infusion: <1mg/l)"
@@ -77,7 +77,7 @@ MMF später wieder rein?;Immunsuppression / aGvHD Therapie;Hinzunahme wenn CNI n
 Pimecrolimus (Elidel);Immunsuppression / aGvHD Therapie;"Bei aGvHD der Haut I° (<25%); 1% ; 2x tgl. "
 Ruxolitinib;Immunsuppression / aGvHD Therapie;"2x tgl. 10mg (2x tgl. 5mg bei erheblichen Zytopenien) ; ausschleichen, nicht abrupt (rebound?);einsatz  bei steroidrefraktarität"
 Tacrolimus (Protopic);Immunsuppression / aGvHD Therapie;"Bei aGvHD der Haut I° (<25%);  0,1% ; 2x tgl. "
-Erydepletion;Knochenmarktransplantation;"Bei Major-BG Inkompatibilität; Bei Minor-BG Inkompatibilität? "
+Erydepletion;Knochenmarktransplantation;Bei Major-BG Inkompatibilität (zB. Emfpänger A, Spender B)
 HaploMMRD cave:anders als bei MUD,MRD,MMUD;Konditionierung (Std.);"myeloische: TBF (TT2, Bu2-3 bzw. AUC40/60, Flu); lymphatische: TBI 8-12Gy / Flu"
 ALL <55 MRD-pos./MRD-NA;Konditionierung (Std.);TBI 12gy/Flu
 ALL <55 MRD-neg.;Konditionierung (Std.);TBI 12gy/Flu, ggf. Reduktion auf 8gy
@@ -159,3 +159,5 @@ Fludarabin > AraC;Zeitabstände;Fludarabin -> AraC (Cytarabin): Da müssen exakt
 Busulfan > Stammzellen;Zeitabstände;Bis zum Tag vor Stammzellgabe (≥24h)
 Melphalan > Stammzellen;Zeitabstände;48h vor Stammzellen
 TBI > Stammzellen;Zeitabstände;bis unmittelbar vor Stammzellgabe möglich
+Irenat;Schilddrüse;"Bei latenter Hyperthyreose: Natrium-Perchlorat (z.B. Irenat) 30 Tropfen(ca. 1.000 mg) p.o. unmittelbar vor und nach Kontrastmittelgabe; in den folgenden 7–14 Tagen Natrium-Perchlorat (z.B. Irenat) 20 Tropfen (ca. 400 mg) p.o. 1-1-1; Bei manifester Hyperthyreose: Hinzunahme Thiamazol"
+IVIGs;Immunglobulin-Substitution;"20g i.v. Bei Allo-Tx Pat. und Serum Ig <4g/l ; Bei restlichen: kein Std., nur bei gehäuften Infekten in-label; Unterschiedliche Präparate verfügbar, aktuell PRIVIGEN (Stand Dez/2025); Keine Prämedikation aber cave: allergien möglich > Überwachung; "
