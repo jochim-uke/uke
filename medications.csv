@@ -9,10 +9,11 @@ Linezolid;Antibiotika;"2x 600mg p.o./i.v. ; Gram+ wirksame Alternative zu Vancom
 Ceftazidim;Antibiotika;"3x 2g; cave bei höhergradiger Niereninsuff (ZNS-Tox.) "
 Piperacillin/Tazobactam;Antibiotika;"4x 4,5g; ggf. DA bei Niereninsuff; 1. Std. bei FUO in Aplasie unter Auto-Tx und bei CAR-T"
 Gentamicin;Antibiotika;"Reserve; 5mg/KgKG, ggf. 7mg/Kg; Bei Übergewicht idealized body weight nutzen; Maximal-Spiegel (30min n. Infusione, Ziel 7-10mg/L und Minimal-Spiegel vor nächster Infusion: <1mg/l)"
-FUO Aplasie 1. Stufe (Allo);Antibiotika;Ceftazidim + Vancomycin
-FUO Aplasie 2. Stufe (Allo);Antibiotika;Meropenem + Vancomycin
-FUO Aplasie 3. Stufe (Allo);Antibiotika;Meropenem + Vancomycin + Pilzmedikation (Ambisome)
-FUO Aplasie 4. Stufe (Allo);Antibiotika;Meropenem-prolongiert + Vancomycin + Pilzmedikation (Ambisome) +/- Gentamicin
+Aplasie FUO  1. Stufe (Allo);Antibiotika;Ceftazidim + Vancomycin
+Aplasie FUO   2. Stufe (Allo);Antibiotika;Meropenem + Vancomycin
+Aplasie FUO   3. Stufe (Allo);Antibiotika;Meropenem + Vancomycin + Pilzmedikation (Ambisome)
+Aplasie FUO   4. Stufe (Allo);Antibiotika;Meropenem-prolongiert + Vancomycin + Pilzmedikation (Ambisome) +/- Gentamicin
+Aplasie FUO  bei AutoTx, CAR;Antibiotika;"1. Stufe PipTaz; 2. Stufe Mero Vanco (bzw. Alternative); 3. Mero prolongiert, Ambisome diskutieren"
 Dexamethason;Antiemese;"d1-d4 mit 12,8,8,8 mg bei hoch-emetogenen; d1-d3 mit 8,8,8mg bei moderat emetogenen "
 Aprepitant;Antiemese;125mg p.o. d1, 80mg p.o. d2,d3 bei hoch-emetogenen, evtl. bei moderat emetogenen protokollen
 Granisetron;Antiemese;"1mg iv q24h in allen protokollen; rescue: erhöhung auf 3mg mögl.; Kombi mit Ondasetron nicht sinnvoll"
