@@ -1,7 +1,8 @@
 ﻿Medikation;Kategorie / Situation;KMT-Std.
 Hautpflege OHNE Urea;aGvHD Supportivtherapie;stattdessen DAC Basiscreme oder Bepanthenol Lotio (Urea ist bei aGvHD  reizend, wirkt  keratolytisch, entzündungsfördernd) 
 Lopedium Kapsel;aGvHD Supportivtherapie;"2-4mg n. Bed. n. jedem Stuhlgang; evtl. als Tropfen wenn sehr dünner stuhl oder kurzdarm"
-Somatostatin-Perfusor;aGvHD Supportivtherapie;machen wir eig nicht
+Opium Tinktur;aGvHD Supportivtherapie;"3x tgl.; Start mit …"
+Somatostatin-Perfusor;aGvHD Supportivtherapie;Bei refraktärem Verlauf und fehlender Wirkung von Lopedium / Opiumtinktur
 Daptomycin;Antibiotika;"Gram+ wirksame Alternative zu Vancomycin (außer bei Pneumonie); Std. Dosis kalkuliert: 4 mg/kgKG (dosis wie bei hautinfektionen lt. Uptodate) ; Bei nachgewieser Blutstrominfektion: 10mg/kgKG (8-12 lt. Uptodate) ; UAW: Myopathie ; CAVE(!): Keine Wirkung gegen pneumonische Erreger "
 Meropenem;Antibiotika;"3x1g; ggf. prolongiert"
 Vancomycin;Antibiotika;"In Abh. von Körpergewicht und Nierenfunktion; Bei höhergradiger Niereninsuff nicht einsetzen (Alternativ Daptomycin oder Linezolid)"
@@ -28,6 +29,8 @@ Azithromycin;cGvHD Therapie;Mo,Mi,Fr 250mg bes. bei Lungen cGvHD (FAM-Schema)
 Formoterol;cGvHD Therapie;bei mittelschwerer Lungen cGvHD 
 Monetlukast;cGvHD Therapie;10mg tgl. bei cGvHD der Lunge (FAM-Schema)
 Trimbow (3-Fach-Kombi);cGvHD Therapie;2x 2Hübe tgl. bei schwerer Lungen cGvHD (FAM-Schema)
+Ikervis AT;a/cGvHD Therapie;CNI AT
+Jorveza;a/cGvHD Therapie;1mg Schmelztabletten 3x tgl. für Mundschleimhaut-a/cGvHD
 Letermovir;CMV-Prophylaxe bei allen CMV+ Recipients;480mg bzw. 240mg unter Ciclosporin ab d1 bis d100 (-200), idR 200 (bei allen 'hochrisiko')
 allgemein;CMV-Therapie;"Bei Val-/Ganciclovir, Foscavir: 14 Tage in 'therapeutischer Dosis', danach 14 Tage Erhaltung wenn Abfall um mind. 1 Logstufe; Bei Maribavir immer 8 Wochen"
 Cidofovir;CMV-Therapie;"Initial 5mg/kg q7d (1x/Woche!); Erhaltung 5mg/kg q14d (!alle 14 Tage); +Probenecid oral; +Bewässerung  (Nephroprotektion!); Reservemedikation"
@@ -54,7 +57,7 @@ Deferasirox;Eisenchelation bei Transfusionsbedingter hyperferritinämie;"14mg/kg
 PPSB (Faktoren IX,X,VII,II + ProteinC+S);Gerinnungsstörung;"Dosisfindung komplex, ggf. RS Gerinnung halten; Eher 2. Linie bei Leberversagen (nach FFPs) Individuell in Abhängigkeit von Indikation/Blutung/Quickwert, zB konservativ: 1500E für 70Kg Person; oder: 25 IE /kgKG bei Quick 40-25%; 35 IE/KgKG bei Quick 20-25%; 50 IE/KgKG bei Quick <20%"
 FFP (Fresh-Frozen-Plasma);Gerinnungsstörung;"Dosisfindung komplex, ggf. RS Gerinnung halten;  1. Linie bei Blutung oder ggf. auch vor Intervention; Dosis individuell 1-2x "
 Fibrinogen (Haemocomplettan);Gerinnungsstörung;"Dosisfindung komplex, ggf. RS Gerinnung halten; Substitution bei Fibrinogen <1g/dL erwägen; Bei Fib <0,6g/dL: zwingend substituieren; Std.-Dosis 2g bei 70Kg, bei <50Kg nur 1g, bei >90kg 3g (=Analog GMALL unter Peg-Asp); ggf. Geringere Substitution bei grenzwertigen Fib-Werten; "
-Faktor XIII (Fibrogammin);Gerinnungsstörung;"Dosisfindung komplex, ggf. RS Gerinnung halten; täglich mindestens 15 – 20 in- ternationale Einheiten (I.E.) pro kg Körper-gewicht bis zur Besserung der Symptome bzw. bis zur spontanen Normalisierung des FXIII-Spiegels verabreicht werden.Substitution bei erworbenem F XIII-Mangel, zB. unter Peg-Asparaginase (Leukämie-Behandlung) oder bei DIC/Sepsis; (F XIII kann isoliert erniedrigt sein > klinische blutungsneigung bei normalem Quick/PTT)"
+Faktor XIII (Fibrogammin);Gerinnungsstörung;"Bei Verbrauchskoagulopathie; täglich mindestens 15 – 20 internationale Einheiten (I.E.) pro kg Körper-gewicht bis zur Besserung der Symptome bzw. bis zur spontanen Normalisierung des FXIII-Spiegels verabreicht werden.Substitution bei erworbenem F XIII-Mangel, zB. unter Peg-Asparaginase (Leukämie-Behandlung) oder bei DIC/Sepsis; (F XIII kann isoliert erniedrigt sein > klinische blutungsneigung bei normalem Quick/PTT)"
 Antithrombin-III;Gerinnungsstörung;"Dosisfindung komplex, ggf. RS Gerinnung halten;  Bei Therapie mit Asparaginase: • AT-Aktivität <60 %: 20 IE/kg KG; AT-Aktivität <50 %: 30 IE/kg KG; AT-Aktivität <40 %: 40 IE/kg KG(=Analog GMALL unter Peg-Asp)"
 Entecavir (Baraclude);Hep B Prophylaxe bei pos. Serologie;"Alternative (außerhalb KMT): 0,5mg 1x/d; mind 1 Jahr nach Ende Immunsuppression nach Allo-Tx bzw. 1a nach Ende B-Zell-depletierender Therapie; nüchtern 2h vor Essen ; CAVE: im Allo-Kontext 2x graft-failure gesehen (DD zufall)"
 Tenofovir;Hep B Prophylaxe bei pos. Serologie;"Präparat Viread (Tenofovir-disoproxilfumarat): 245mg täglich; CAVE: NICHT Vemlidy verwenden (das ist für HIV oder so zugelassen und wird anders dosiert etc., nur 25mg..)! "
@@ -71,7 +74,7 @@ ptCY;Immunsuppression / aGvHD Prophylaxe;"d+3,d+4; (CAVE: Bei Transplantdatumver
 Sirolimus (mTOR-i);Immunsuppression / aGvHD Prophylaxe;machen wir eig nicht
 Tacrolimus (CNI);Immunsuppression / aGvHD Prophylaxe;"Anfangs Ziel: 10-15; i.v. 0,03mg/Kg i.v. als Dauerinfusion (1/100 der CSA-Dosis) ; 15-20 bei aGvHD ; Std. (nur) bei Haplo-Tx"
 CNI - Oralisierung;Immunsuppression / aGvHD Prophylaxe;"Das dreifach der i.v. Tagesdosis wird auf zwei Tagesdosen aufgeteilt (Bsp.: 4,5ml/h * 2mg/ml * 22h =198mg Tagedosis iv; Umrechnung: 198mg * 3 = 594mg Tagesdosis oral; Aufteilung auf zwei Dosen: ca. 2x 300mg) "
-Budesonid;Immunsuppression / aGvHD Therapie;3x 3mg tgl. (Magensagtresistente kapsen, Budenofalk) 
+Budesonid;Immunsuppression / aGvHD Therapie;"3x 3mg tgl. (Magensagtresistente kapsen, Budenofalk) ; aGvHD Darm"
 CSA > Tac;Immunsuppression / aGvHD Therapie;Umstellung CSA auf TAC bei steroidrefraktärer aGvHD (Faktor für Umstellung: 100:1) 
 Dermatop (Prednicarbat);Immunsuppression / aGvHD Therapie;"Bei aGvHD der Haut I° (<25%); 0,25% bzw. 2,5mg/g ; Nicht in Gesicht/Hals ; 2-3x tgl."
 MMF später wieder rein?;Immunsuppression / aGvHD Therapie;Hinzunahme wenn CNI nicht ausdosierbar zB. wegen Niereninsuff oder TMA
@@ -110,9 +113,8 @@ ALL und alt --> PTCy (wenn vetretbar, GMALL-Standard wäre aber FluTBI8Gy/ATG, d
 Lymphome --> PTCy, bei TBI immer. Die Kombi LEAM + PTCy ist sehr toxisch, daher hier manchmal auch eher ATG."
 Bu-Spiegelmessung;Konditionierung (Std.);"Bei Myelofibrose immer; Sonst: Spiegelmessung bei geplanter Deferasirox-Therapie peritransplant, bei Eisenüberladung mit Ferritin >1000"
 Levetiracetam;Krampfprophylaxe unter Busulfan;"d-1 bis d+1 von Busulfan; 500 bzw. 750 bzw. 1000mg q12h je nach KG (<50kg, <60kg?, >60kg?) "
-"""Eine dicke""";Kreislaufunterstützung;"Kein KMT-Std.; Gelgentlich verwendet zu katecholaminfreien Stabilisierung, insb. bei Leberzirrhose-Pat.; 1000mL Sterofundin + 1-2 Flaschen Humanalbumin über 4h "
 Epinephrin;Kreislaufunterstützung;Katecholamin bei kardiogenem Schock / Reanimation: 1:10 Spritze:  ganze Spritze = 10mL = 1mg ist die Dosis bei Reanimation q3min wenn nicht schockbar bzw. schock 3x frustran
-Noradrenalin ;Kreislaufunterstützung;"Katecholamintherapie bei Sepsis: Std. 3000µg/50mL => 1ml/h = ""1yNOR""; Bolus: 5-10µg = 0,1-0,2mL aus perfusor ODER 0,5- 1mL aus 1:100 Spritze ; Cave: keine hohen Laufraten über periphere Zugänge; periphere Zugänge vorher prüfen"
+Noradrenalin ;Kreislaufunterstützung;"Katecholamintherapie bei Sepsis: Std. 3000µg/50mL => 1ml/h = ""1yNOR""; Bolus: 6-12µg = 0,1-0,2mL aus perfusor ODER 5-10µg = 0,5- 1mL aus 1:100 Spritze ; Cave: keine hohen Laufraten über periphere Zugänge; periphere Zugänge vorher prüfen"
 Estramon conti ;Menstruationsprophylaxe / Ovarprotektion;"unsicher ob wir das machen sollten, bisher nicht etabliert; Add-back Therapie um Hormonentzungserscheinungen vorzubeugen; 30/95mg transdermal; 2x/w wechseln; ma hen wir irgendwie nicht so oft, zumindest nicht bei den Allo-Pat.; "
 MPA Gyn;Menstruationsprophylaxe / Ovarprotektion;"Wenn Zoladex <14 Tage vor Chemotherapie: 10mg tgl. bis Wiederanstieg der Thrombozyten; ggf. 20mg bei anh. Blutung"
 Zoladex  oder Trenantone;Menstruationsprophylaxe / Ovarprotektion;3-Monats Depot GnRH (Leuprorelin) 
@@ -151,14 +153,16 @@ TK-z;Transfusionsgrenzen;"<10/nl bzw. <15/nl ab 65j stationär; <20/nl ambulant;
 Hb;Transfusionsgrenzen;"<8g/dL; ggf individuell niedriger bei Siderose; idR 2Ek;"
 Hb vor ECP;Transfusionsgrenzen;Hb≥8,5 und Hkt ≥27%
 Tz vor ECP;Transfusionsgrenzen;Tz>25/nl
-UDC;VOD-Prophylaxe;2x 500mg tgl. ab Konditionierung bis d100 (ggf. weniger bei geringem Gewicht) 
-Defibrotide;VOD-Therapie;"6,25 mg/kg q6h (TD 25mg/kg; ED auf 200mg gerundet, ggf. unterschiedliche EDs) "
+UDC;VOD-Prophylaxe/Therapie;"Prophylaxe; 2x 500mg tgl. ab Konditionierung bis d100 (ggf. weniger bei geringem Gewicht) "
+Defibrotide;VOD-Prophylaxe/Therapie;"Therapie bei Nachweis VOD; 6,25 mg/kg q6h (TD 25mg/kg; ED auf 200mg gerundet, ggf. unterschiedliche EDs) "
+TIPS-Anlage;VOD-Prophylaxe/Therapie;Bei hohem Wedge-Druck (cave: evtl. Kontraindikation bei Hep. Encephalopathie beachten)
 Aciclovir;VZV-Infektionen;"10mg/KgKG q8h, i.d.R. max. 750mg per ED, in jedem fall max 1000mg per ED; Therapiedauer nach Erkrankungsschwere, mind. 7 Tage; Im Anschluss Prophylaxe mit 2x 800 p.o. tgl. bei allogen transplantierten Pat bis 1a post-allo"
 Fludarabin > Thiotepa;Zeitabstände;Mind. 2h nach Ende Fludarabin
 Fludarabin > Stammzellen;Zeitabstände;2 Tag Pause zwischen letzter Gabe und Stammzellgabe, notfalls nur 1 Tag (>>24h)
+FluCy > CAR-T-Zellen;Zeitabstände;2 Tage Pause (>48h) 
 Fludarabin > AraC;Zeitabstände;Fludarabin -> AraC (Cytarabin): Da müssen exakt 4h dazwischen liegen (FLA-Ida Protokoll) 
 Busulfan > Stammzellen;Zeitabstände;Bis zum Tag vor Stammzellgabe (≥24h)
-Melphalan > Stammzellen;Zeitabstände;48h vor Stammzellen
+Melphalan > Stammzellen;Zeitabstände;≥48h vor Stammzellen (!)
 TBI > Stammzellen;Zeitabstände;bis unmittelbar vor Stammzellgabe möglich
 Irenat;Schilddrüse;"Bei latenter Hyperthyreose: Natrium-Perchlorat (z.B. Irenat) 30 Tropfen(ca. 1.000 mg) p.o. unmittelbar vor und nach Kontrastmittelgabe; in den folgenden 7–14 Tagen Natrium-Perchlorat (z.B. Irenat) 20 Tropfen (ca. 400 mg) p.o. 1-1-1; Bei manifester Hyperthyreose: Hinzunahme Thiamazol"
 IVIGs;Immunglobulin-Substitution;"20g i.v. Bei Allo-Tx Pat. und Serum Ig <4g/l ; Bei restlichen: kein Std., nur bei gehäuften Infekten in-label; Unterschiedliche Präparate verfügbar, aktuell PRIVIGEN (Stand Dez/2025); Keine Prämedikation aber cave: allergien möglich > Überwachung; "
