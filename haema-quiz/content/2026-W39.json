@@ -1,0 +1,561 @@
+{
+  "id": "2026-W39",
+  "title": "KW 39 · September 2026",
+  "sets": [
+    {
+      "title": "Alloreaktivität & Evidenz",
+      "questions": [
+        {
+          "topic": "Allo-Tx · Immune Escape",
+          "question": "AML-Rezidiv nach Haplo-Tx: Die Blasten haben den gegenüber dem Spender nicht übereinstimmenden HLA-Haplotyp verloren. Was bedeutet das für DLI desselben Spenders?",
+          "options": [
+            {
+              "value": "A",
+              "label": "Höhere DLI-Dosen stellen die HLA-Erkennung wieder her.",
+              "feedback": "Mehr T-Zellen ersetzen den verlorenen HLA-Haplotyp nicht."
+            },
+            {
+              "value": "B",
+              "label": "Das GvHD-Risiko sinkt durch den HLA-Verlust.",
+              "feedback": "Der Verlust betrifft die Blasten, nicht das gesunde Empfängergewebe."
+            },
+            {
+              "value": "C",
+              "label": "Antileukämische Wirkung kann ausbleiben, GvHD bleibt möglich.",
+              "feedback": "Die Leukämie kann der Alloreaktivität entgehen; gesundes Gewebe bleibt angreifbar."
+            },
+            {
+              "value": "D",
+              "label": "Vollständiger CD3-Spenderchimärismus macht den Befund irrelevant.",
+              "feedback": "Chimärismus beschreibt die Zellherkunft, nicht die Erkennung der Blasten."
+            }
+          ],
+          "correct": "C",
+          "hint": "Unterscheide die HLA-Ausstattung der Blasten von der des gesunden Gewebes.",
+          "explanation": "HLA-Verlust ist ein Escape-Mechanismus. DLI desselben Spenders kann ihre relevante Zielstruktur verlieren, während das GvHD-Risiko fortbesteht.",
+          "sources": [
+            {
+              "title": "Vago et al. · NEJM 2009 · HLA-Verlust",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/19641204/"
+            }
+          ],
+          "reviewed_at": "2026-09-24"
+        },
+        {
+          "topic": "Allo-Tx · GvHD-Prophylaxe",
+          "question": "Was zeigte die 2023 publizierte Hauptanalyse von BMT CTN 1703 nach reduzierter Konditionierungsintensität für PTCy/Tacrolimus/MMF gegenüber Tacrolimus/Methotrexat?",
+          "options": [
+            {
+              "value": "A",
+              "label": "Besseres OS bei unverändertem GRFS.",
+              "feedback": "Der belegte Vorteil betraf das GRFS."
+            },
+            {
+              "value": "B",
+              "label": "Besseres GRFS ohne belegten OS-Vorteil.",
+              "feedback": "Das adjustierte 1-Jahres-GRFS lag bei 52,7 % versus 34,9 %."
+            },
+            {
+              "value": "C",
+              "label": "Besseres GRFS durch deutlich weniger Rezidive.",
+              "feedback": "Die Rezidivhäufigkeit unterschied sich nicht wesentlich."
+            },
+            {
+              "value": "D",
+              "label": "Weniger GvHD, aber Verfehlen des primären Endpunkts.",
+              "feedback": "Der primäre GRFS-Endpunkt wurde erreicht."
+            }
+          ],
+          "correct": "B",
+          "hint": "Trenne den kombinierten Endpunkt von seinen einzelnen Komponenten.",
+          "explanation": "Die randomisierte Studie zeigte besseres GvHD-/rezidivfreies Überleben. Gesamtüberleben und Rezidivhäufigkeit unterschieden sich in dieser Analyse nicht wesentlich.",
+          "sources": [
+            {
+              "title": "Bolaños-Meade et al. · NEJM 2023 · BMT CTN 1703",
+              "url": "https://doi.org/10.1056/NEJMoa2215943"
+            }
+          ],
+          "reviewed_at": "2026-09-24"
+        },
+        {
+          "topic": "CAR-T · Aktuelle Literatur",
+          "question": "TRANSCEND berichtete 2026 ein 5-Jahres-OS von 78 % für 84 bei Studienabschluss noch lebende und in die Langzeitnachbeobachtung aufgenommene Personen. Was bedeutet diese Zahl?",
+          "options": [
+            {
+              "value": "A",
+              "label": "Ausgangsprognose aller Leukapheresierten.",
+              "feedback": "Für die Leukapherese-Population lag die Schätzung bei 33 %."
+            },
+            {
+              "value": "B",
+              "label": "Ausgangsprognose aller Infundierten.",
+              "feedback": "Die 84 Personen waren zusätzlich nach Überleben und Nachbeobachtung selektiert."
+            },
+            {
+              "value": "C",
+              "label": "Nachweis einer Überlegenheit gegenüber Axi-cel.",
+              "feedback": "Ein randomisierter Produktvergleich fehlt."
+            },
+            {
+              "value": "D",
+              "label": "Ergebnis einer ausgewählten Überlebendenkohorte.",
+              "feedback": "Diese Auswahl darf nicht als Prognose aller Behandelten dargestellt werden."
+            }
+          ],
+          "correct": "D",
+          "hint": "Welche Voraussetzungen musste man für die Aufnahme in diese Gruppe erfüllen?",
+          "explanation": "Die 78 % beziehen sich auf die selektierte Langzeitkohorte; in der gesamten wirksamkeitsauswertbaren Population lag das geschätzte 5-Jahres-OS bei 38 %.",
+          "sources": [
+            {
+              "title": "Abramson et al. · Blood 2026 · TRANSCEND, 5 Jahre",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42237652/"
+            }
+          ],
+          "reviewed_at": "2026-09-24"
+        },
+        {
+          "topic": "CAR-T · Studieninterpretation",
+          "question": "Portuguese et al. fanden 2025 in einer retrospektiven, IPTW-adjustierten Analyse von 160 LBCL-Patienten mehr Toxizität unter Axi-cel, aber keine signifikanten PFS-/OS-Unterschiede gegenüber Liso-cel. Welche Interpretation passt?",
+          "options": [
+            {
+              "value": "A",
+              "label": "Toxizitätssignal, aber kein Beweis gleicher Wirksamkeit.",
+              "feedback": "Nichtsignifikanz belegt keine Äquivalenz; Confounding bleibt möglich."
+            },
+            {
+              "value": "B",
+              "label": "IPTW verleiht die Aussagekraft einer Randomisierung.",
+              "feedback": "IPTW erfasst keine zuverlässig unbekannten Confounder."
+            },
+            {
+              "value": "C",
+              "label": "Die Produkte sind damit als äquivalent bewiesen.",
+              "feedback": "Für Äquivalenz fehlen entsprechendes Design und Grenzen."
+            },
+            {
+              "value": "D",
+              "label": "Frühe Toxizität beweist höhere späte Infektionsmortalität.",
+              "feedback": "Späte Infektionsmortalität benötigt eine eigene Analyse."
+            }
+          ],
+          "correct": "A",
+          "hint": "Denke an nicht erfasste Confounder und den Unterschied zwischen Nichtsignifikanz und Äquivalenz.",
+          "explanation": "Die Analyse stützt Unterschiede in früher Toxizität. Sie beweist weder kausale Gleichwertigkeit noch eine bestimmte langfristige Infektionsmortalität.",
+          "sources": [
+            {
+              "title": "Portuguese et al. · Haematologica 2025",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/40079097/"
+            }
+          ],
+          "reviewed_at": "2026-09-24"
+        },
+        {
+          "topic": "Allo-Tx · Grundlagen",
+          "question": "Ein AML-Patient bleibt nach Allo-Tx morphologisch in Remission, wird aber erneut MRD-positiv. Wie wird daraufhin verabreichte DLI nach EBMT-Terminologie bezeichnet?",
+          "options": [
+            {
+              "value": "A",
+              "label": "Prophylaktisch.",
+              "feedback": "Hier liegt bereits ein messbares Rezidivsignal vor."
+            },
+            {
+              "value": "B",
+              "label": "Präemptiv.",
+              "feedback": "MRD-gesteuerte Intervention vor manifestem Rezidiv ist präemptiv."
+            },
+            {
+              "value": "C",
+              "label": "Therapeutisch bei hämatologischem Rezidiv.",
+              "feedback": "Ein manifestes hämatologisches Rezidiv ist nicht beschrieben."
+            },
+            {
+              "value": "D",
+              "label": "Stammzellboost bei Poor Graft Function.",
+              "feedback": "DLI und Stammzellboost unterscheiden sich in Inhalt und Ziel."
+            }
+          ],
+          "correct": "B",
+          "hint": "Der Zeitpunkt der Intervention relativ zum Rezidivsignal ist entscheidend.",
+          "explanation": "Präemptive DLI reagiert auf frühe Signale wie MRD oder sinkenden Spenderchimärismus. Prophylaktische DLI erfolgt ohne solches Signal.",
+          "sources": [
+            {
+              "title": "EBMT Handbook 2024 · Kapitel 59: DLI",
+              "url": "https://www.ncbi.nlm.nih.gov/books/NBK608250/"
+            }
+          ],
+          "reviewed_at": "2026-09-24"
+        }
+      ]
+    },
+    {
+      "title": "Spenderwahl & Therapie",
+      "questions": [
+        {
+          "topic": "Allo-Tx · HLA",
+          "question": "Ein unverwandter Spender wird als hochauflösend 10/10 passend bezeichnet. Welche Loci sind in dieser üblichen Zählweise enthalten?",
+          "options": [
+            {
+              "value": "A",
+              "label": "A, B, C, DRB1, DQB1.",
+              "feedback": "Die je zwei Allele dieser fünf Loci ergeben 10/10."
+            },
+            {
+              "value": "B",
+              "label": "A, B, C, DRB1, DPB1.",
+              "feedback": "DQB1 wird nicht durch DPB1 ersetzt."
+            },
+            {
+              "value": "C",
+              "label": "A, B, DRB1, DQB1, DPB1.",
+              "feedback": "HLA-C gehört zur üblichen 10/10-Zählweise."
+            },
+            {
+              "value": "D",
+              "label": "A, C, DRB1, DQB1, DPB1.",
+              "feedback": "HLA-B gehört zur üblichen 10/10-Zählweise."
+            }
+          ],
+          "correct": "A",
+          "hint": "DPB1 kann zusätzlich relevant sein, gehört aber nicht zwingend zur genannten Zählweise.",
+          "explanation": "10/10 beschreibt HLA-A, -B, -C, -DRB1 und -DQB1. Es besagt nicht, dass auch DPB1 übereinstimmt.",
+          "sources": [
+            {
+              "title": "EBMT Handbook 2024 · Donor Selection",
+              "url": "https://www.ncbi.nlm.nih.gov/books/NBK608270/"
+            }
+          ],
+          "reviewed_at": "2026-09-24"
+        },
+        {
+          "topic": "Allo-Tx · Spenderauswahl",
+          "question": "Eine EBMT-Registeranalyse von 2024 untersuchte unverwandte Spender unter PTCy. Welche Aussage trifft den Befund zum Spenderalter am besten?",
+          "options": [
+            {
+              "value": "A",
+              "label": "PTCy machte das Spenderalter prognostisch irrelevant.",
+              "feedback": "Die Analyse fand trotz PTCy einen Alterseffekt."
+            },
+            {
+              "value": "B",
+              "label": "Ältere Spender verminderten die Rezidivrate signifikant.",
+              "feedback": "Die Richtung der beobachteten Rezidivassoziation war ungünstig."
+            },
+            {
+              "value": "C",
+              "label": "Ein Alter über 30 Jahren war mit ungünstigerem OS assoziiert.",
+              "feedback": "Für über 30-jährige Spender zeigte sich eine ungünstige OS-Assoziation."
+            },
+            {
+              "value": "D",
+              "label": "Die Randomisierung bewies den Vorrang des Alters vor jedem HLA-Kriterium.",
+              "feedback": "Die Untersuchung war registerbasiert, nicht randomisiert."
+            }
+          ],
+          "correct": "C",
+          "hint": "PTCy reduziert Alloreaktivität, ersetzt aber nicht alle anderen Spendermerkmale.",
+          "explanation": "Spenderalter blieb unter PTCy prognostisch relevant. Die Beobachtungsdaten begründen keine starre, universelle Rangfolge gegenüber jedem HLA- oder DSA-Kriterium.",
+          "sources": [
+            {
+              "title": "EBMT-Registeranalyse · Blood 2024 · Spenderalter unter PTCy",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/38657278/"
+            }
+          ],
+          "reviewed_at": "2026-09-24"
+        },
+        {
+          "topic": "Lymphom · Bispezifika",
+          "question": "Was erlaubt das randomisierte STARGLO-Design zur Einordnung von Glofitamab/GemOx bei rezidiviertem/refraktärem DLBCL?",
+          "options": [
+            {
+              "value": "A",
+              "label": "Einen direkten Wirksamkeitsvergleich mit CD19-CAR-T.",
+              "feedback": "Ein CAR-T-Arm fehlte."
+            },
+            {
+              "value": "B",
+              "label": "Einen Vergleich von Glofitamab-Monotherapie mit GemOx.",
+              "feedback": "Untersucht wurde Glofitamab/GemOx, nicht Glofitamab allein."
+            },
+            {
+              "value": "C",
+              "label": "Einen Vergleich mit Salvage und obligater ASCT bei fitten Patienten.",
+              "feedback": "Die Population war für ASCT ungeeignet."
+            },
+            {
+              "value": "D",
+              "label": "Einen Vergleich mit R-GemOx bei ASCT-ungeeigneten Patienten.",
+              "feedback": "Dies entspricht Population und Vergleichsarm der Studie."
+            }
+          ],
+          "correct": "D",
+          "hint": "Prüfe sowohl den Kontrollarm als auch die Transplantationseignung.",
+          "explanation": "STARGLO verglich Glofitamab/GemOx mit Rituximab/GemOx. Eine Überlegenheit gegenüber CAR-T oder eine optimale Sequenz ist daraus nicht direkt ableitbar.",
+          "sources": [
+            {
+              "title": "Abramson et al. · Lancet 2024 · STARGLO",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/39550172/"
+            }
+          ],
+          "reviewed_at": "2026-09-24"
+        },
+        {
+          "topic": "CAR-T · Supportivtherapie",
+          "question": "Welche fünf prälymphodepletiven Größen bilden den ursprünglichen CAR-HEMATOTOX-Score?",
+          "options": [
+            {
+              "value": "A",
+              "label": "ANC, Hämoglobin, Thrombozyten, CRP, Ferritin.",
+              "feedback": "Sie erfassen hämatopoetische Reserve und Ausgangsinflammation."
+            },
+            {
+              "value": "B",
+              "label": "ANC, LDH, Thrombozyten, Kreatinin, Ferritin.",
+              "feedback": "LDH und Kreatinin gehören nicht zu diesem Score."
+            },
+            {
+              "value": "C",
+              "label": "Hämoglobin, CRP, IL-6, LDH, Albumin.",
+              "feedback": "IL-6, LDH und Albumin sind keine Scorekomponenten."
+            },
+            {
+              "value": "D",
+              "label": "Thrombozyten, Kreatinin, CRP, Bilirubin, Ferritin.",
+              "feedback": "Kreatinin und Bilirubin gehören nicht zu diesem Score."
+            }
+          ],
+          "correct": "A",
+          "hint": "Die Variablen bilden zwei Bereiche ab: Blutbildungsreserve und Inflammation.",
+          "explanation": "CAR-HEMATOTOX nutzt ANC, Hämoglobin, Thrombozyten, CRP und Ferritin vor Lymphodepletion. Er ist kein reiner CRS-Score.",
+          "sources": [
+            {
+              "title": "Rejeski et al. · Blood 2021 · CAR-HEMATOTOX",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/34166502/"
+            }
+          ],
+          "reviewed_at": "2026-09-24"
+        },
+        {
+          "topic": "Allo-Tx · CMV",
+          "question": "Welche klinische Situation untersuchte die randomisierte Letermovir-Zulassungsstudie von Marty et al. 2017?",
+          "options": [
+            {
+              "value": "A",
+              "label": "Therapie einer manifesten CMV-Pneumonie.",
+              "feedback": "Die Studie war keine Pneumonie-Therapiestudie."
+            },
+            {
+              "value": "B",
+              "label": "Prophylaxe bei CMV-seropositiven Allo-HCT-Empfängern.",
+              "feedback": "Untersucht wurde primäre Prophylaxe nach Allo-HCT."
+            },
+            {
+              "value": "C",
+              "label": "Salvage bei Ganciclovir-resistenter CMV-Erkrankung.",
+              "feedback": "Eine Resistenz-Salvage war nicht Gegenstand dieser Studie."
+            },
+            {
+              "value": "D",
+              "label": "Prophylaxe bei CMV-seronegativen autolog Transplantierten.",
+              "feedback": "Serostatus und Transplantationsart entsprechen nicht der Population."
+            }
+          ],
+          "correct": "B",
+          "hint": "Unterscheide Prävention von präemptiver Behandlung und Organtherapie.",
+          "explanation": "Die Studie belegt Prophylaxewirksamkeit bei CMV-seropositiven Allo-HCT-Empfängern. Sie belegt nicht die Eignung von Letermovir zur Behandlung manifester CMV-Organerkrankung.",
+          "sources": [
+            {
+              "title": "Marty et al. · NEJM 2017 · Letermovir-Prophylaxe",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/29211658/"
+            }
+          ],
+          "reviewed_at": "2026-09-24"
+        }
+      ]
+    },
+    {
+      "title": "Neue Daten, klare Schlüsse",
+      "questions": [
+        {
+          "topic": "CAR-T · ZUMA-7",
+          "question": "Welche Aussage passt zur 2023 publizierten Gesamtüberlebensanalyse von ZUMA-7 bei früh rezidiviertem oder refraktärem LBCL in Zweitlinie?",
+          "options": [
+            {
+              "value": "A",
+              "label": "Nur das EFS war besser; ein OS-Vorteil fehlte.",
+              "feedback": "Die spätere Analyse zeigte auch einen OS-Vorteil."
+            },
+            {
+              "value": "B",
+              "label": "Axi-cel war Liso-cel im OS überlegen.",
+              "feedback": "Liso-cel war kein Vergleichsarm."
+            },
+            {
+              "value": "C",
+              "label": "Axi-cel verbesserte das OS gegenüber der Standardstrategie.",
+              "feedback": "Die randomisierte Analyse zeigte einen signifikanten OS-Vorteil."
+            },
+            {
+              "value": "D",
+              "label": "Der Kontrollarm erhielt ausschließlich R-GemOx.",
+              "feedback": "Die Kontrolle war Salvage-Immunchemotherapie mit ASCT bei Ansprechen."
+            }
+          ],
+          "correct": "C",
+          "hint": "Achte auf die spätere OS-Analyse, nicht nur auf die erste EFS-Publikation.",
+          "explanation": "ZUMA-7 zeigte einen OS-Vorteil von Axi-cel gegenüber der Standardstrategie. Das Ergebnis betrifft früh rezidiviertes/refraktäres LBCL und ist kein CAR-T-Produktvergleich.",
+          "sources": [
+            {
+              "title": "Westin et al. · NEJM 2023 · ZUMA-7 Gesamtüberleben",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/37272527/"
+            }
+          ],
+          "reviewed_at": "2026-09-24"
+        },
+        {
+          "topic": "Lymphom · Update 2026",
+          "question": "Das STARGLO-3-Jahres-Follow-up berichtet medianes OS von 25,5 versus 12,5 Monaten und eine HR von 0,60 für Glofitamab/GemOx gegenüber R-GemOx. Welche Interpretation der HR ist richtig?",
+          "options": [
+            {
+              "value": "A",
+              "label": "Jeder Patient lebt genau 40 % länger.",
+              "feedback": "Eine HR ist kein individueller Multiplikator der Lebenszeit."
+            },
+            {
+              "value": "B",
+              "label": "60 % der Patienten werden dauerhaft geheilt.",
+              "feedback": "Die HR ist keine Heilungsrate."
+            },
+            {
+              "value": "C",
+              "label": "Die absolute 3-Jahres-Sterblichkeit sinkt um 40 Prozentpunkte.",
+              "feedback": "Eine absolute Differenz benötigt die Überlebenswahrscheinlichkeiten zum Zeitpunkt."
+            },
+            {
+              "value": "D",
+              "label": "Die momentane Sterbehazard ist relativ um etwa 40 % geringer.",
+              "feedback": "0,60 beschreibt ein relatives Hazardverhältnis, keine absolute Risikodifferenz."
+            }
+          ],
+          "correct": "D",
+          "hint": "Hazardverhältnis, absolute Risikodifferenz und Median sind verschiedene Größen.",
+          "explanation": "Die HR beschreibt den relativen Hazardvergleich. Ein individueller Überlebensgewinn oder eine absolute 3-Jahres-Risikoreduktion lässt sich daraus allein nicht berechnen.",
+          "sources": [
+            {
+              "title": "Abramson et al. · Blood Advances 2026 · STARGLO, 3 Jahre",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42269085/"
+            }
+          ],
+          "reviewed_at": "2026-09-24"
+        },
+        {
+          "topic": "CAR-T · Konsensus 2026",
+          "question": "Welche Erweiterung gehört zum Themenumfang des ASTCT-Konsensus 2026 zu Toxizitäten nach Immun-Effektorzelltherapie?",
+          "options": [
+            {
+              "value": "A",
+              "label": "Ausschließlich eine Neudefinition des Fiebers beim CRS.",
+              "feedback": "Der Themenumfang reicht deutlich über Fieber/CRS hinaus."
+            },
+            {
+              "value": "B",
+              "label": "Auch Hämatotoxizität und neurologische Toxizitäten jenseits von ICANS.",
+              "feedback": "Er berücksichtigt unter anderem ICAHT und nicht-ICANS-neurologische Syndrome."
+            },
+            {
+              "value": "C",
+              "label": "Eine neue PET-basierte Definition der Lymphomremission.",
+              "feedback": "Lymphomresponsekriterien sind nicht Gegenstand dieses Toxizitätskonsensus."
+            },
+            {
+              "value": "D",
+              "label": "Eine neue ELN-Risikoklassifikation für AML vor CAR-T.",
+              "feedback": "ELN-AML-Risikogruppen sind nicht sein Gegenstand."
+            }
+          ],
+          "correct": "B",
+          "hint": "Neurologische Komplikationen nach Zelltherapie sind nicht sämtlich ICANS.",
+          "explanation": "Der Konsensus erweitert den Blick über CRS/ICANS hinaus, etwa auf ICAHT, nicht-ICANS-neurologische Toxizitäten und IEC-assoziierte Enterokolitis. Konkrete Grade müssen am jeweiligen Kriteriensatz geprüft werden.",
+          "sources": [
+            {
+              "title": "ASTCT Consensus Grading for Toxicities after Immune Effector Cell Therapy · 2026",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/42711241/"
+            }
+          ],
+          "reviewed_at": "2026-09-24"
+        },
+        {
+          "topic": "Allo-Tx · Studiendesign",
+          "question": "Du möchtest BMT CTN 1703 als unmittelbaren randomisierten Beleg für PTCy bei jeder myeloablativen Haplo-Tx zitieren. Was ist der zentrale Einwand?",
+          "options": [
+            {
+              "value": "A",
+              "label": "Konditionierung und Spenderkonstellation weichen von der Studienpopulation ab.",
+              "feedback": "Die Hauptstudie prüfte reduzierte Konditionierung mit gematchten bzw. 7/8-unverwandten Spendern."
+            },
+            {
+              "value": "B",
+              "label": "Die Studie untersuchte überhaupt keine GvHD-Prophylaxe.",
+              "feedback": "GvHD-Prophylaxe war der Gegenstand."
+            },
+            {
+              "value": "C",
+              "label": "Die Studie enthielt ausschließlich autologe Transplantationen.",
+              "feedback": "Es handelte sich um allogene Transplantationen."
+            },
+            {
+              "value": "D",
+              "label": "PTCy wurde in der Studie nur gegen Placebo verglichen.",
+              "feedback": "Der Kontrollarm erhielt Tacrolimus/Methotrexat."
+            }
+          ],
+          "correct": "A",
+          "hint": "Externe Validität hängt unter anderem von Konditionierung und Spendertyp ab.",
+          "explanation": "Für myeloablative Haplo-Tx ist zusätzliche Evidenz nötig. Ein positives RCT rechtfertigt keine ungeprüfte Übertragung auf alle Transplantationsplattformen.",
+          "sources": [
+            {
+              "title": "Bolaños-Meade et al. · NEJM 2023 · BMT CTN 1703",
+              "url": "https://doi.org/10.1056/NEJMoa2215943"
+            }
+          ],
+          "reviewed_at": "2026-09-24"
+        },
+        {
+          "topic": "Allo-Tx · Immunbiologie",
+          "question": "Welcher genetische Mechanismus wurde in der klassischen Arbeit von Vago et al. für den Verlust des mismatched HLA-Haplotyps beim Leukämierezidiv nach Haplo-Tx beschrieben?",
+          "options": [
+            {
+              "value": "A",
+              "label": "Reversible Blockade der HLA-Proteine durch Tacrolimus.",
+              "feedback": "Der Befund war genetisch, nicht lediglich medikamentös reversibel."
+            },
+            {
+              "value": "B",
+              "label": "Biallelische Deletion des CD19-Gens.",
+              "feedback": "CD19-Verlust ist ein anderer Escape-Kontext."
+            },
+            {
+              "value": "C",
+              "label": "Keimbahnmutation im HLA-identischen Spender.",
+              "feedback": "Beschrieben wurde eine erworbene Veränderung der Leukämiezellen."
+            },
+            {
+              "value": "D",
+              "label": "Erworbene uniparentale Disomie auf Chromosom 6p.",
+              "feedback": "Sie kann zum Verlust des nicht geteilten Haplotyps bei Kopienerhalt führen."
+            }
+          ],
+          "correct": "D",
+          "hint": "Die Kopienzahl muss bei einem Verlust der Heterozygotie nicht abnehmen.",
+          "explanation": "Erworbene uniparentale Disomie von 6p kann den mismatched HLA-Haplotyp beseitigen und die Erkennung durch alloreaktive Spender-T-Zellen verhindern.",
+          "sources": [
+            {
+              "title": "Vago et al. · NEJM 2009 · HLA-Verlust",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/19641204/"
+            }
+          ],
+          "reviewed_at": "2026-09-24"
+        }
+      ]
+    }
+  ]
+}
